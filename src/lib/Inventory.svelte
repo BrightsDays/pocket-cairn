@@ -1,5 +1,6 @@
 <script lang="ts">
   import { inventoryStore } from '../store/stores'
+  import Item from './ui/Item.svelte'
 
   const inventory = $inventoryStore
 </script>
@@ -11,21 +12,23 @@
   </div>
   <div class="list">
     {#each inventory as item}
-      <div class="item">
-        <input type="checkbox" />
-        <input placeholder="Item" value={item.title} />
-        <input type="checkbox" />
-      </div>
+      <Item value={item.title} />
     {/each}
   </div>
 </div>
 
 <style lang="scss">
   .inventory {
+    .heading {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
     .list {
-      .item {
-        width: 100%;
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
     }
   }
 </style>

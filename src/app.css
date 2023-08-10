@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Pirata+One&family=Ubuntu&display=swap');
 
 :root {
-  --background: #30363d;
-  --second-background: rgba(147, 147, 147, 0.3);
-  --main: #ffffff;
-  --second: #939393;
-  --special: #c73636;
+  --background: oklch(33% 0.015 252.31);
+  --second-background: oklch(66.33% 0 0 / 30%);
+  --main: oklch(100% 0 0);
+  --second: oklch(66.33% 0 0);
+  --special: oklch(55.38% 0.182 25.43);
 
   font-family: Ubuntu, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: oklch(100% 0 0 / 87%);
   background-color: oklch(33% 0.015 252.31);
 
   font-synthesis: none;

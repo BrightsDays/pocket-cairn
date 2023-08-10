@@ -67,6 +67,6 @@ export const inventoryStore = writable([
   {
     title: '',
     inHand: false,
-    fatigue: false
+    fatigue: true
   }
 ])
