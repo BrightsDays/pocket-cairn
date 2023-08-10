@@ -1,0 +1,52 @@
+<script lang="ts">
+  import type { Mode } from '../../types/types'
+  import { statsStore } from '../store/stores'
+  import Stat from './ui/Stat.svelte'
+
+  let stats = $statsStore
+
+  const changeHp = (mode: Mode) => {
+    switch (mode) {
+      case 'increase':
+        stats.hp += stats.hp < stats.hpMax ? 1 : 0
+        break
+      case 'decrease':
+        stats.hp -= stats.hp > 0 ? 1 : 0
+        break
+    }
+  }
+
+  const changeArmor = (mode: Mode) => {
+    switch (mode) {
+      case 'increase':
+        stats.armor += stats.armor < 9 ? 1 : 0
+        break
+      case 'decrease':
+        stats.armor -= stats.armor > 0 ? 1 : 0
+        break
+    }
+  }
+</script>
+
+<div class="stats">
+  <Stat
+    title="HP"
+    value={stats.hp}
+    maxValue={stats.hpMax}
+    on:decrease={() => changeHp('decrease')}
+    on:increase={() => changeHp('increase')}
+  />
+
+  <Stat
+    title="Armor"
+    value={stats.armor}
+    on:decrease={() => changeArmor('decrease')}
+    on:increase={() => changeArmor('increase')}
+  />
+</div>
+
+<style lang="scss">
+  .stats {
+    margin-bottom: 5vw;
+  }
+</style>
