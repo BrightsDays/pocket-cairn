@@ -1,10 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
+  import Button from './Button.svelte'
 
   export let title: string = ''
   export let value: number = 0
   export let maxValue: number | undefined = undefined
-  export let roll: boolean | undefined = undefined
 
   const dispatch = createEventDispatcher()
 </script>
@@ -14,21 +14,14 @@
     {title}
   </span>
 
-  <button class="button down" on:click={() => dispatch('decrease')}>
-    <p>-</p>
-  </button>
+  <Button on:click={() => dispatch('decrease')}>-</Button>
   <div class="current">
     {value}
+    {#if maxValue}
+      /{maxValue}
+    {/if}
   </div>
-  <button class="button grow" on:click={() => dispatch('increase')}>
-    <p>+</p>
-  </button>
-  {#if maxValue}
-    <div class="max">{maxValue}</div>
-  {/if}
-  {#if roll}
-    <button class="button roll"><p>20</p></button>
-  {/if}
+  <Button on:click={() => dispatch('increase')}>+</Button>
 </div>
 
 <style lang="scss">
@@ -36,17 +29,18 @@
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 2vw;
+    gap: 2%;
 
     .title {
       margin-right: auto;
       text-transform: uppercase;
-      font-size: 10vw;
+      font-size: 3em;
+      line-height: 1.2;
     }
 
-    .current,
-    .max {
-      font-size: 10vw;
+    .current {
+      font-size: 3em;
+      line-height: 1.2;
     }
 
     .button {
@@ -54,19 +48,18 @@
       justify-content: center;
       align-items: center;
       padding: 0;
-      width: 10vw;
-      height: 10vw;
+      width: 3em;
+      height: 3em;
       color: var(--main);
       border: 2px solid var(--main);
-      border-radius: 10px;
+      border-radius: 50%;
       background-color: var(--background);
       cursor: pointer;
 
       p {
         margin: 0;
-        font-size: 6vw;
+        font-size: 2em;
         line-height: normal;
-        font-weight: bold;
         background: none;
       }
 

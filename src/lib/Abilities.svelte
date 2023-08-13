@@ -26,7 +26,6 @@
       title={ability}
       value={abilities[ability]}
       maxValue={abilities[`${ability}Max`]}
-      roll
       on:decrease={() => changeAbility(ability, 'decrease')}
       on:increase={() => changeAbility(ability, 'increase')}
     />
@@ -35,6 +34,6 @@
 
 <style lang="scss">
   .abilities {
-    margin-bottom: 5vw;
+    margin-bottom: 5%;
   }
 </style>
