@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+
   export let value: string = '0'
   export let placeholder: string = ''
   export let border: boolean = true
+  export let numbers: boolean = false
 
-  $: value = value.replace(/[^0-9]/g, '')
+  $: value = numbers ? value.replace(/[^0-9]/g, '') : value
+
+  const dispatch = createEventDispatcher()
 </script>
 
 <input
@@ -11,6 +16,7 @@
   bind:value
   {placeholder}
   style={`border-bottom: ${border ? '1px solid var(--main)' : 'none'};`}
+  on:input={() => dispatch('input', value)}
 />
 
 <style lang="scss">

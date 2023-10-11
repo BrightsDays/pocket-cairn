@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store'
 
-export const nameStore = writable('Test name')
+export const nameStore = writable('')
 
-export const abilitiesStore = writable( {
+export const abilitiesStore = writable({
   str: 0,
   dex: 0,
   wil: 0,
@@ -26,12 +26,12 @@ export const coinsStore = writable({
 
 export const inventoryStore = writable([
   {
-    title: 'Thing',
+    title: 'Rations (3)',
     inHand: false,
     fatigue: false
   },
   {
-    title: '',
+    title: 'Torch',
     inHand: false,
     fatigue: false
   },

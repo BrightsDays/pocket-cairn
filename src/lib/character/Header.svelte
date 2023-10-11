@@ -5,14 +5,14 @@
   let name = $nameStore
 </script>
 
-<div class="menu">
+<div class="header">
   <h1 class="name">{name}</h1>
   <Button>N</Button>
   <Button>M</Button>
 </div>
 
 <style lang="scss">
-  .menu {
+  .header {
     display: flex;
 
     .name {

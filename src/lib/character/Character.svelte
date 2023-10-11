@@ -5,12 +5,12 @@
   import Coins from './sheet/Coins.svelte'
   import Dices from './Dices.svelte'
   import Section from '../ui/Section.svelte'
-  import Menu from './Menu.svelte'
+  import Header from './Header.svelte'
 </script>
 
 <div class="character">
   <header class="header">
-    <Menu />
+    <Header />
   </header>
   <div class="main">
     <Section position="first">
@@ -50,6 +50,7 @@
 
     .main {
       display: flex;
+      position: relative;
       flex-direction: column;
       height: 100%;
       padding: calc(8px + 1.5625vw);

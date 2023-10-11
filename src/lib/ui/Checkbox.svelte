@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import Button from './Button.svelte'
 
   export let size: number = 0
   export let checked: boolean = false

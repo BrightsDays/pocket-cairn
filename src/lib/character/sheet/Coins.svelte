@@ -9,7 +9,7 @@
   {#each Object.keys(coins) as coin}
     <div class="item">
       <span class="currency">{coin}:</span>
-      <Input value={coins[coin]} />
+      <Input value={coins[coin]} numbers />
     </div>
   {/each}
 </div>

@@ -1,7 +1,9 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  export let padding: number | undefined = undefined
+  export let height: number = 40
+  export let padding: number = 0
+  export let disabled: boolean = false
 
   $: padding ||= 0
 
@@ -10,7 +12,13 @@
 
 <button
   class="button"
-  style={`padding: ${padding}px`}
+  {disabled}
+  style={`
+    min-width: ${height}px;
+    height: ${height}px;
+    border-radius: ${height / 2}px;
+    padding: ${padding}px;
+  `}
   on:click={() => dispatch('click')}
 >
   <p>
@@ -23,14 +31,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    width: 40px;
-    height: 40px;
     color: var(--main);
     border: 1px solid var(--main);
-    border-radius: 50%;
     background-color: var(--background);
     cursor: pointer;
+    &:disabled {
+      color: var(--second-background);
+      border: 1px solid var(--second-background);
+      pointer-events: none;
+    }
 
     p {
       margin: 0;
