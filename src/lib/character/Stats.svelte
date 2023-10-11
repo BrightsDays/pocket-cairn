@@ -1,7 +1,8 @@
 <script lang="ts">
-  import type { Mode } from '../../types/types'
-  import { statsStore } from '../store/stores'
-  import Stat from './ui/Stat.svelte'
+  import type { Mode } from '../../../types/types'
+  import { statsStore } from '../../store/stores'
+  import Checkbox from '../ui/Checkbox.svelte'
+  import Stat from '../ui/Stat.svelte'
 
   let stats = $statsStore
 
@@ -43,10 +44,25 @@
     on:decrease={() => changeArmor('decrease')}
     on:increase={() => changeArmor('increase')}
   />
+
+  <div class="deprived">
+    <span class="title"> Deprived </span>
+    <Checkbox size={40} />
+  </div>
 </div>
 
 <style lang="scss">
-  .stats {
-    margin-bottom: 5vw;
+  .deprived {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 2%;
+
+    .title {
+      margin-right: auto;
+      text-transform: uppercase;
+      font-size: 3em;
+      line-height: 1.2;
+    }
   }
 </style>

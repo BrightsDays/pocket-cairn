@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  export let padding: number
+  export let padding: number | undefined = undefined
 
   $: padding ||= 0
 
@@ -24,8 +24,8 @@
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: 3em;
-    height: 3em;
+    width: 40px;
+    height: 40px;
     color: var(--main);
     border: 2px solid var(--main);
     border-radius: 50%;

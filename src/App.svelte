@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Character from './lib/Character.svelte'
+  import Character from './lib/character/Character.svelte'
 </script>
 
 <main>

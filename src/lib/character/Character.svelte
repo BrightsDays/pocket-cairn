@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { nameStore } from '../store/stores'
+  import { nameStore } from '../../store/stores'
   import Abilities from './Abilities.svelte'
   import Inventory from './Inventory.svelte'
   import Stats from './Stats.svelte'
+  import Coins from './Coins.svelte'
   import Dices from './Dices.svelte'
 
   let name = $nameStore
@@ -10,12 +11,12 @@
 
 <div class="character">
   <header class="header">
-    <h1 class="name">~ {name} ~</h1>
+    <h1 class="name">{name}</h1>
   </header>
   <div class="main">
     <Abilities />
     <Stats />
-    <div class="coins" />
+    <Coins />
     <Inventory />
   </div>
   <footer class="footer">
@@ -36,24 +37,31 @@
     .header {
       height: fit-content;
       padding: 1rem;
-      box-shadow: 0px 15px 10px -15px var(--black);
+      box-shadow: 0px 10px 10px -10px var(--black);
+      z-index: 1;
 
       .name {
-        margin: 0 0 5%;
+        margin: 0;
+        text-align: left;
+        line-height: 1;
         color: var(--main);
       }
     }
 
     .main {
+      display: flex;
+      flex-direction: column;
       height: 100%;
-      padding: 1rem;
+      padding: calc(8px + 1.5625vw);
       overflow: auto;
+      gap: calc(8px + 1.5625vw);
     }
 
     .footer {
       height: fit-content;
       padding: 1rem;
-      box-shadow: 0px -15px 10px -15px var(--black);
+      box-shadow: 0px -10px 10px -10px var(--black);
+      z-index: 1;
     }
   }
 

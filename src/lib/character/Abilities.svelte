@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Mode } from '../../types/types'
-  import { abilitiesStore } from '../store/stores'
-  import Stat from './ui/Stat.svelte'
+  import type { Mode } from '../../../types/types'
+  import { abilitiesStore } from '../../store/stores'
+  import Stat from '../ui/Stat.svelte'
 
   let abilities = $abilitiesStore
 
@@ -31,9 +31,3 @@
     />
   {/each}
 </div>
-
-<style lang="scss">
-  .abilities {
-    margin-bottom: 5%;
-  }
-</style>
