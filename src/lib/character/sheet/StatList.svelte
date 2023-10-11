@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Mode } from '../../../types/types'
-  import { statsStore } from '../../store/stores'
-  import Checkbox from '../ui/Checkbox.svelte'
-  import Stat from '../ui/Stat.svelte'
+  import type { Mode } from '../../../../types/types'
+  import { statsStore } from '../../../store/stores'
+  import Checkbox from '../../ui/Checkbox.svelte'
+  import Stat from './Stat.svelte'
 
   let stats = $statsStore
 

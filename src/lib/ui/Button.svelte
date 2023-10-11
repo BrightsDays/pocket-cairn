@@ -27,7 +27,7 @@
     width: 40px;
     height: 40px;
     color: var(--main);
-    border: 2px solid var(--main);
+    border: 1px solid var(--main);
     border-radius: 50%;
     background-color: var(--background);
     cursor: pointer;

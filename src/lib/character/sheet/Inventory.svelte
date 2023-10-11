@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { inventoryStore } from '../../store/stores'
-  import Item from '../ui/Item.svelte'
+  import { inventoryStore } from '../../../store/stores'
+  import Item from './Item.svelte'
 
   const inventory = $inventoryStore
 </script>

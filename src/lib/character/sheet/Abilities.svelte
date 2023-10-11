@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Mode } from '../../../types/types'
-  import { abilitiesStore } from '../../store/stores'
-  import Stat from '../ui/Stat.svelte'
+  import type { Mode } from '../../../../types/types'
+  import { abilitiesStore } from '../../../store/stores'
+  import Stat from './Stat.svelte'
 
   let abilities = $abilitiesStore
 

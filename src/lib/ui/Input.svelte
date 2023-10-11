@@ -1,11 +1,17 @@
 <script lang="ts">
   export let value: string = '0'
   export let placeholder: string = ''
+  export let border: boolean = true
 
   $: value = value.replace(/[^0-9]/g, '')
 </script>
 
-<input class="input" bind:value {placeholder} />
+<input
+  class="input"
+  bind:value
+  {placeholder}
+  style={`border-bottom: ${border ? '1px solid var(--main)' : 'none'};`}
+/>
 
 <style lang="scss">
   .input {
@@ -14,6 +20,6 @@
     font-size: 1.4rem;
     background: none;
     border: none;
-    border-bottom: 1px solid var(--main);
+    border-radius: 0;
   }
 </style>

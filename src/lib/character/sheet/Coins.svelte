@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { coinsStore } from '../../store/stores'
-  import Input from '../ui/Input.svelte'
+  import { coinsStore } from '../../../store/stores'
+  import Input from '../../ui/Input.svelte'
 
   let coins = $coinsStore
 </script>

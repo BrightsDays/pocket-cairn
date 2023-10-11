@@ -20,6 +20,7 @@
     cursor: pointer;
     font-size: 22px;
     user-select: none;
+    aspect-ratio: 1;
     &:hover input ~ .checkmark {
       background-color: var(--second-background);
     }
@@ -41,7 +42,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      border: 2px solid var(--main);
+      border: 1px solid var(--main);
       border-radius: 50%;
       box-sizing: border-box;
       &:after {

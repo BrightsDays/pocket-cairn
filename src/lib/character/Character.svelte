@@ -1,23 +1,30 @@
 <script lang="ts">
-  import { nameStore } from '../../store/stores'
-  import Abilities from './Abilities.svelte'
-  import Inventory from './Inventory.svelte'
-  import Stats from './Stats.svelte'
-  import Coins from './Coins.svelte'
+  import Abilities from './sheet/Abilities.svelte'
+  import Inventory from './sheet/Inventory.svelte'
+  import Stats from './sheet/StatList.svelte'
+  import Coins from './sheet/Coins.svelte'
   import Dices from './Dices.svelte'
-
-  let name = $nameStore
+  import Section from '../ui/Section.svelte'
+  import Menu from './Menu.svelte'
 </script>
 
 <div class="character">
   <header class="header">
-    <h1 class="name">{name}</h1>
+    <Menu />
   </header>
   <div class="main">
-    <Abilities />
-    <Stats />
-    <Coins />
-    <Inventory />
+    <Section position="first">
+      <Abilities />
+    </Section>
+    <Section>
+      <Stats />
+    </Section>
+    <Section>
+      <Coins />
+    </Section>
+    <Section position="last">
+      <Inventory />
+    </Section>
   </div>
   <footer class="footer">
     <Dices />
@@ -30,7 +37,7 @@
     flex-direction: column;
     margin: 0 auto;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     max-width: 400px;
     box-sizing: border-box;
 
@@ -39,13 +46,6 @@
       padding: 1rem;
       box-shadow: 0px 10px 10px -10px var(--black);
       z-index: 1;
-
-      .name {
-        margin: 0;
-        text-align: left;
-        line-height: 1;
-        color: var(--main);
-      }
     }
 
     .main {
@@ -54,7 +54,6 @@
       height: 100%;
       padding: calc(8px + 1.5625vw);
       overflow: auto;
-      gap: calc(8px + 1.5625vw);
     }
 
     .footer {
