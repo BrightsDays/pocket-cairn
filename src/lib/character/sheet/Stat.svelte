@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import Button from './Button.svelte'
+  import Button from '../../ui/Button.svelte'
 
   export let title: string = ''
   export let value: number = 0
