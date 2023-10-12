@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store'
-import setLocalCharacter from '../utils/setLocalCharacter'
 
 export const nameStore = writable('')
 
@@ -74,6 +73,6 @@ export const inventoryStore = writable([
   {
     title: '',
     inHand: false,
-    fatigue: true
+    fatigue: false
   }
 ])

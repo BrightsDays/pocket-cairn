@@ -35,10 +35,7 @@ export default () => {
       cp: coins.cp,
     },
     inventory: inventory
-  }
-
-  console.log('run');
-  
+  }  
   
   if (character.name) localStorage.setItem('pc__character', JSON.stringify(character))
 }

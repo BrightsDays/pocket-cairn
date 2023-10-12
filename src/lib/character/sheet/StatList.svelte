@@ -36,6 +36,12 @@
         break
     }
   }
+
+  const changeDeprived = () => {
+    stats.deprived = !stats.deprived
+    statsStore.set(stats)
+    setLocalCharacter()
+  }
 </script>
 
 <div class="stats">
@@ -56,7 +62,11 @@
 
   <div class="deprived">
     <span class="title"> Deprived </span>
-    <Checkbox size={40} />
+    <Checkbox
+      size={40}
+      checked={stats.deprived}
+      on:change={(value) => changeDeprived()}
+    />
   </div>
 </div>
 

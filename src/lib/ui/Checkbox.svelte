@@ -8,7 +8,7 @@
 </script>
 
 <label class="checkbox" style={`width: ${size}px;height: ${size}px`}>
-  <input type="checkbox" {checked} />
+  <input type="checkbox" {checked} on:change={() => dispatch('change')} />
   <span class="checkmark" />
 </label>
 

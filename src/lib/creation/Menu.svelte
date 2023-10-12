@@ -7,8 +7,10 @@
 
 <div class="menu">
   <Button on:click={() => dispatch('show-form')}>Fast Creation</Button>
-  <Button disabled>Custom creation</Button>
   <Button disabled>Upload character (json)</Button>
+  <Button disabled>Custom creation</Button>
+  <Button disabled>Characters list</Button>
+  <Button disabled>Warden space</Button>
 </div>
 
 <style lang="scss">
