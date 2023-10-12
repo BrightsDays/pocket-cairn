@@ -8,16 +8,17 @@
     nameStore,
     statsStore,
   } from '../../store/stores'
+  import rollDices from '../../utils/rollDices'
 
   const dispatch = createEventDispatcher()
 
   let character = {
     name: '',
-    str: 10,
-    dex: 10,
-    wil: 10,
-    hp: 10,
-    gp: 18,
+    str: rollDices(3, 6),
+    dex: rollDices(3, 6),
+    wil: rollDices(3, 6),
+    hp: rollDices(3, 6),
+    gp: rollDices(3, 6),
   }
 
   const createCharacter = () => {
