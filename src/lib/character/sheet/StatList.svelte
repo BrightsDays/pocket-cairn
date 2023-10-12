@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Mode } from '../../../../types/types'
   import { statsStore } from '../../../store/stores'
+  import setLocalCharacter from '../../../utils/setLocalCharacter'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Stat from './Stat.svelte'
 
@@ -10,9 +11,13 @@
     switch (mode) {
       case 'increase':
         stats.hp += stats.hp < stats.hpMax ? 1 : 0
+        statsStore.set(stats)
+        setLocalCharacter()
         break
       case 'decrease':
         stats.hp -= stats.hp > 0 ? 1 : 0
+        statsStore.set(stats)
+        setLocalCharacter()
         break
     }
   }
@@ -21,11 +26,21 @@
     switch (mode) {
       case 'increase':
         stats.armor += stats.armor < 9 ? 1 : 0
+        statsStore.set(stats)
+        setLocalCharacter()
         break
       case 'decrease':
         stats.armor -= stats.armor > 0 ? 1 : 0
+        statsStore.set(stats)
+        setLocalCharacter()
         break
     }
+  }
+
+  const changeDeprived = () => {
+    stats.deprived = !stats.deprived
+    statsStore.set(stats)
+    setLocalCharacter()
   }
 </script>
 
@@ -47,7 +62,11 @@
 
   <div class="deprived">
     <span class="title"> Deprived </span>
-    <Checkbox size={40} />
+    <Checkbox
+      size={40}
+      checked={stats.deprived}
+      on:change={(value) => changeDeprived()}
+    />
   </div>
 </div>
 

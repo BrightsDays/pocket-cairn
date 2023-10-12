@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
   import Input from '../ui/Input.svelte'
@@ -8,19 +8,45 @@
     nameStore,
     statsStore,
   } from '../../store/stores'
+  import rollDices from '../../utils/rollDices'
+  import setLocalCharacter from '../../utils/setLocalCharacter'
 
   const dispatch = createEventDispatcher()
 
   let character = {
     name: '',
-    str: 10,
-    dex: 10,
-    wil: 10,
-    hp: 10,
-    gp: 18,
+    str: rollDices(3, 6),
+    dex: rollDices(3, 6),
+    wil: rollDices(3, 6),
+    hp: rollDices(1, 6),
+    gp: rollDices(3, 6),
+  }
+
+  let statsForChange = []
+
+  const statHandler = (stat: string) => {
+    if (!statsForChange.includes(stat)) {
+      if (statsForChange.length >= 2) return
+      statsForChange = [...statsForChange, stat]
+    } else {
+      const index = statsForChange.indexOf(stat, 0)
+
+      if (index !== -1) {
+        statsForChange.splice(index, 1)
+        statsForChange = [...statsForChange]
+      }
+    }
   }
 
   const createCharacter = () => {
+    if (statsForChange.length === 2) {
+      const a = character[statsForChange[0]]
+      const b = character[statsForChange[1]]
+
+      character[statsForChange[0]] = b
+      character[statsForChange[1]] = a
+    }
+
     nameStore.set(character.name)
     abilitiesStore.set({
       str: character.str,
@@ -41,33 +67,87 @@
       sp: '0',
       cp: '0',
     })
+
+    setLocalCharacter()
   }
 </script>
 
 <div class="form">
-  <h1>Create character</h1>
+  <h2 class="title">Create character</h2>
   <div class="name">
-    <span>Name: </span>
     <Input
       value={character.name}
+      placeholder="Name"
       on:input={(event) => (character.name = event.detail)}
     />
   </div>
 
   <div class="stats">
     {#each ['str', 'dex', 'wil'] as stat}
-      <div class="item">
+      <button
+        class={`item${statsForChange.includes(stat) ? ' selected' : ''}`}
+        on:click={() => statHandler(stat)}
+      >
         {stat}: {character[stat]}
-      </div>
+      </button>
     {/each}
     <span class="info">
-      Ypu can swap two of your stats - select or unselect them by click, and
-      change will take effect after character creation.
+      You can swap two of your stats by selecting or deselecting them with a
+      click, and the change will take effect after character creation.
     </span>
   </div>
 
   <div class="controls">
-    <Button on:click={() => createCharacter()}>Save</Button>
     <Button on:click={() => dispatch('hide-form')}>Back</Button>
+    <Button
+      on:click={() => createCharacter()}
+      disabled={character.name ? false : true}>Save</Button
+    >
   </div>
 </div>
+
+<style lang="scss">
+  .form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: calc(16px + 1.5625vw);
+
+    .title {
+      margin-bottom: calc(8px + 1.5625vw);
+    }
+
+    .name {
+      display: flex;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: calc(8px + 1.5625vw);
+
+      .item {
+        padding: 4px;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        border: 1px solid var(--main);
+        border-radius: calc(1px + 1.5625vw);
+        background: none;
+        &.selected {
+          background-color: var(--second-background);
+        }
+      }
+
+      .info {
+        grid-area: 2/1/2/4;
+      }
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: auto;
+      gap: calc(8px + 1.5625vw);
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Mode } from '../../../../types/types'
   import { abilitiesStore } from '../../../store/stores'
+  import setLocalCharacter from '../../../utils/setLocalCharacter'
   import Stat from './Stat.svelte'
 
   let abilities = $abilitiesStore
@@ -10,9 +11,13 @@
       case 'increase':
         abilities[ability] +=
           abilities[ability] < abilities[`${ability}Max`] ? 1 : 0
+        abilitiesStore.set(abilities)
+        setLocalCharacter()
         break
       case 'decrease':
         abilities[ability] -= abilities[ability] > 0 ? 1 : 0
+        abilitiesStore.set(abilities)
+        setLocalCharacter()
         break
       default:
         break
