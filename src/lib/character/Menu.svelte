@@ -12,6 +12,7 @@
 <div class="menu">
   <Button on:click={() => downloadJson()}>Download character (json)</Button>
   <Button disabled>Save to character list</Button>
+  <!-- //TODO: Ask user about delete -->
   <Button on:click={() => deleteCharacter()}>Delete character</Button>
 </div>
 

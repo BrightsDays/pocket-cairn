@@ -8,9 +8,8 @@
 </script>
 
 <div class="menu">
-  <Button on:click={() => dispatch('show-form')}>Fast Creation</Button>
+  <Button on:click={() => dispatch('show-form')}>Roll a character</Button>
   <FileInput on:change={(event) => uploadCharacter(event.detail)} />
-  <Button disabled>Custom creation</Button>
   <Button disabled>Characters list</Button>
   <Button disabled>Warden space</Button>
 </div>
