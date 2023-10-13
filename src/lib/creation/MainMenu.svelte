@@ -1,13 +1,15 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
+  import uploadCharacter from '../../utils/uploadCharacter'
+  import FileInput from '../ui/FileInput.svelte'
 
   const dispatch = createEventDispatcher()
 </script>
 
 <div class="menu">
   <Button on:click={() => dispatch('show-form')}>Fast Creation</Button>
-  <Button disabled>Upload character (json)</Button>
+  <FileInput on:change={(event) => uploadCharacter(event.detail)} />
   <Button disabled>Custom creation</Button>
   <Button disabled>Characters list</Button>
   <Button disabled>Warden space</Button>

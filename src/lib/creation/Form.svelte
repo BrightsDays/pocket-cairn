@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
-  import Input from '../ui/Input.svelte'
+  import Input from '../ui/TextInput.svelte'
   import {
     abilitiesStore,
     coinsStore,
