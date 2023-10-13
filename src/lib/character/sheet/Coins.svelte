@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { coinsStore } from '../../../store/stores'
+  import { coinsStore } from '../../../store/characterStore'
   import setLocalCharacter from '../../../utils/setLocalCharacter'
-  import Input from '../../ui/Input.svelte'
+  import Input from '../../ui/TextInput.svelte'
 
   let coins = $coinsStore
 

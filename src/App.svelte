@@ -8,7 +8,7 @@
     inventoryStore,
     nameStore,
     statsStore,
-  } from './store/stores'
+  } from './store/characterStore'
 
   let name = $nameStore
   nameStore.subscribe((value) => (name = value))

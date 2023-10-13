@@ -1,13 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
-  import Input from '../ui/Input.svelte'
+  import Input from '../ui/TextInput.svelte'
   import {
     abilitiesStore,
     coinsStore,
     nameStore,
     statsStore,
-  } from '../../store/stores'
+  } from '../../store/characterStore'
   import rollDices from '../../utils/rollDices'
   import setLocalCharacter from '../../utils/setLocalCharacter'
 
@@ -106,7 +106,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .form {
     display: flex;
     height: 100%;

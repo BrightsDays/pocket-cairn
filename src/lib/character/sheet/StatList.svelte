@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Mode } from '../../../../types/types'
-  import { statsStore } from '../../../store/stores'
+  import { statsStore } from '../../../store/characterStore'
   import setLocalCharacter from '../../../utils/setLocalCharacter'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Stat from './Stat.svelte'

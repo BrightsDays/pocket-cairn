@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Mode } from '../../../../types/types'
-  import { abilitiesStore } from '../../../store/stores'
+  import { abilitiesStore } from '../../../store/characterStore'
   import setLocalCharacter from '../../../utils/setLocalCharacter'
   import Stat from './Stat.svelte'
 

@@ -1,6 +1,6 @@
 <script>
   import Form from './Form.svelte'
-  import Menu from './Menu.svelte'
+  import Menu from './MainMenu.svelte'
 
   let showForm = false
 </script>
@@ -17,7 +17,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .creation {
     display: flex;
     height: 100svh;
