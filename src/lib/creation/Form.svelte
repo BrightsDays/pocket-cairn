@@ -7,7 +7,7 @@
     coinsStore,
     nameStore,
     statsStore,
-  } from '../../store/stores'
+  } from '../../store/characterStore'
   import rollDices from '../../utils/rollDices'
   import setLocalCharacter from '../../utils/setLocalCharacter'
 
@@ -106,7 +106,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .form {
     display: flex;
     height: 100%;

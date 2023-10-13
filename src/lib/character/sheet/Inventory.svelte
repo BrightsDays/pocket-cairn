@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { inventoryStore } from '../../../store/stores'
+  import { inventoryStore } from '../../../store/characterStore'
   import setLocalCharacter from '../../../utils/setLocalCharacter'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Input from '../../ui/Input.svelte'

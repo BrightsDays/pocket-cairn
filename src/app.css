@@ -36,6 +36,8 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
+  max-width: 768px;
+  margin: 0 auto;
   height: 100svh;
   overflow: hidden;
 }

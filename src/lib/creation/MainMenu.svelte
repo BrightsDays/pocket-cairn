@@ -13,7 +13,7 @@
   <Button disabled>Warden space</Button>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .menu {
     display: flex;
     flex-direction: column;
