@@ -1,15 +1,9 @@
 <script lang="ts">
-  import { inventoryStore } from '../../../store/characterStore'
-  import setLocalCharacter from '../../../utils/setLocalCharacter'
+  import { inventory } from '../../../store/characterStore'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Input from '../../ui/TextInput.svelte'
 
-  const inventory = $inventoryStore
-
-  const changeInventory = () => {
-    inventoryStore.set(inventory)
-    setLocalCharacter()
-  }
+  const inventoryList = $inventory
 </script>
 
 <div class="inventory">
@@ -18,14 +12,14 @@
     <span class="info">Fatigue</span>
   </div>
   <div class="list">
-    {#each inventory as item}
+    {#each inventoryList as item}
       <div class="item">
         <Checkbox
           size={20}
           checked={item.inHand}
           on:change={() => {
             item.inHand = !item.inHand
-            changeInventory()
+            inventory.change(inventoryList)
           }}
         />
         <Input
@@ -34,7 +28,7 @@
           border={false}
           on:input={(event) => {
             item.title = event.detail
-            changeInventory()
+            inventory.change(inventoryList)
           }}
         />
         <Checkbox
@@ -42,7 +36,7 @@
           checked={item.fatigue}
           on:change={() => {
             item.fatigue = !item.fatigue
-            changeInventory()
+            inventory.change(inventoryList)
           }}
         />
       </div>

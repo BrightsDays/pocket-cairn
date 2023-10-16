@@ -3,7 +3,7 @@
   import Button from '../ui/Button.svelte'
   import uploadCharacter from '../../utils/uploadCharacter'
   import FileInput from '../ui/FileInput.svelte'
-  import { nameStore } from '../../store/characterStore'
+  import { name } from '../../store/characterStore'
   import Modal from '../ui/Modal.svelte'
 
   const dispatch = createEventDispatcher()
@@ -11,7 +11,7 @@
 
   const uploadHandler = (event: CustomEvent) => {
     uploadCharacter(event.detail)
-    if (!$nameStore.length) showModal = true
+    if (!$name.length) showModal = true
   }
 </script>
 

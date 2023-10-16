@@ -1,26 +1,21 @@
 <script lang="ts">
-  import { coinsStore } from '../../../store/characterStore'
-  import setLocalCharacter from '../../../utils/setLocalCharacter'
+  import type { CoinKeys } from '../../../../types/types'
+  import { coins } from '../../../store/characterStore'
   import Input from '../../ui/TextInput.svelte'
 
-  let coins = $coinsStore
-
-  const changeCoins = () => {
-    coinsStore.set(coins)
-    setLocalCharacter()
-  }
+  const list: CoinKeys[] = ['gp', 'sp', 'cp']
 </script>
 
 <div class="coins">
-  {#each Object.keys(coins) as coin}
+  {#each list as coin}
     <div class="item">
       <span class="currency">{coin}:</span>
       <Input
-        value={coins[coin]}
+        value={$coins[coin]}
         numbers
         on:input={(event) => {
           coins[coin] = event.detail
-          changeCoins()
+          coins.change(coin, event.detail)
         }}
       />
     </div>

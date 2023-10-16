@@ -1,4 +1,4 @@
-import { abilitiesStore, coinsStore, inventoryStore, nameStore, statsStore } from "../store/characterStore"
+import { abilities, coins, inventory, name, stats } from "../store/characterStore"
 import getCharacter from "./getCharacter"
 
 export default (event: Event) => {
@@ -18,11 +18,11 @@ export default (event: Event) => {
         })
 
         if (isValid) {
-          nameStore.set(character.name)
-          abilitiesStore.set(character.abilities)
-          statsStore.set(character.stats)
-          coinsStore.set(character.coins)
-          inventoryStore.set(character.inventory)
+          name.set(character.name)
+          abilities.set(character.abilities)
+          stats.set(character.stats)
+          coins.set(character.coins)
+          inventory.set(character.inventory)
         }
       }
     }

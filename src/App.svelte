@@ -4,30 +4,30 @@
   import Creation from './lib/creation/Creation.svelte'
   import {
     abilities,
-    coinsStore,
-    inventoryStore,
-    nameStore,
-    statsStore,
+    coins,
+    inventory,
+    name,
+    stats,
   } from './store/characterStore'
 
-  let name = $nameStore
-  nameStore.subscribe((value) => (name = value))
+  let nameValue = $name
+  name.subscribe((value) => (nameValue = value))
 
   onMount(() => {
     const character = localStorage.getItem('pc__character')
 
     if (character) {
-      nameStore.set(JSON.parse(character).name)
+      name.set(JSON.parse(character).name)
       abilities.set(JSON.parse(character).abilities)
-      statsStore.set(JSON.parse(character).stats)
-      coinsStore.set(JSON.parse(character).coins)
-      inventoryStore.set(JSON.parse(character).inventory)
+      stats.set(JSON.parse(character).stats)
+      coins.set(JSON.parse(character).coins)
+      inventory.set(JSON.parse(character).inventory)
     }
   })
 </script>
 
 <main>
-  {#if name}
+  {#if nameValue}
     <Character />
   {:else}
     <Creation />

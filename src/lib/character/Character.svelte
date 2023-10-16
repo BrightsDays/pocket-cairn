@@ -1,6 +1,6 @@
 <script lang="ts">
   import Dices from './Dices.svelte'
-  import { nameStore } from '../../store/characterStore'
+  import { name } from '../../store/characterStore'
   import Button from '../ui/Button.svelte'
   import Menu from './Menu.svelte'
   import Sheet from './sheet/Sheet.svelte'
@@ -11,7 +11,7 @@
 <div class="character">
   <div class="header">
     <div class="wrap">
-      <h1 class="name">{$nameStore}</h1>
+      <h1 class="name">{$name}</h1>
     </div>
     <Button disabled>N</Button>
     <Button on:click={() => (showMenu = !showMenu)}>M</Button>

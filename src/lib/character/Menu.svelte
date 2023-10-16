@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { nameStore } from '../../store/characterStore'
+  import { name } from '../../store/characterStore'
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
@@ -7,7 +7,7 @@
   let showModal = false
 
   const deleteCharacter = () => {
-    nameStore.set('')
+    name.set('')
     localStorage.removeItem('pc__character')
   }
 </script>
