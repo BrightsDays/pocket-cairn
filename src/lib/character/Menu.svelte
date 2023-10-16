@@ -2,6 +2,9 @@
   import { nameStore } from '../../store/characterStore'
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
+  import Modal from '../ui/Modal.svelte'
+
+  let showModal = false
 
   const deleteCharacter = () => {
     nameStore.set('')
@@ -12,13 +15,21 @@
 <div class="menu">
   <Button on:click={() => downloadJson()}>Download character (json)</Button>
   <Button disabled>Save to character list</Button>
-  <!-- //TODO: Ask user about delete -->
-  <Button on:click={() => deleteCharacter()}>Delete character</Button>
+  <Button on:click={() => (showModal = true)}>Delete character</Button>
+
+  <Modal
+    isShown={showModal}
+    on:cancel={() => (showModal = false)}
+    on:ok={() => deleteCharacter()}
+  >
+    Do you really want to delete this character?
+  </Modal>
 </div>
 
 <style lang="scss" scoped>
   .menu {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-end;
     width: 100%;
