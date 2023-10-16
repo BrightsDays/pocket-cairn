@@ -34,4 +34,4 @@ export type Item = {
 
 export type inventory = Item[]
 
-export type Mode = 'increase' | 'decrease'
+export type AbilityKeys = 'str' | 'dex' | 'wil'

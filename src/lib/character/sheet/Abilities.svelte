@@ -1,38 +1,19 @@
 <script lang="ts">
-  import type { Mode } from '../../../../types/types'
-  import { abilitiesStore } from '../../../store/characterStore'
-  import setLocalCharacter from '../../../utils/setLocalCharacter'
+  import type { AbilityKeys } from '../../../../types/types'
+  import { abilities } from '../../../store/characterStore'
   import Stat from './Stat.svelte'
 
-  let abilities = $abilitiesStore
-
-  const changeAbility = (ability, mode: Mode) => {
-    switch (mode) {
-      case 'increase':
-        abilities[ability] +=
-          abilities[ability] < abilities[`${ability}Max`] ? 1 : 0
-        abilitiesStore.set(abilities)
-        setLocalCharacter()
-        break
-      case 'decrease':
-        abilities[ability] -= abilities[ability] > 0 ? 1 : 0
-        abilitiesStore.set(abilities)
-        setLocalCharacter()
-        break
-      default:
-        break
-    }
-  }
+  const list: AbilityKeys[] = ['str', 'dex', 'wil']
 </script>
 
 <div class="abilities">
-  {#each ['str', 'dex', 'wil'] as ability}
+  {#each list as ability}
     <Stat
       title={ability}
-      value={abilities[ability]}
-      maxValue={abilities[`${ability}Max`]}
-      on:decrease={() => changeAbility(ability, 'decrease')}
-      on:increase={() => changeAbility(ability, 'increase')}
+      value={$abilities[ability]}
+      maxValue={$abilities[`${ability}Max`]}
+      on:decrease={() => abilities.decrease(ability)}
+      on:increase={() => abilities.increase(ability)}
     />
   {/each}
 </div>

@@ -3,7 +3,7 @@
   import Button from '../ui/Button.svelte'
   import Input from '../ui/TextInput.svelte'
   import {
-    abilitiesStore,
+    abilities,
     coinsStore,
     nameStore,
     statsStore,
@@ -48,7 +48,7 @@
     }
 
     nameStore.set(character.name)
-    abilitiesStore.set({
+    abilities.set({
       str: character.str,
       dex: character.dex,
       wil: character.wil,

@@ -3,7 +3,7 @@
   import Character from './lib/character/Character.svelte'
   import Creation from './lib/creation/Creation.svelte'
   import {
-    abilitiesStore,
+    abilities,
     coinsStore,
     inventoryStore,
     nameStore,
@@ -18,7 +18,7 @@
 
     if (character) {
       nameStore.set(JSON.parse(character).name)
-      abilitiesStore.set(JSON.parse(character).abilities)
+      abilities.set(JSON.parse(character).abilities)
       statsStore.set(JSON.parse(character).stats)
       coinsStore.set(JSON.parse(character).coins)
       inventoryStore.set(JSON.parse(character).inventory)

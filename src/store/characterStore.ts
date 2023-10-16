@@ -1,15 +1,8 @@
 import { writable } from 'svelte/store'
+import type { Abilities, AbilityKeys } from '../../types/types'
+import setLocalCharacter from '../utils/setLocalCharacter'
 
 export const nameStore = writable('')
-
-export const abilitiesStore = writable({
-  str: 0,
-  dex: 0,
-  wil: 0,
-  strMax: 10,
-  dexMax: 10,
-  wilMax: 10
-})
 
 export const statsStore = writable({
   hp: 0,
@@ -76,3 +69,30 @@ export const inventoryStore = writable([
     fatigue: false
   }
 ])
+
+const createAbilities = () => {
+	const { subscribe, set, update } = writable({
+    str: 0,
+    dex: 0,
+    wil: 0,
+    strMax: 0,
+    dexMax: 0,
+    wilMax: 0
+  })
+
+	return {
+		subscribe,
+		increase: (key: AbilityKeys) => update((abilities) => {
+      abilities[key] += abilities[key] < abilities[`${key}Max`] ? 1 : 0
+      setLocalCharacter()
+      return {...abilities}
+    }),
+		decrease: (key: AbilityKeys) => update((abilities) => {
+      abilities[key] -= abilities[key] > 0 ? 1 : 0
+      setLocalCharacter()
+      return {...abilities}
+    }),
+    set: (value: Abilities) => set(value)
+	}
+}
+export const abilities = createAbilities()

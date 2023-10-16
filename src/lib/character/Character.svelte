@@ -5,15 +5,13 @@
   import Menu from './Menu.svelte'
   import Sheet from './sheet/Sheet.svelte'
 
-  let name = $nameStore
-
   let showMenu = false
 </script>
 
 <div class="character">
   <div class="header">
     <div class="wrap">
-      <h1 class="name">{name}</h1>
+      <h1 class="name">{$nameStore}</h1>
     </div>
     <Button disabled>N</Button>
     <Button on:click={() => (showMenu = !showMenu)}>M</Button>
