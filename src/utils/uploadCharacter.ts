@@ -14,8 +14,6 @@ export default (event: Event) => {
         Object.keys(character).forEach((key: string) => {
           if (!Object.keys(testCharacter).includes(key)) {
             isValid = false
-            //TODO: Show error to user by popup
-            console.log('Wrong file')
           }
         })
 
