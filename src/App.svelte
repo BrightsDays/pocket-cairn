@@ -24,6 +24,7 @@
       inventory.set(JSON.parse(character).inventory)
     }
   })
+  //TODO: fix ui
 </script>
 
 <main>

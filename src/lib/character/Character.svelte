@@ -6,6 +6,7 @@
   import Sheet from './sheet/Sheet.svelte'
 
   let showMenu = false
+  //TODO: add notes
 </script>
 
 <div class="character">

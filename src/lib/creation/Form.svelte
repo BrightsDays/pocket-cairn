@@ -65,6 +65,7 @@
 
     setLocalCharacter()
   }
+  //TODO: add starter item sets
 </script>
 
 <div class="form">
