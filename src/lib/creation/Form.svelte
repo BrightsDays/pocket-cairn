@@ -2,12 +2,7 @@
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
   import Input from '../ui/TextInput.svelte'
-  import {
-    abilitiesStore,
-    coinsStore,
-    nameStore,
-    statsStore,
-  } from '../../store/characterStore'
+  import { abilities, coins, name, stats } from '../../store/characterStore'
   import rollDices from '../../utils/rollDices'
   import setLocalCharacter from '../../utils/setLocalCharacter'
 
@@ -47,8 +42,8 @@
       character[statsForChange[1]] = a
     }
 
-    nameStore.set(character.name)
-    abilitiesStore.set({
+    name.set(character.name)
+    abilities.set({
       str: character.str,
       dex: character.dex,
       wil: character.wil,
@@ -56,13 +51,13 @@
       dexMax: character.dex,
       wilMax: character.wil,
     })
-    statsStore.set({
+    stats.set({
       hp: character.hp,
       hpMax: character.hp,
       armor: 0,
       deprived: false,
     })
-    coinsStore.set({
+    coins.set({
       gp: character.gp.toString(),
       sp: '0',
       cp: '0',
@@ -70,6 +65,7 @@
 
     setLocalCharacter()
   }
+  //TODO: add starter item sets
 </script>
 
 <div class="form">

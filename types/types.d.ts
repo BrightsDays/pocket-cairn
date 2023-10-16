@@ -1,9 +1,3 @@
-export enum AbilityScores {
-  Str = 'str',
-  Dex = 'dex',
-  Wil = 'wil'
-}
-
 export type Abilities = {
   str: number
   dex: number
@@ -32,6 +26,7 @@ export type Item = {
   fatigue: boolean
 }
 
-export type inventory = Item[]
+export type Inventory = Item[]
 
-export type Mode = 'increase' | 'decrease'
+export type AbilityKeys = 'str' | 'dex' | 'wil'
+export type CoinKeys = 'gp' | 'sp' |'cp'

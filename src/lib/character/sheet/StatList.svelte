@@ -1,71 +1,31 @@
 <script lang="ts">
-  import type { Mode } from '../../../../types/types'
-  import { statsStore } from '../../../store/characterStore'
-  import setLocalCharacter from '../../../utils/setLocalCharacter'
+  import { stats } from '../../../store/characterStore'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Stat from './Stat.svelte'
-
-  let stats = $statsStore
-
-  const changeHp = (mode: Mode) => {
-    switch (mode) {
-      case 'increase':
-        stats.hp += stats.hp < stats.hpMax ? 1 : 0
-        statsStore.set(stats)
-        setLocalCharacter()
-        break
-      case 'decrease':
-        stats.hp -= stats.hp > 0 ? 1 : 0
-        statsStore.set(stats)
-        setLocalCharacter()
-        break
-    }
-  }
-
-  const changeArmor = (mode: Mode) => {
-    switch (mode) {
-      case 'increase':
-        stats.armor += stats.armor < 9 ? 1 : 0
-        statsStore.set(stats)
-        setLocalCharacter()
-        break
-      case 'decrease':
-        stats.armor -= stats.armor > 0 ? 1 : 0
-        statsStore.set(stats)
-        setLocalCharacter()
-        break
-    }
-  }
-
-  const changeDeprived = () => {
-    stats.deprived = !stats.deprived
-    statsStore.set(stats)
-    setLocalCharacter()
-  }
 </script>
 
 <div class="stats">
   <Stat
     title="HP"
-    value={stats.hp}
-    maxValue={stats.hpMax}
-    on:decrease={() => changeHp('decrease')}
-    on:increase={() => changeHp('increase')}
+    value={$stats.hp}
+    maxValue={$stats.hpMax}
+    on:decrease={stats.decreaseHp}
+    on:increase={stats.increaseHp}
   />
 
   <Stat
     title="Armor"
-    value={stats.armor}
-    on:decrease={() => changeArmor('decrease')}
-    on:increase={() => changeArmor('increase')}
+    value={$stats.armor}
+    on:decrease={stats.decreaseArmor}
+    on:increase={stats.increaceArmor}
   />
 
   <div class="deprived">
     <span class="title"> Deprived </span>
     <Checkbox
       size={40}
-      checked={stats.deprived}
-      on:change={(value) => changeDeprived()}
+      checked={$stats.deprived}
+      on:change={stats.changeDeprived}
     />
   </div>
 </div>

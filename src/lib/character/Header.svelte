@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { nameStore } from '../../store/characterStore'
+  import { name } from '../../store/characterStore'
   import Button from '../ui/Button.svelte'
 
-  let name = $nameStore
+  let name = $name
 
   let showMenu = false
 </script>

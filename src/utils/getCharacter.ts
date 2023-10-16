@@ -1,39 +1,39 @@
-import type { Abilities, Coins, Stats, inventory } from "../../types/types"
-import { abilitiesStore, coinsStore, inventoryStore, nameStore, statsStore } from "../store/characterStore"
+import type { Abilities, Coins, Stats, Inventory } from "../../types/types"
+import { abilities, coins, inventory, name, stats } from "../store/characterStore"
 
 export default () => {
-  let name: string
-  nameStore.subscribe((value) => (name = value))
-  let abilities: Abilities
-  abilitiesStore.subscribe((value) => (abilities = value))
-  let stats: Stats
-  statsStore.subscribe((value) => (stats = value))
-  let coins: Coins
-  coinsStore.subscribe((value) => (coins = value))
-  let inventory: inventory
-  inventoryStore.subscribe((value) => (inventory = value))
+  let nameValue: string
+  name.subscribe((value) => (nameValue = value))
+  let abilitiesValue: Abilities
+  abilities.subscribe((value) => (abilitiesValue = value))
+  let statsValue: Stats
+  stats.subscribe((value) => (statsValue = value))
+  let coinsValue: Coins
+  coins.subscribe((value) => (coinsValue = value))
+  let inventoryValue: Inventory
+  inventory.subscribe((value) => (inventoryValue = value))
 
   return {
-    name: name,
+    name: nameValue,
     abilities: {
-      str: abilities.str,
-      dex: abilities.dex,
-      wil: abilities.wil,
-      strMax: abilities.strMax,
-      dexMax: abilities.dexMax,
-      wilMax: abilities.wilMax,
+      str: abilitiesValue.str,
+      dex: abilitiesValue.dex,
+      wil: abilitiesValue.wil,
+      strMax: abilitiesValue.strMax,
+      dexMax: abilitiesValue.dexMax,
+      wilMax: abilitiesValue.wilMax,
     },
     stats: {
-      hp: stats.hp,
-      hpMax: stats.hpMax,
-      armor: stats.armor,
-      deprived: stats.deprived,
+      hp: statsValue.hp,
+      hpMax: statsValue.hpMax,
+      armor: statsValue.armor,
+      deprived: statsValue.deprived,
     },
     coins: {
-      gp: coins.gp,
-      sp: coins.sp,
-      cp: coins.cp,
+      gp: coinsValue.gp,
+      sp: coinsValue.sp,
+      cp: coinsValue.cp,
     },
-    inventory: inventory
+    inventory: inventoryValue
   }
 }

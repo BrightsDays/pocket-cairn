@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from '../ui/Button.svelte'
+  //TODO: add dice rolls
 </script>
 
 <div class="dice-list">

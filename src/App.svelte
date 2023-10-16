@@ -3,31 +3,32 @@
   import Character from './lib/character/Character.svelte'
   import Creation from './lib/creation/Creation.svelte'
   import {
-    abilitiesStore,
-    coinsStore,
-    inventoryStore,
-    nameStore,
-    statsStore,
+    abilities,
+    coins,
+    inventory,
+    name,
+    stats,
   } from './store/characterStore'
 
-  let name = $nameStore
-  nameStore.subscribe((value) => (name = value))
+  let nameValue = $name
+  name.subscribe((value) => (nameValue = value))
 
   onMount(() => {
     const character = localStorage.getItem('pc__character')
 
     if (character) {
-      nameStore.set(JSON.parse(character).name)
-      abilitiesStore.set(JSON.parse(character).abilities)
-      statsStore.set(JSON.parse(character).stats)
-      coinsStore.set(JSON.parse(character).coins)
-      inventoryStore.set(JSON.parse(character).inventory)
+      name.set(JSON.parse(character).name)
+      abilities.set(JSON.parse(character).abilities)
+      stats.set(JSON.parse(character).stats)
+      coins.set(JSON.parse(character).coins)
+      inventory.set(JSON.parse(character).inventory)
     }
   })
+  //TODO: fix ui
 </script>
 
 <main>
-  {#if name}
+  {#if nameValue}
     <Character />
   {:else}
     <Creation />
