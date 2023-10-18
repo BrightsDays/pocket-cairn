@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
+  export let className: string | undefined
   export let height: number = 40
   export let padding: number = 0
   export let disabled: boolean = false
@@ -11,7 +12,7 @@
 </script>
 
 <button
-  class="button"
+  class={`button${className ? ' ' + className : ''}`}
   {disabled}
   style={`
     min-width: ${height}px;
@@ -26,7 +27,7 @@
   </p>
 </button>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .button {
     display: flex;
     justify-content: center;
