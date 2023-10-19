@@ -62,8 +62,11 @@
     p {
       margin: 0;
       font-size: 1.6rem;
-      line-height: 1;
+      line-height: 1.6rem;
       background: none;
+      @supports (-webkit-touch-callout: none) {
+        margin-top: -0.1rem;
+      }
     }
 
     // &:hover {
