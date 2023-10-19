@@ -126,6 +126,7 @@
         padding: 4px;
         font-size: 1.6em;
         text-transform: uppercase;
+        color: var(--main);
         border: 1px solid var(--main);
         border-radius: calc(1px + 1.5625vw);
         background: none;

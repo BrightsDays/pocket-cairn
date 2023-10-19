@@ -2,6 +2,7 @@
 
 :root {
   --background: oklch(33% 0.015 252.31);
+  --background-to-opacity: oklch(33% 0.015 252.31 / 90%);
   --second-background: oklch(66.33% 0 0 / 30%);
   --main: oklch(100% 0 0);
   --second: oklch(66.33% 0 0);

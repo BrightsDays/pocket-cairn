@@ -1,10 +1,12 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  export let className: string | undefined
   export let height: number = 40
   export let padding: number = 0
   export let disabled: boolean = false
+  export let borderless: boolean = false
+  export let image: string | undefined = undefined
+  export let alt: string | undefined = undefined
 
   $: padding ||= 0
 
@@ -12,7 +14,7 @@
 </script>
 
 <button
-  class={`button${className ? ' ' + className : ''}`}
+  class={`button${borderless ? ' borderless' : ''}`}
   {disabled}
   style={`
     min-width: ${height}px;
@@ -22,9 +24,13 @@
   `}
   on:click={() => dispatch('click')}
 >
-  <p>
-    <slot />
-  </p>
+  {#if image}
+    <img class="image" src={image} {alt} />
+  {:else}
+    <p>
+      <slot />
+    </p>
+  {/if}
 </button>
 
 <style lang="scss" scoped>
@@ -35,6 +41,7 @@
     color: var(--main);
     border: 1px solid var(--main);
     background-color: var(--background);
+    touch-action: manipulation;
     cursor: pointer;
     &:disabled {
       color: var(--second-background);
@@ -42,15 +49,25 @@
       pointer-events: none;
     }
 
+    &.borderless {
+      border: none;
+    }
+
+    .image {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
     p {
       margin: 0;
-      font-size: 2em;
-      line-height: normal;
+      font-size: 1.6rem;
+      line-height: 1;
       background: none;
     }
 
-    &:hover {
-      background-color: var(--second-background);
-    }
+    // &:hover {
+    //   background-color: var(--second-background);
+    // }
   }
 </style>

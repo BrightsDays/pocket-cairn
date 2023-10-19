@@ -14,14 +14,16 @@
     {title}
   </span>
 
-  <Button on:click={() => dispatch('decrease')}>-</Button>
-  <div class="current">
-    {value}
-    {#if maxValue}
-      /{maxValue}
-    {/if}
+  <div class="controls">
+    <Button on:click={() => dispatch('decrease')}>&minus;</Button>
+    <div class="current">
+      {value}
+      {#if maxValue}
+        /{maxValue}
+      {/if}
+    </div>
+    <Button on:click={() => dispatch('increase')}>&plus;</Button>
   </div>
-  <Button on:click={() => dispatch('increase')}>+</Button>
 </div>
 
 <style lang="scss">
@@ -29,42 +31,26 @@
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 2%;
+    gap: 10%;
 
     .title {
       margin-right: auto;
       text-transform: uppercase;
-      font-size: 3em;
+      font-size: 2.6em;
+      font-weight: lighter;
       line-height: 1.2;
     }
 
-    .current {
-      font-size: 3em;
-      line-height: 1.2;
-    }
-
-    .button {
+    .controls {
       display: flex;
-      justify-content: center;
+      width: 65%;
+      justify-content: space-between;
       align-items: center;
-      padding: 0;
-      width: 3em;
-      height: 3em;
-      color: var(--main);
-      border: 2px solid var(--main);
-      border-radius: 50%;
-      background-color: var(--background);
-      cursor: pointer;
+      gap: 2%;
 
-      p {
-        margin: 0;
-        font-size: 2em;
-        line-height: normal;
-        background: none;
-      }
-
-      &:hover {
-        background-color: var(--second-background);
+      .current {
+        font-size: 3em;
+        line-height: 1.2;
       }
     }
   }

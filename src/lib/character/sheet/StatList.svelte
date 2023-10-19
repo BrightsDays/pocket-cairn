@@ -40,7 +40,7 @@
     .title {
       margin-right: auto;
       text-transform: uppercase;
-      font-size: 3em;
+      font-size: 2.6em;
       line-height: 1.2;
     }
   }

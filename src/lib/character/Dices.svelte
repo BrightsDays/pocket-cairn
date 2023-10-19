@@ -8,11 +8,7 @@
 
 <div class="dice-list">
   {#each dicesValue as dice}
-    <Button
-      height={50}
-      on:click={() => dices.roll(dice.key)}
-      className={`d${dice.key}`}
-    >
+    <Button height={50} on:click={() => dices.roll(dice.key)}>
       {dice.value}
     </Button>
   {/each}
