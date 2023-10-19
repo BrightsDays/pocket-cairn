@@ -20,9 +20,11 @@
 />
 
 <style lang="scss">
+  @import '../../app.scss';
+
   .input {
     width: 100%;
-    padding: calc(0px + 1.5625vw) calc(2px + 1.5625vw);
+    @include padding(0, 2);
     font-size: 1.4rem;
     background: none;
     border: none;

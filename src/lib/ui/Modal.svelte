@@ -9,7 +9,6 @@
   export let submission: boolean = false
 
   const dispatch = createEventDispatcher()
-  //TODO: use calc() as scss variables
 </script>
 
 {#if isShown}
@@ -38,6 +37,8 @@
 {/if}
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .modal {
     display: flex;
     position: absolute;
@@ -46,11 +47,11 @@
     bottom: 0;
     width: 100%;
     height: fit-content;
-    padding: calc(16px + 1.5625vw) calc(8px + 1.5625vw);
+    @include padding(16, 8);
     background: var(--background);
-    border-radius: calc(8px + 1.5625vw) calc(8px + 1.5625vw) 0 0;
+    border-radius: 10px 10px 0 0;
     box-shadow: 0px 0px 10px 0px var(--black);
-    gap: calc(16px + 1.5625vw);
+    @include gap(16);
     box-sizing: border-box;
     z-index: 2;
 
@@ -62,7 +63,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin-top: auto;
-      gap: calc(8px + 1.5625vw);
+      @include gap(8);
 
       &.submission {
         grid-template-columns: 1fr;

@@ -35,6 +35,8 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .character {
     display: flex;
     position: relative;
@@ -53,7 +55,7 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0px 0px 10px 0px var(--black);
-      gap: calc(8px + 1.5625vw);
+      @include gap(8);
       z-index: 1;
 
       .name {

@@ -15,9 +15,11 @@
 </div>
 
 <style lang="scss">
+  @import '../../app.scss';
+
   .dice-list {
     display: flex;
     justify-content: space-between;
-    gap: calc(4px + 1.5625vw);
+    @include gap(4);
   }
 </style>

@@ -26,11 +26,13 @@
 </Modal>
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .menu {
     display: flex;
     position: relative;
     flex-direction: column;
-    gap: calc(8px + 1.5625vw);
+    @include gap(8);
     box-sizing: border-box;
   }
 </style>

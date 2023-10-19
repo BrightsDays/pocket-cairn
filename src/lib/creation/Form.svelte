@@ -103,11 +103,13 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .form {
     display: flex;
     height: 100%;
     flex-direction: column;
-    gap: calc(16px + 1.5625vw);
+    @include gap(16);
 
     .title {
       margin-bottom: calc(8px + 1.5625vw);
@@ -120,7 +122,7 @@
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: calc(8px + 1.5625vw);
+      @include gap(8);
 
       .item {
         padding: 4px;
@@ -128,7 +130,7 @@
         text-transform: uppercase;
         color: var(--main);
         border: 1px solid var(--main);
-        border-radius: calc(1px + 1.5625vw);
+        border-radius: 5px;
         background: none;
         &.selected {
           background-color: var(--second-background);
@@ -144,7 +146,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin-top: auto;
-      gap: calc(8px + 1.5625vw);
+      @include gap(8);
     }
   }
 </style>
