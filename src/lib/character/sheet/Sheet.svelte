@@ -23,13 +23,15 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../../../app.scss';
+
   .sheet {
     display: flex;
     position: relative;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: calc(8px + 1.5625vw);
+    @include padding(8);
     overflow: auto;
     box-sizing: border-box;
   }

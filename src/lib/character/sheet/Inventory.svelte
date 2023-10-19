@@ -50,6 +50,10 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
+
+      .info {
+        color: var(--second);
+      }
     }
 
     .list {

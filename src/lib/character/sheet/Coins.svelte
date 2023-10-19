@@ -23,9 +23,11 @@
 </div>
 
 <style lang="scss">
+  @import '../../../app.scss';
+
   .coins {
     display: flex;
-    gap: calc(2px + 1.5625vw);
+    @include gap(2);
 
     .item {
       display: flex;

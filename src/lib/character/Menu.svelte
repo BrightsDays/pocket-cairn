@@ -27,6 +27,8 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .menu {
     display: flex;
     position: relative;
@@ -34,9 +36,9 @@
     justify-content: flex-end;
     width: 100%;
     height: 100%;
-    padding: calc(16px + 1.5625vw) calc(8px + 1.5625vw);
+    @include padding(16, 8);
     background: var(--background);
     box-sizing: border-box;
-    gap: calc(8px + 1.5625vw);
+    @include gap(8);
   }
 </style>

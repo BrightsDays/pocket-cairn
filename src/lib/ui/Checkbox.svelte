@@ -20,9 +20,9 @@
     font-size: 22px;
     user-select: none;
     aspect-ratio: 1;
-    &:hover input ~ .checkmark {
-      background-color: var(--second-background);
-    }
+    // &:hover input ~ .checkmark {
+    //   background-color: var(--second-background);
+    // }
 
     input {
       position: absolute;

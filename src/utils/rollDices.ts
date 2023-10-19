@@ -1,4 +1,4 @@
-export default (dices: number, facets: number = 6): number => {
+export default (dices: number = 1, facets: number = 6): number => {
   const result = []
 
   for (let i = 0; i < dices; i++) {

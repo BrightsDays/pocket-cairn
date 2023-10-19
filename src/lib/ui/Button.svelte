@@ -4,6 +4,9 @@
   export let height: number = 40
   export let padding: number = 0
   export let disabled: boolean = false
+  export let borderless: boolean = false
+  export let image: string | undefined = undefined
+  export let alt: string | undefined = undefined
 
   $: padding ||= 0
 
@@ -11,7 +14,7 @@
 </script>
 
 <button
-  class="button"
+  class={`button${borderless ? ' borderless' : ''}`}
   {disabled}
   style={`
     min-width: ${height}px;
@@ -21,12 +24,16 @@
   `}
   on:click={() => dispatch('click')}
 >
-  <p>
-    <slot />
-  </p>
+  {#if image}
+    <img class="image" src={image} {alt} />
+  {:else}
+    <p>
+      <slot />
+    </p>
+  {/if}
 </button>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .button {
     display: flex;
     justify-content: center;
@@ -34,6 +41,7 @@
     color: var(--main);
     border: 1px solid var(--main);
     background-color: var(--background);
+    touch-action: manipulation;
     cursor: pointer;
     &:disabled {
       color: var(--second-background);
@@ -41,15 +49,28 @@
       pointer-events: none;
     }
 
-    p {
-      margin: 0;
-      font-size: 2em;
-      line-height: normal;
-      background: none;
+    &.borderless {
+      border: none;
     }
 
-    &:hover {
-      background-color: var(--second-background);
+    .image {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
     }
+
+    p {
+      margin: 0;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      background: none;
+      @supports (-webkit-touch-callout: none) {
+        margin-top: -0.1rem;
+      }
+    }
+
+    // &:hover {
+    //   background-color: var(--second-background);
+    // }
   }
 </style>

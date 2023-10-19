@@ -1,19 +1,25 @@
 <script lang="ts">
+  import { dices } from '../../store/diceStore'
   import Button from '../ui/Button.svelte'
-  //TODO: add dice rolls
+
+  let dicesValue = $dices
+  dices.subscribe((value) => (dicesValue = value))
 </script>
 
 <div class="dice-list">
-  {#each ['4', '6', '8', '10', '12', '20'] as dice}
-    <Button padding={22}>
-      {dice}
+  {#each dicesValue as dice}
+    <Button height={50} on:click={() => dices.roll(dice.key)}>
+      {dice.value}
     </Button>
   {/each}
 </div>
 
 <style lang="scss">
+  @import '../../app.scss';
+
   .dice-list {
     display: flex;
     justify-content: space-between;
+    @include gap(4);
   }
 </style>

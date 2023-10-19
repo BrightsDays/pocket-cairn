@@ -19,12 +19,14 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../../app.scss';
+
   .creation {
     display: flex;
     height: 100svh;
     flex-direction: column;
     justify-content: space-between;
-    padding: calc(32px + 1.5625vw) calc(8px + 1.5625vw);
+    @include padding(32, 8);
     box-sizing: border-box;
 
     .header {
