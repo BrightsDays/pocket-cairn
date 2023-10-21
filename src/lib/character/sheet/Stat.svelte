@@ -45,6 +45,7 @@
     .controls {
       display: flex;
       width: 65%;
+      max-width: 300px;
       justify-content: space-between;
       align-items: center;
       gap: 2%;
