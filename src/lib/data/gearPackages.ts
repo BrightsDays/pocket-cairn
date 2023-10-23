@@ -1,4 +1,4 @@
-const gearPackages = [
+export const gearPackages = [
   {
     title: 'Cleric',
     inventory: 
@@ -335,4 +335,229 @@ const gearPackages = [
       }
     ]
   },
+  {
+    title: 'Knight',
+    inventory: 
+    [
+      {
+        title: 'Rations (3)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Longsword (d10, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Chainmail (2 Armor, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Helmet (+1 Armor)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Heraldic Cape',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Manacles',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Fine Rope',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ]
+  },
+  {
+    title: 'Magic User',
+    inventory: 
+    [
+      {
+        title: 'Rations (3)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Fizzled Staff (d8, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Dagger (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Spellbook (random spell)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Spellbook (random spell)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Ragged Clothing (hidden pockets)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Leycap (x2, see Relics)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ]
+  },
+  {
+    title: 'Thief',
+    inventory: 
+    [
+      {
+        title: 'Rations (3)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Two daggers (d6+d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Hooded Jerkin (1 Armor)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Lockpicks',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Caltrops',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Grappling Hook',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Metal File',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ]
+  },
+  {
+    title: 'Ranger',
+    inventory: 
+    [
+      {
+        title: 'Rations (3)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Longbow (d8, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Hatchet (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Padded Leathers (1 Armor)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Large Trap',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Bloodhound | 2 HP, 12 DEX, bite (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Thundering Horn',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ]
+  },
 ]
+//TODO: choose random spells

@@ -2,9 +2,17 @@
   import { createEventDispatcher } from 'svelte'
   import Button from '../ui/Button.svelte'
   import Input from '../ui/TextInput.svelte'
-  import { abilities, coins, name, stats } from '../../store/characterStore'
+  import {
+    abilities,
+    coins,
+    inventory,
+    name,
+    stats,
+  } from '../../store/characterStore'
   import rollDices from '../../utils/rollDices'
   import setLocalCharacter from '../../utils/setLocalCharacter'
+  import startingInventory from '../../utils/startingInventory'
+  import { gearPackages } from '../data/gearPackages'
 
   const dispatch = createEventDispatcher()
 
@@ -62,6 +70,7 @@
       sp: '0',
       cp: '0',
     })
+    inventory.set(startingInventory())
 
     setLocalCharacter()
   }
@@ -92,6 +101,11 @@
       click, and the change will take effect after character creation.
     </span>
   </div>
+  <!-- <div class="packs">
+    {#each gearPackages as pack}
+      <span>{pack.title}</span>
+    {/each}
+  </div> -->
 
   <div class="controls">
     <Button on:click={() => dispatch('hide-form')}>Back</Button>
