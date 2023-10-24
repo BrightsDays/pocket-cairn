@@ -12,6 +12,7 @@
   import rollDices from '../../utils/rollDices'
   import setLocalCharacter from '../../utils/setLocalCharacter'
   import startingInventory from '../../utils/startingInventory'
+  import SelectInput from '../ui/SelectInput.svelte'
   import { gearPackages } from '../data/gearPackages'
 
   const dispatch = createEventDispatcher()
@@ -24,6 +25,8 @@
     hp: rollDices(1, 6),
     gp: rollDices(3, 6),
   }
+  let gearList = ['None', ...gearPackages.map((item) => item.title)]
+  let selectedGear: string = gearList[0]
 
   let statsForChange = []
 
@@ -74,7 +77,6 @@
 
     setLocalCharacter()
   }
-  //TODO: add starter item sets
 </script>
 
 <div class="form">
@@ -101,11 +103,12 @@
       click, and the change will take effect after character creation.
     </span>
   </div>
-  <!-- <div class="packs">
-    {#each gearPackages as pack}
-      <span>{pack.title}</span>
-    {/each}
-  </div> -->
+
+  <SelectInput
+    options={gearList}
+    value={selectedGear}
+    on:select={(value) => (selectedGear = value.detail)}
+  />
 
   <div class="controls">
     <Button on:click={() => dispatch('hide-form')}>Back</Button>
