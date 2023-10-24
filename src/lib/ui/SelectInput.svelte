@@ -16,13 +16,17 @@
 </script>
 
 <div class="input">
-  <select class="select" on:click={() => (showList = true)}>
+  <!-- <select class="select" on:click={() => (showList = true)}>
     {#each options as item}
       <option class="option" selected={item === value}>
         {item}
       </option>
     {/each}
-  </select>
+  </select> -->
+
+  <button class="select" on:click={() => (showList = true)}>
+    {value}
+  </button>
 
   {#if showList}
     <div
@@ -61,8 +65,9 @@
 
     .select {
       width: 100%;
-      padding: 4px;
+      padding: 4px 8px;
       font-size: 1.6em;
+      text-align: left;
       text-transform: uppercase;
       color: var(--main);
       border: 1px solid var(--main);
@@ -88,13 +93,15 @@
       margin-top: -25%;
       padding: 10px;
       background: var(--background);
-      border: 1px solid var(--main);
+      // border: 1px solid var(--main);
+      box-shadow: 0px 0px 10px 0px var(--black);
       border-radius: 5px;
       @include gap(2);
       z-index: 1;
 
       .item {
         display: block;
+        color: var(--main);
         font-size: 1.2em;
         text-transform: uppercase;
         text-align: left;
