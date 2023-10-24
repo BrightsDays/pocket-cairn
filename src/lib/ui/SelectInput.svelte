@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition'
+  import { quintOut } from 'svelte/easing'
   import { createEventDispatcher } from 'svelte'
   import clickOutside from '../../utils/clickOutside'
 
@@ -34,6 +36,12 @@
       style={`top: -${(options.length / 2) * 25}%`}
       use:clickOutside
       on:click_outside={() => (showList = false)}
+      transition:slide={{
+        delay: 100,
+        duration: 200,
+        easing: quintOut,
+        axis: 'y',
+      }}
     >
       {#each options as item}
         <button class="item" on:click={() => selectHandler(item)}>

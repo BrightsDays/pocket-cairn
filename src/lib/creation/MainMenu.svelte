@@ -18,8 +18,8 @@
 <div class="menu">
   <Button on:click={() => dispatch('show-form')}>Roll a character</Button>
   <FileInput on:change={(event) => uploadHandler(event)} />
-  <Button disabled>Characters list</Button>
-  <Button disabled>Warden space</Button>
+  <!-- <Button disabled>Characters list</Button>
+  <Button disabled>Warden space</Button> -->
 </div>
 <Modal submission isShown={showModal} on:cancel={() => (showModal = false)}>
   Wrong file type or json structure

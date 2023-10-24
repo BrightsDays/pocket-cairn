@@ -3,7 +3,7 @@
   import Menu from './MainMenu.svelte'
 
   let showForm = false
-  //TODO: add description
+  //TODO: add image
 </script>
 
 <div class="creation">
@@ -11,6 +11,14 @@
     <div class="header">
       <h1 class="title">Mobile Cairn</h1>
       <span class="version"> v.0.1</span>
+      <span class="info">
+        Cairn is a game created by
+        <a href="https://newschoolrevolution.com">Yochai Gal</a><br />
+        Official game page -
+        <a href="cairnrpg.com">cairnrpg.com</a><br />
+        Rate or comment this application on
+        <a href="https://github.com/BrightsDays/mobile-cairn">GitHub</a> :)
+      </span>
     </div>
     <Menu on:show-form={() => (showForm = true)} />
   {:else}
@@ -32,6 +40,10 @@
     .header {
       .title {
         font-family: 'Pirata One', sans-serif;
+      }
+
+      .info {
+        display: block;
       }
     }
   }
