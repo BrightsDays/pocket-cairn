@@ -103,7 +103,7 @@
           .text {
             display: inline-block;
             margin: 0;
-            padding: 0 15px;
+            padding: 0 15px 2px;
             text-align: left;
             line-height: 1;
             color: var(--main);

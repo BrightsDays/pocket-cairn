@@ -26,6 +26,11 @@ export type Item = {
   fatigue: boolean
 }
 
+export type Scar = {
+  content: string
+  resolve?: () => {}
+}
+
 export type Inventory = Item[]
 
 export type AbilityKeys = 'str' | 'dex' | 'wil'

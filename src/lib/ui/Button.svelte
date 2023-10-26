@@ -3,6 +3,7 @@
 
   export let height: number = 40
   export let padding: number = 0
+  export let fontSize: string = '1.6rem'
   export let disabled: boolean = false
   export let borderless: boolean = false
   export let image: string | undefined = undefined
@@ -21,6 +22,8 @@
     height: ${height}px;
     border-radius: ${height / 2}px;
     padding: ${padding}px;
+    font-size: ${fontSize};
+    line-height: ${fontSize};
   `}
   on:click={() => dispatch('click')}
 >
@@ -61,8 +64,6 @@
 
     p {
       margin: 0;
-      font-size: 1.6rem;
-      line-height: 1.6rem;
       background: none;
       @supports (-webkit-touch-callout: none) {
         margin-top: -0.1rem;
