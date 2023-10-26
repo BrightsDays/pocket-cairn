@@ -7,13 +7,14 @@
   export let maxValue: number | undefined = undefined
 
   const dispatch = createEventDispatcher()
-  //TODO: add red color marker for damaged stats
 </script>
 
 <div class="ability">
-  <span class="title">
-    {title}
-  </span>
+  {#if title}
+    <span class="title">
+      {title}
+    </span>
+  {/if}
 
   <div class="controls">
     <Button on:click={() => dispatch('decrease')}>&minus;</Button>
@@ -32,6 +33,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: space-around;
     gap: 10%;
 
     .title {

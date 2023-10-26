@@ -4,7 +4,6 @@
   import Stats from '../sheet/StatList.svelte'
   import Coins from '../sheet/Coins.svelte'
   import Section from '../../ui/Section.svelte'
-  //TODO: add scars
 </script>
 
 <div class="sheet">

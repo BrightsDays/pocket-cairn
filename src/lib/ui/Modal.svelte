@@ -3,6 +3,7 @@
   import { quintOut } from 'svelte/easing'
   import { createEventDispatcher } from 'svelte'
   import Button from './Button.svelte'
+  import clickOutside from '../../utils/clickOutside'
 
   export let isShown: boolean
   export let title: string | undefined = undefined
@@ -20,6 +21,8 @@
       easing: quintOut,
       axis: 'y',
     }}
+    use:clickOutside
+    on:click_outside={() => dispatch('cancel')}
   >
     {#if title}
       <h2 class="title">{title}</h2>
