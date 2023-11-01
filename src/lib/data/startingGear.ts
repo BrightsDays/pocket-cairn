@@ -1,5 +1,5 @@
 export const startingArmor = () => {
-  const list = []
+  const list = ['']
 
   for (let item = 1; item <= 20; item++) {
     if (item <= 3) {
@@ -17,7 +17,7 @@ export const startingArmor = () => {
 }
 
 export const startingHelmOrShield = () => {
-  const list = []
+  const list = ['']
 
   for (let item = 1; item <= 20; item++) {
     if (item <= 13) {
@@ -35,7 +35,7 @@ export const startingHelmOrShield = () => {
 }
 
 export const startingWeapons = () => {
-  const list = []
+  const list = ['']
 
   for (let item = 1; item <= 20; item++) {
     if (item <= 5) {
@@ -52,7 +52,7 @@ export const startingWeapons = () => {
       list.push('Halberd/War Hammer/Battleaxe  (d10 damage, bulky)')
     }
   }
-
+  
   return list
 }
 
@@ -69,7 +69,7 @@ export const startingTools = [
   'Bucket',	'Crowbar',	'Hammer',	'Saw',
   'Caltrops',	'Drill (Manual)',	'Hour Glass',	'Sealant',
   'Chalk',	'Fishing Rod',	'Metal File',	'Shovel',
-  'Chisel', 'Glue	15',	'Nails',	'Tongs'
+  'Chisel', 'Glue',	'Nails',	'Tongs'
 ]
 
 export const startingTrinkets = [
