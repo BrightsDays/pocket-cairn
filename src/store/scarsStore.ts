@@ -17,9 +17,15 @@ const increaseHp = (type: 'change' | 'add', diceNumber: number = 1) => {
   const newHp = rollDices(diceNumber, 6)
   
   if (type !== 'add') {
-    if (newHp > currentHp) stats.setMaxHp(newHp)
+    if (newHp > currentHp) {
+      stats.setMaxHp(newHp)
+      scars.addHistory(`HP has been set to ${newHp}.`)
+    } else {
+      scars.addHistory('HP roll result was too low, no upgrade.')
+    }
   } else {
     stats.setMaxHp(currentHp + newHp)
+    scars.addHistory(`${newHp} has been added to HP.`)
   }
 }
 
@@ -31,9 +37,20 @@ const increaseAbility = (type: 'change' | 'add', ability?: AbilityKeys) => {
   const newAbility = rollDices(3, 6)
 
   if (type !== 'add') {
-    if (currentAbility < newAbility) abilities.setMaxAbility(abilityKey as AbilityKeys, newAbility)
+    if (currentAbility < newAbility) {
+      abilities.setMaxAbility(abilityKey as AbilityKeys, newAbility)
+      scars.addHistory(`${abilityKey.toUpperCase()} has been set to ${newAbility}.`)
+    } else {
+      scars.addHistory(`${abilityKey.toUpperCase()} roll result was too low, no upgrade.`)
+    }
   } else {
-    if (rollSave(abilityKey as AbilityKeys)) stats.setMaxHp(currentAbility + rollDices(1, 4))
+    if (rollSave(abilityKey as AbilityKeys)) {
+      const dice = rollDices(1, 4)
+      stats.setMaxHp(currentAbility + dice)
+      scars.addHistory(`${dice} has been added to ${abilityKey.toUpperCase()}.`)
+    } else {
+      scars.addHistory(`${abilityKey.toUpperCase()} save was failed, no upgrade.`)
+    }
   }
 }
 
@@ -124,6 +141,13 @@ const createScars = () => {
 
       return [...scars]
     }),
+    addHistory: (content: string) => setTimeout(() => update((scars) => {
+      scars = [...scars, {
+        content: content
+      }]
+
+      return [...scars]
+    }), 0),
     resolve: (index: number) => update((scars) => {
       scars[index].resolve = null
       return [...scars]

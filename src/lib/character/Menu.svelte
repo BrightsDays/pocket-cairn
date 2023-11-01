@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { name } from '../../store/characterStore'
+  import { name, stats } from '../../store/characterStore'
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
@@ -7,6 +7,7 @@
   import Stat from './sheet/Stat.svelte'
 
   let showDeleteModal = false
+  let showScarCheck = false
   let showScarModal = false
   let damage = 0
 
@@ -18,6 +19,7 @@
   const addScar = () => {
     scars.add(damage)
     showScarModal = false
+    damage = 0
   }
 
   const deleteCharacter = () => {
@@ -26,18 +28,17 @@
     localStorage.removeItem('pc__character')
   }
   //TODO: add characters list
-  //TODO: add scars changes notification/data (?)
 </script>
 
 <div class="menu">
-  <span class="title">Scars:</span>
+  <span class="title">Scars history:</span>
   <div class="scars">
     <div class="wrap">
       {#if $scars.length === 0}
         <div class="item">You have not scars</div>
       {/if}
       {#each $scars as item, index}
-        <div class={`item${item.resolve ? ' resolvable' : ''}`}>
+        <div class="item resolvable">
           {item.content}
           {#if item.resolve}
             <Button
@@ -45,13 +46,19 @@
               fontSize="1rem"
               on:click={() => resolveScar(index, item.resolve)}>Resolve</Button
             >
+          {:else}
+            <Button height={30} fontSize="1rem" disabled>Resolved</Button>
           {/if}
         </div>
       {/each}
     </div>
   </div>
 
-  <Button padding={4} on:click={() => (showScarModal = true)}>Add scar</Button>
+  <Button
+    padding={4}
+    disabled={$stats.hp > 0}
+    on:click={() => (showScarCheck = true)}>Add scar</Button
+  >
   <Button padding={4} on:click={() => downloadJson()}
     >Download character (json)</Button
   >
@@ -61,8 +68,25 @@
   >
 
   <Modal
+    isShown={showScarCheck}
+    on:cancel={() => (showScarCheck = false)}
+    on:ok={() => {
+      showScarModal = true
+      showScarCheck = false
+    }}
+  >
+    Adding a scar is an irreversible action that enables you to advance your
+    character. Have you consulted with the Warden to confirm that you can
+    acquire a scar?
+  </Modal>
+
+  <Modal
     isShown={showScarModal}
-    on:cancel={() => (showScarModal = false)}
+    disableOk={damage === 0}
+    on:cancel={() => {
+      showScarModal = false
+      damage = 0
+    }}
     on:ok={() => addScar()}
   >
     How many damage points was taken?
