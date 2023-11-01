@@ -26,7 +26,7 @@
     hp: rollDices(1, 6),
     gp: rollDices(3, 6),
   }
-  let gearList = ['random', ...gearPackages.map((item) => item.title)]
+  let gearList = ['random', ...gearPackages().map((item) => item.title)]
   let selectedGear: string = gearList[0]
   let statsForChange = []
 
@@ -76,7 +76,7 @@
     inventory.set(
       selectedGear === 'random'
         ? startingInventory()
-        : gearPackages.find((item) => item.title === selectedGear).inventory
+        : gearPackages().find((item) => item.title === selectedGear).inventory
     )
 
     setLocalCharacter()
@@ -129,7 +129,7 @@
       </span>
       {#if selectedGear !== 'random'}
         <div class="items-list">
-          {#each gearPackages.find((item) => item.title === selectedGear).inventory as item}
+          {#each gearPackages().find((item) => item.title === selectedGear).inventory as item}
             {#if item.title}<span class="item">{item.title}</span>{/if}
           {/each}
         </div>
