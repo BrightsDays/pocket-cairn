@@ -1,4 +1,5 @@
 import { abilities, coins, inventory, name, stats } from "../store/characterStore"
+import { scars } from "../store/scarsStore"
 import getCharacter from "./getCharacter"
 
 export default (event: Event) => {
@@ -23,6 +24,7 @@ export default (event: Event) => {
           stats.set(character.stats)
           coins.set(character.coins)
           inventory.set(character.inventory)
+          scars.set(character.scars)
         }
       }
     }

@@ -3,18 +3,14 @@
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
-  import { scars } from '../../store/scarsStore'
+  import { increaseAbility, increaseHp, scars } from '../../store/scarsStore'
   import Stat from './sheet/Stat.svelte'
+  import type { Resolve } from '../../../types/types'
 
   let showDeleteModal = false
   let showScarCheck = false
   let showScarModal = false
   let damage = 0
-
-  const resolveScar = (index: number, effect: Function) => {
-    effect()
-    scars.resolve(index)
-  }
 
   const addScar = () => {
     scars.add(damage)
@@ -44,7 +40,7 @@
             <Button
               height={30}
               fontSize="1rem"
-              on:click={() => resolveScar(index, item.resolve)}>Resolve</Button
+              on:click={() => scars.resolve(index)}>Resolve</Button
             >
           {:else}
             <Button height={30} fontSize="1rem" disabled>Resolved</Button>
@@ -188,7 +184,7 @@
           }
 
           &.resolvable {
-            grid-template-columns: 4fr 1fr;
+            grid-template-columns: 3fr 1fr;
           }
         }
       }

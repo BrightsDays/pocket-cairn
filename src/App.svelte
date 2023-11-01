@@ -9,6 +9,7 @@
     name,
     stats,
   } from './store/characterStore'
+  import { scars } from './store/scarsStore'
 
   let nameValue = $name
   name.subscribe((value) => (nameValue = value))
@@ -22,6 +23,7 @@
       stats.set(JSON.parse(character).stats)
       coins.set(JSON.parse(character).coins)
       inventory.set(JSON.parse(character).inventory)
+      scars.set(JSON.parse(character).scars)
     }
   })
 </script>

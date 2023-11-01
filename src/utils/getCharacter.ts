@@ -1,5 +1,6 @@
-import type { Abilities, Coins, Stats, Inventory } from "../../types/types"
+import type { Abilities, Coins, Stats, Inventory, Scar } from "../../types/types"
 import { abilities, coins, inventory, name, stats } from "../store/characterStore"
+import { scars } from "../store/scarsStore"
 
 export default () => {
   let nameValue: string
@@ -12,6 +13,8 @@ export default () => {
   coins.subscribe((value) => (coinsValue = value))
   let inventoryValue: Inventory
   inventory.subscribe((value) => (inventoryValue = value))
+  let scarsValue: Scar[]
+  scars.subscribe((value) => scarsValue = value)
 
   return {
     name: nameValue,
@@ -34,6 +37,7 @@ export default () => {
       sp: coinsValue.sp,
       cp: coinsValue.cp,
     },
-    inventory: inventoryValue
+    inventory: inventoryValue,
+    scars: scarsValue
   }
 }

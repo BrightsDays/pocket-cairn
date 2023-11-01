@@ -2,6 +2,7 @@ import { writable } from "svelte/store"
 import rollDices from "../utils/rollDices"
 import { abilities, stats } from "./characterStore"
 import type { AbilityKeys } from "../../types/types"
+import setLocalCharacter from "../utils/setLocalCharacter"
 
 const rollSave = (abilityKey: AbilityKeys) => {
   let abilityValue: number
@@ -11,7 +12,7 @@ const rollSave = (abilityKey: AbilityKeys) => {
   return (roll === 1 || roll <= abilityValue)
 }
 
-const increaseHp = (type: 'change' | 'add', diceNumber: number = 1) => {
+export const increaseHp = (type: 'change' | 'add', diceNumber: number = 1) => {
   let currentHp: number
   stats.subscribe(value => currentHp = value.hpMax)
   const newHp = rollDices(diceNumber, 6)
@@ -29,7 +30,7 @@ const increaseHp = (type: 'change' | 'add', diceNumber: number = 1) => {
   }
 }
 
-const increaseAbility = (type: 'change' | 'add', ability?: AbilityKeys) => {
+export const increaseAbility = (type: 'change' | 'add', ability?: AbilityKeys) => {
   const abilityKey = ability ? ability : ['', 'str', 'dex', 'wil'][rollDices(1, 3)]
 
   let currentAbility: number
@@ -79,19 +80,31 @@ const createScars = () => {
         case 3:
           scars = [...scars, {
             content: 'Walloped: You’re sent flying and land flat on your face, winded. You are deprived until you rest for a few hours, when resolve.',
-            resolve: () => increaseHp('add', 1)
+            resolve: {
+              action: 'increaseHP',
+              type: 'add',
+              num: 1
+            }
           }]
           break
         case 4:
           scars = [...scars, {
             content: `Broken Limb: ${['', 'Leg', 'Leg', 'Arm', 'Arm', 'Rib', 'Skull'][rollDices(1, 6)]}. Once mended, resolve.`,
-            resolve: () => increaseHp('change', 2)
+            resolve: {
+              action: 'increaseHP',
+              type: 'change',
+              num: 2
+            }
           }]
           break
         case 5:
           scars = [...scars, {
             content: 'Diseased: You’re afflicted with a gross, uncomfortable infection. When you get over it, resolve.',
-            resolve: () => increaseHp('change', 2)
+            resolve: {
+              action: 'increaseHP',
+              type: 'change',
+              num: 2
+            }
           }]
           break
         case 6:
@@ -103,13 +116,21 @@ const createScars = () => {
         case 7:
           scars = [...scars, {
             content: 'Hamstrung: You can barely move until you get serious help and rest. After recovery, resolve.',
-            resolve: () => increaseAbility('change', 'dex')
+            resolve: {
+              action: 'increaseAbility',
+              type: 'change',
+              key: 'dex'
+            }
           }]
           break
         case 8:
           scars = [...scars, {
             content: 'Deafened: You cannot hear anything until you find extraordinary aid. Regardless, resolve.',
-            resolve: () => increaseAbility('add', 'wil')
+            resolve: {
+              action: 'increaseAbility',
+              type: 'add',
+              key: 'wil'
+            }
           }]
           break
         case 9:
@@ -122,37 +143,63 @@ const createScars = () => {
         case 10:
           scars = [...scars, {
             content: 'Sundered: An appendage is torn off, crippled or useless. The Warden will tell you which. Then resolve.',
-            resolve: () => increaseAbility('add', 'wil')
+            resolve: {
+              action: 'increaseAbility',
+              type: 'add',
+              key: 'wil'
+            }
           }]
           break
         case 11:
           scars = [...scars, {
             content: 'Mortal Wound: You are deprived and out of action. You die in one hour unless healed. Upon recovery, resolve.',
-            resolve: () => increaseHp('change', 2)
+            resolve: {
+              action: 'increaseHP',
+              type: 'change',
+              num: 2
+            }
           }]
           break
         case 12:
           scars = [...scars, {
             content: 'Doomed: Death seemed ever so close, but somehow you survived. If your next save against critical damage is a fail, you die horribly. If you pass, resolve',
-            resolve: () => increaseHp('change', 3)
+            resolve: {
+              action: 'increaseHP',
+              type: 'change',
+              num: 3
+            }
           }]
           break
       }
-
+      setTimeout(() => setLocalCharacter(), 0)
       return [...scars]
     }),
     addHistory: (content: string) => setTimeout(() => update((scars) => {
       scars = [...scars, {
         content: content
       }]
-
+      setTimeout(() => setLocalCharacter(), 0)
       return [...scars]
     }), 0),
     resolve: (index: number) => update((scars) => {
+      const resolve = scars[index].resolve
+      switch (resolve.action) {
+        case 'increaseHP':
+          increaseHp(resolve.type, resolve.num)
+          break
+        case 'increaseAbility':
+          increaseAbility(resolve.type, resolve.key)
+          break
+      }
+
       scars[index].resolve = null
+      setLocalCharacter()
       return [...scars]
     }),
-    reset: () => set([...defaultScarsState])
+    reset: () => {
+      set([...defaultScarsState])
+      setLocalCharacter()
+    }
   }
 }
 

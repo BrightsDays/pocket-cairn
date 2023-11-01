@@ -28,7 +28,14 @@ export type Item = {
 
 export type Scar = {
   content: string
-  resolve?: () => {}
+  resolve?: Resolve
+}
+
+export type Resolve = {
+  action: 'increaseHP' | 'increaseAbility',
+  type: 'add' | 'change',
+  num?: number,
+  key?: AbilityKeys
 }
 
 export type Inventory = Item[]

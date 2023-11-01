@@ -4,6 +4,7 @@
 
   let dicesValue = $dices
   dices.subscribe((value) => (dicesValue = value))
+  //TODO: add dices styles and animations
 </script>
 
 <div class="dice-list">
