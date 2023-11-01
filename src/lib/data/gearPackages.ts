@@ -1,4 +1,7 @@
-export const gearPackages = [
+import rollDices from "../../utils/rollDices";
+import spells from "./spells";
+
+export const gearPackages = () => [
   {
     title: 'Cleric',
     inventory: 
@@ -416,12 +419,12 @@ export const gearPackages = [
         fatigue: false
       },
       {
-        title: 'Spellbook (random spell)',
+        title: `Spellbook (${spells[rollDices(1, 100)]})`,
         inHand: false,
         fatigue: false
       },
       {
-        title: 'Spellbook (random spell)',
+        title: `Spellbook (${spells[rollDices(1, 100)]})`,
         inHand: false,
         fatigue: false
       },
@@ -560,4 +563,3 @@ export const gearPackages = [
     ]
   },
 ]
-//TODO: choose random spells

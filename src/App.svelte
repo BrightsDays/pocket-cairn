@@ -9,6 +9,8 @@
     name,
     stats,
   } from './store/characterStore'
+  import { scars } from './store/scarsStore'
+  import checkJson from './utils/checkJson'
 
   let nameValue = $name
   name.subscribe((value) => (nameValue = value))
@@ -16,12 +18,13 @@
   onMount(() => {
     const character = localStorage.getItem('pc__character')
 
-    if (character) {
+    if (character && checkJson(JSON.parse(character))) {
       name.set(JSON.parse(character).name)
       abilities.set(JSON.parse(character).abilities)
       stats.set(JSON.parse(character).stats)
       coins.set(JSON.parse(character).coins)
       inventory.set(JSON.parse(character).inventory)
+      scars.set(JSON.parse(character).scars)
     }
   })
 </script>

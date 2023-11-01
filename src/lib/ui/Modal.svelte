@@ -8,6 +8,7 @@
   export let isShown: boolean
   export let title: string | undefined = undefined
   export let submission: boolean = false
+  export let disableOk: boolean = false
 
   const dispatch = createEventDispatcher()
 </script>
@@ -33,7 +34,7 @@
     <div class={`controls${submission ? ' submission' : ''}`}>
       <Button on:click={() => dispatch('cancel')}>Cancel</Button>
       {#if !submission}
-        <Button on:click={() => dispatch('ok')}>OK</Button>
+        <Button disabled={disableOk} on:click={() => dispatch('ok')}>OK</Button>
       {/if}
     </div>
   </div>
@@ -59,7 +60,7 @@
     z-index: 2;
 
     .content {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
 
     .controls {

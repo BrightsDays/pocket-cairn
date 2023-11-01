@@ -3,14 +3,16 @@
   import Menu from './MainMenu.svelte'
 
   let showForm = false
-  //TODO: add image
+  //TODO: add image and readme
 </script>
 
 <div class="creation">
   {#if !showForm}
     <div class="header">
-      <h1 class="title">Mobile Cairn</h1>
-      <span class="version"> v.0.1</span>
+      <h1 class="title">
+        Pocket Cairn
+        <span class="version"> v.0.1</span>
+      </h1>
       <span class="info">
         Cairn is a game created by
         <a href="https://newschoolrevolution.com">Yochai Gal</a><br />
@@ -39,7 +41,18 @@
 
     .header {
       .title {
+        display: inline-block;
+        position: relative;
         font-family: 'Pirata One', sans-serif;
+
+        .version {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-family: Arial, sans-serif;
+          font-weight: 500;
+          font-size: 0.8rem;
+        }
       }
 
       .info {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { name } from '../../store/characterStore'
+  import { name, stats } from '../../store/characterStore'
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
@@ -7,17 +7,14 @@
   import Stat from './sheet/Stat.svelte'
 
   let showDeleteModal = false
+  let showScarCheck = false
   let showScarModal = false
   let damage = 0
-
-  const resolveScar = (index: number, effect: Function) => {
-    effect()
-    scars.resolve(index)
-  }
 
   const addScar = () => {
     scars.add(damage)
     showScarModal = false
+    damage = 0
   }
 
   const deleteCharacter = () => {
@@ -25,32 +22,38 @@
     scars.reset()
     localStorage.removeItem('pc__character')
   }
-  //TODO: fix scars styles
   //TODO: add characters list
-  //TODO: add scars changes notification/data (?)
 </script>
 
 <div class="menu">
+  <span class="title">Scars history:</span>
   <div class="scars">
-    <span class="title">Scars:</span>
-    {#if $scars.length === 0}
-      <div class="item">You have not scars</div>
-    {/if}
-    {#each $scars as item, index}
-      <div class={`item${item.resolve ? ' resolvable' : ''}`}>
-        {item.content}
-        {#if item.resolve}
-          <Button
-            height={30}
-            fontSize="1rem"
-            on:click={() => resolveScar(index, item.resolve)}>Resolve</Button
-          >
-        {/if}
-      </div>
-    {/each}
+    <div class="wrap">
+      {#if $scars.length === 0}
+        <div class="item">You have not scars</div>
+      {/if}
+      {#each $scars as item, index}
+        <div class="item resolvable">
+          {item.content}
+          {#if item.resolve}
+            <Button
+              height={30}
+              fontSize="1rem"
+              on:click={() => scars.resolve(index)}>Resolve</Button
+            >
+          {:else}
+            <Button height={30} fontSize="1rem" disabled>Resolved</Button>
+          {/if}
+        </div>
+      {/each}
+    </div>
   </div>
 
-  <Button padding={4} on:click={() => (showScarModal = true)}>Add scar</Button>
+  <Button
+    padding={4}
+    disabled={$stats.hp > 0}
+    on:click={() => (showScarCheck = true)}>Add scar</Button
+  >
   <Button padding={4} on:click={() => downloadJson()}
     >Download character (json)</Button
   >
@@ -60,8 +63,25 @@
   >
 
   <Modal
+    isShown={showScarCheck}
+    on:cancel={() => (showScarCheck = false)}
+    on:ok={() => {
+      showScarModal = true
+      showScarCheck = false
+    }}
+  >
+    Adding a scar is an irreversible action that enables you to advance your
+    character. Have you consulted with the Warden to confirm that you can
+    acquire a scar?
+  </Modal>
+
+  <Modal
     isShown={showScarModal}
-    on:cancel={() => (showScarModal = false)}
+    disableOk={damage === 0}
+    on:cancel={() => {
+      showScarModal = false
+      damage = 0
+    }}
     on:ok={() => addScar()}
   >
     How many damage points was taken?
@@ -96,29 +116,75 @@
     box-sizing: border-box;
     @include gap(8);
 
+    .title {
+      padding-left: calc(0px + 1.5625vw);
+      padding-bottom: calc(0px + 1.5625vw);
+      margin-bottom: calc(-8px - 1.5625vw);
+      text-align: left;
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--second);
+    }
+
     .scars {
       display: flex;
+      position: relative;
       flex-direction: column;
       height: 100%;
       overflow: hidden;
-      overflow-y: auto;
-
-      .title {
-        padding-left: calc(0px + 1.5625vw);
-        padding-bottom: calc(2px + 1.5625vw);
-        text-align: left;
-        font-size: 1.2rem;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 15px;
+        background: linear-gradient(
+          180deg,
+          var(--background) 10.7%,
+          var(--background-to-opacity) 38.14%,
+          rgba(2, 4, 8, 0) 86.14%
+        );
+        z-index: 1;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 15px;
+        background: linear-gradient(
+          360deg,
+          var(--background) 10.7%,
+          var(--background-to-opacity) 38.14%,
+          rgba(2, 4, 8, 0) 86.14%
+        );
+        z-index: 1;
       }
 
-      .item {
-        display: grid;
-        @include padding(2, 0);
-        text-align: left;
-        align-items: center;
-        border-top: 1px solid var(--second);
+      .wrap {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
 
-        &.resolvable {
-          grid-template-columns: 4fr 1fr;
+        .item {
+          display: grid;
+          @include padding(2, 0);
+          text-align: left;
+          align-items: center;
+          border-top: 1px solid var(--second);
+          &:first-child {
+            border: none;
+          }
+
+          &.resolvable {
+            grid-template-columns: 3fr 1fr;
+          }
         }
       }
     }

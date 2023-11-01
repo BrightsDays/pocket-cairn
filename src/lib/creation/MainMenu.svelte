@@ -21,6 +21,7 @@
   <!-- <Button disabled>Characters list</Button>
   <Button disabled>Warden space</Button> -->
 </div>
+
 <Modal submission isShown={showModal} on:cancel={() => (showModal = false)}>
   Wrong file type or json structure
 </Modal>
