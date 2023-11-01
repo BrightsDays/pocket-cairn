@@ -18,7 +18,7 @@
   onMount(() => {
     const character = localStorage.getItem('pc__character')
 
-    if (character && checkJson(character)) {
+    if (character && checkJson(JSON.parse(character))) {
       name.set(JSON.parse(character).name)
       abilities.set(JSON.parse(character).abilities)
       stats.set(JSON.parse(character).stats)

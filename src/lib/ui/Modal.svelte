@@ -60,7 +60,7 @@
     z-index: 2;
 
     .content {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
 
     .controls {

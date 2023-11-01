@@ -9,9 +9,12 @@
 
 <div class="dice-list">
   {#each dicesValue as dice}
-    <Button height={50} on:click={() => dices.roll(dice.key)}>
+    <!-- <Button height={50} on:click={() => dices.roll(dice.key)}>
       {dice.value}
-    </Button>
+    </Button> -->
+    <button class={`dice d${dice.key}`} on:click={() => dices.roll(dice.key)}>
+      {dice.value}
+    </button>
   {/each}
 </div>
 
@@ -19,8 +22,31 @@
   @import '../../app.scss';
 
   .dice-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
     justify-content: space-between;
-    @include gap(4);
+    @include gap(0);
+
+    .dice {
+      position: relative;
+      background: none;
+      border: none;
+      padding: 0;
+      aspect-ratio: 1;
+      font-size: 1.6em;
+      color: var(--main);
+      touch-action: manipulation;
+      background-size: 100% 100%;
+      &.d8 {
+        background-image: url('../../assets/icons/d8.svg');
+      }
+      &.d12 {
+        background-image: url('../../assets/icons/d12.svg');
+      }
+      &.d20 {
+        background-image: url('../../assets/icons/d20.svg');
+      }
+    }
   }
 </style>
