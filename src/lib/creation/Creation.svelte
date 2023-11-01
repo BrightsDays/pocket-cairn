@@ -3,7 +3,7 @@
   import Menu from './MainMenu.svelte'
 
   let showForm = false
-  //TODO: add image
+  //TODO: add image and readme
 </script>
 
 <div class="creation">
