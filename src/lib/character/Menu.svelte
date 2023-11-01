@@ -3,9 +3,8 @@
   import downloadJson from '../../utils/downloadJson'
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
-  import { increaseAbility, increaseHp, scars } from '../../store/scarsStore'
+  import { scars } from '../../store/scarsStore'
   import Stat from './sheet/Stat.svelte'
-  import type { Resolve } from '../../../types/types'
 
   let showDeleteModal = false
   let showScarCheck = false
