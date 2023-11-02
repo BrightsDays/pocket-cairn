@@ -22,7 +22,7 @@
     scars.reset()
     localStorage.removeItem('pc__character')
   }
-  //TODO: add characters list
+  //TODO: (2) add characters list
 </script>
 
 <div class="menu">
