@@ -84,7 +84,7 @@
 </script>
 
 <div class="form">
-  <h2 class="title">Create character</h2>
+  <h2 class="title">Create a character</h2>
   <div class="name">
     <Input
       value={character.name}

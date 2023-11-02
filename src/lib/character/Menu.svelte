@@ -30,7 +30,7 @@
   <div class="scars">
     <div class="wrap">
       {#if $scars.length === 0}
-        <div class="item">You have not scars</div>
+        <div class="item">You have no scars</div>
       {/if}
       {#each $scars as item, index}
         <div class="item resolvable">
@@ -87,6 +87,8 @@
     How many damage points was taken?
     <Stat
       value={damage}
+      maxValue={12}
+      hideMaxValue
       on:decrease={() => (damage > 0 ? (damage -= 1) : (damage = damage))}
       on:increase={() => (damage < 12 ? (damage += 1) : (damage = damage))}
     />

@@ -16,6 +16,8 @@
   <Stat
     title="Armor"
     value={$stats.armor}
+    maxValue={9}
+    hideMaxValue
     on:decrease={stats.decreaseArmor}
     on:increase={stats.increaceArmor}
   />
