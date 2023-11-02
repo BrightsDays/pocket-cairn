@@ -10,7 +10,7 @@
     type="file"
     on:change={(event) => dispatch('change', event)}
   />
-  <label for="upload" class="label">Upload character (json)</label>
+  <label for="upload" class="label">Upload the character (json)</label>
 </div>
 
 <style lang="scss">

@@ -5,15 +5,22 @@
 
   let dicesValue = $dices
   dices.subscribe((value) => (dicesValue = value))
+  let greenIndex
 
-  let greenIndex = 0
+  const rollHandler = (key: string, index: number) => {
+    dices.roll(key)
+    greenIndex = index
+  }
 </script>
 
 <div class="dice-list">
   {#each dicesValue as dice, index}
-    <button class={`dice d${dice.key}`} on:click={() => dices.roll(dice.key)}>
+    <button
+      class={`dice d${dice.key}${greenIndex === index ? ' green' : ''}`}
+      on:click={() => rollHandler(dice.key, index)}
+    >
       {#key dice.count}
-        <span in:scale={{ delay: 250, duration: 300, easing: quintIn }}
+        <span in:scale={{ delay: 150, duration: 200, easing: quintIn }}
           >{dice.value}</span
         >
       {/key}
@@ -41,7 +48,11 @@
       color: var(--main);
       touch-action: manipulation;
       background-size: 100% 100%;
-
+      &.green {
+        text-shadow: 0 0 5px greenyellow, 0 0 10px greenyellow,
+          0 0 15px greenyellow, 0 0 20px green, 0 0 35px green, 0 0 40px green,
+          0 0 50px green, 0 0 75px green;
+      }
       &.d4 {
         background-image: url('../../assets/icons/d4.svg');
       }
@@ -59,6 +70,11 @@
       }
       &.d20 {
         background-image: url('../../assets/icons/d20.svg');
+      }
+
+      span {
+        display: inline-block;
+        width: 2rem;
       }
     }
   }

@@ -4,7 +4,8 @@
 
   export let title: string = ''
   export let value: number = 0
-  export let maxValue: number | undefined = undefined
+  export let maxValue: number = 0
+  export let hideMaxValue: boolean = false
 
   const dispatch = createEventDispatcher()
 </script>
@@ -17,14 +18,18 @@
   {/if}
 
   <div class="controls">
-    <Button on:click={() => dispatch('decrease')}>&minus;</Button>
+    <Button on:click={() => dispatch('decrease')} disabled={value === 0}
+      >&minus;</Button
+    >
     <div class="current">
       {value}
-      {#if maxValue}
+      {#if !hideMaxValue}
         / {maxValue}
       {/if}
     </div>
-    <Button on:click={() => dispatch('increase')}>&plus;</Button>
+    <Button on:click={() => dispatch('increase')} disabled={value === maxValue}
+      >&plus;</Button
+    >
   </div>
 </div>
 
