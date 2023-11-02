@@ -8,7 +8,7 @@
   import cross from '../../assets/icons/cross.svg'
 
   let showMenu = false
-  //TODO: add notes and traits
+  //TODO: (1) add notes and traits
 </script>
 
 <div class="character">

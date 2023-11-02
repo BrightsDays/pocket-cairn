@@ -1,19 +1,22 @@
 <script lang="ts">
   import { dices } from '../../store/diceStore'
-  import Button from '../ui/Button.svelte'
+  import { scale } from 'svelte/transition'
+  import { quintIn } from 'svelte/easing'
 
   let dicesValue = $dices
   dices.subscribe((value) => (dicesValue = value))
-  //TODO: add dices styles and animations
+
+  let greenIndex = 0
 </script>
 
 <div class="dice-list">
-  {#each dicesValue as dice}
-    <!-- <Button height={50} on:click={() => dices.roll(dice.key)}>
-      {dice.value}
-    </Button> -->
+  {#each dicesValue as dice, index}
     <button class={`dice d${dice.key}`} on:click={() => dices.roll(dice.key)}>
-      {dice.value}
+      {#key dice.count}
+        <span in:scale={{ delay: 250, duration: 300, easing: quintIn }}
+          >{dice.value}</span
+        >
+      {/key}
     </button>
   {/each}
 </div>
@@ -38,8 +41,18 @@
       color: var(--main);
       touch-action: manipulation;
       background-size: 100% 100%;
+
+      &.d4 {
+        background-image: url('../../assets/icons/d4.svg');
+      }
+      &.d6 {
+        background-image: url('../../assets/icons/d6.svg');
+      }
       &.d8 {
         background-image: url('../../assets/icons/d8.svg');
+      }
+      &.d10 {
+        background-image: url('../../assets/icons/d10.svg');
       }
       &.d12 {
         background-image: url('../../assets/icons/d12.svg');

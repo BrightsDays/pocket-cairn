@@ -3,7 +3,7 @@
   import Menu from './MainMenu.svelte'
 
   let showForm = false
-  //TODO: add image and readme
+  //TODO: (1) add image and readme
 </script>
 
 <div class="creation">
@@ -40,6 +40,12 @@
     box-sizing: border-box;
 
     .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @include gap(16);
+
       .title {
         display: inline-block;
         position: relative;
