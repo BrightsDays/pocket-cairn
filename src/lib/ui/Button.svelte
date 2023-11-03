@@ -71,7 +71,9 @@
         margin-top: -0.1rem;
       }
       @media screen and (-webkit-min-device-pixel-ratio: 0) {
-        margin-top: -0.2rem;
+        ::i-block-chrome {
+          margin-top: -0.2rem;
+        }
       }
     }
 
