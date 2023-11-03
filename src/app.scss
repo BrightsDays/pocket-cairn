@@ -3,13 +3,22 @@
 @mixin padding($value, $second-value: false) {
   @if $second-value {
     padding: calc(#{$value}px + 1.5625vw) calc(#{$second-value}px + 1.5625vw);
+    @media screen and (min-width: 768px) {
+      padding: calc(#{$value/2}px + 0.5625vw) calc(#{$second-value/2}px + 0.5625vw);
+    }
   } @else {
     padding: calc(#{$value}px + 1.5625vw);
+    @media screen and (min-width: 768px) {
+      padding: calc(#{$value/2}px + 0.5625vw);
+    }
   }
 }
 
 @mixin gap($value) {
-  gap: calc(#{$value}px + 1.5625vw)
+  gap: calc(#{$value}px + 1.5625vw);
+  @media screen and (min-width: 768px) {
+    gap: calc(#{$value/2}px + 0.5625vw);
+  }
 }
 
 :root {
@@ -48,12 +57,12 @@ a {
 }
 
 body {
-  margin: 0;
   display: flex;
+  align-items: center;
   min-width: 320px;
   max-width: 768px;
-  margin: 0 auto;
   height: 100svh;
+  margin: 0 auto;
   overflow: hidden;
 }
 
