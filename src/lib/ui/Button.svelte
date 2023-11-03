@@ -65,8 +65,13 @@
     p {
       margin: 0;
       background: none;
+      user-select: none;
+      -webkit-user-select: none;
       @supports (-webkit-touch-callout: none) {
         margin-top: -0.1rem;
+      }
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        margin-top: -0.2rem;
       }
     }
 

@@ -36,3 +36,12 @@
     <Creation />
   {/if}
 </main>
+
+<style lang="scss" scoped>
+  main {
+    min-width: 320px;
+    max-width: 768px;
+    height: 100svh;
+    max-height: 1024px;
+  }
+</style>

@@ -158,6 +158,9 @@
     .title {
       margin-bottom: calc(8px + 1.5625vw);
       font-weight: 500;
+      @media screen and (min-width: 768px) {
+        margin-bottom: calc(4px + 0.5625vw);
+      }
     }
 
     .name {

@@ -33,7 +33,8 @@
 
   .creation {
     display: flex;
-    height: 100svh;
+    // height: 100svh;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     @include padding(32, 8);
