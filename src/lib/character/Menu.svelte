@@ -123,7 +123,7 @@
       padding-bottom: calc(0px + 1.5625vw);
       margin-bottom: calc(-8px - 1.5625vw);
       text-align: left;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       border-bottom: 1px solid var(--second);
       @media screen and (min-width: 768px) {
         padding-left: calc(0px + 0.5625vw);

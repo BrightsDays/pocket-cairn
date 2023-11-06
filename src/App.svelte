@@ -11,6 +11,7 @@
   } from './store/characterStore'
   import { scars } from './store/scarsStore'
   import checkJson from './utils/checkJson'
+  import { notes } from './store/notesStore'
 
   let nameValue = $name
   name.subscribe((value) => (nameValue = value))
@@ -25,6 +26,7 @@
       coins.set(JSON.parse(character).coins)
       inventory.set(JSON.parse(character).inventory)
       scars.set(JSON.parse(character).scars)
+      notes.set(JSON.parse(character).notes)
     }
   })
 </script>
