@@ -80,6 +80,7 @@
 
     setLocalCharacter()
   }
+  //TODO: add random name and traits to creation
 </script>
 
 <div class="form">
