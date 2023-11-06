@@ -47,8 +47,9 @@
     touch-action: manipulation;
     cursor: pointer;
     &:disabled {
-      color: var(--second-background);
-      border: 1px solid var(--second-background);
+      opacity: 0.2;
+      // color: var(--second-background);
+      // border: 1px solid var(--second-background);
       pointer-events: none;
     }
 

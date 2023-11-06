@@ -5,14 +5,29 @@
   import Menu from './Menu.svelte'
   import Sheet from './sheet/Sheet.svelte'
   import settings from '../../assets/icons/settings.svg'
+  import notes from '../../assets/icons/notes.svg'
   import cross from '../../assets/icons/cross.svg'
+  import Notes from './Notes.svelte'
 
   let showMenu = false
-  //TODO: (1) add notes and traits
+  let showNotes = false
+
+  $: mainStyle = () => {
+    if (showMenu) return '-200%'
+    if (showNotes) return '0'
+    return '-100%'
+  }
 </script>
 
 <div class="character">
   <div class="header">
+    <Button
+      borderless
+      image={showNotes ? cross : notes}
+      alt="notes"
+      on:click={() => (showNotes = !showNotes)}
+      disabled={showMenu}
+    />
     <div class="name">
       <div class="wrap">
         <h2 class="text">{$name}</h2>
@@ -23,11 +38,13 @@
       image={showMenu ? cross : settings}
       alt="settings"
       on:click={() => (showMenu = !showMenu)}
+      disabled={showNotes}
     />
   </div>
-  <div class="main" style={`left: ${showMenu ? '0' : '-100%'}`}>
-    <Menu />
+  <div class="main" style={`left: ${mainStyle()}`}>
+    <Notes />
     <Sheet />
+    <Menu />
   </div>
   <footer class="footer">
     <Dices />
@@ -61,7 +78,7 @@
 
       .name {
         position: relative;
-        margin-left: -15px;
+        // margin-left: -15px;
         overflow: hidden;
         &::before {
           content: '';
@@ -118,10 +135,10 @@
     .main {
       display: grid;
       position: relative;
-      width: 200svw;
-      max-width: 200%;
+      width: 300svw;
+      max-width: 300%;
       height: 100%;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 100%;
       transition: all 0.5s;
       overflow: hidden;

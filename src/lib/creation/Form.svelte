@@ -14,7 +14,6 @@
   import startingInventory from '../../utils/startingInventory'
   import SelectInput from '../ui/SelectInput.svelte'
   import { gearPackages } from '../data/gearPackages'
-  import Section from '../ui/Section.svelte'
 
   const dispatch = createEventDispatcher()
 
@@ -81,6 +80,7 @@
 
     setLocalCharacter()
   }
+  //TODO: add random name and traits to creation
 </script>
 
 <div class="form">
