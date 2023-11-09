@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte'
 
   export let value = ''
-  export let minRows = 1
+  export let minRows = 14
   export let maxRows = 36
 
   $: minHeight = `${1 + minRows * 1.2}em`
@@ -33,9 +33,14 @@
       @include padding(0, 2);
       font-size: 1.4rem;
       box-sizing: border-box;
-      border: 1px solid #eee;
+      border: none;
       line-height: 1.2;
       overflow: hidden;
+      resize: vertical;
+    }
+
+    pre {
+      max-width: 90svw;
     }
 
     textarea {
@@ -44,7 +49,6 @@
       height: 100%;
       @include padding(0, 2);
       font-size: 1.2rem;
-      border: none;
       background: var(--background);
       box-sizing: border-box;
       top: 0;
