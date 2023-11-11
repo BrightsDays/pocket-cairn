@@ -40,8 +40,10 @@
     }
 
     pre {
-      display: inline;
       max-width: 90svw;
+      @media screen and (min-width: 768px) {
+        max-width: 740px;
+      }
     }
 
     textarea {
