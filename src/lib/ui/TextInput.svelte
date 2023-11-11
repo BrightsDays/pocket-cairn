@@ -5,6 +5,7 @@
   export let placeholder: string = ''
   export let border: boolean = true
   export let numbers: boolean = false
+  export let paddingRight: string = ''
 
   $: value = numbers ? value.replace(/[^0-9]/g, '') : value
 
@@ -15,7 +16,10 @@
   class="input"
   bind:value
   {placeholder}
-  style={`border-bottom: ${border ? '1px solid var(--main)' : 'none'};`}
+  style={`
+    border-bottom: ${border ? '1px solid var(--main)' : 'none'};
+    ${paddingRight && 'padding-right: ' + paddingRight}
+  `}
   on:input={() => dispatch('input', value)}
 />
 

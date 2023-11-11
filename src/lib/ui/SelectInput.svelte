@@ -26,7 +26,7 @@
     {/each}
   </select> -->
 
-  <button class="select" on:click={() => (showList = true)}>
+  <button ontouchstart="" class="select" on:click={() => (showList = true)}>
     {value}
   </button>
 
@@ -58,6 +58,11 @@
   .input {
     position: relative;
     width: 100%;
+    transition: all 0.4s ease-in-out;
+    &:has(> .select:active) {
+      transform: scale(0.9);
+      transition: 0.1s;
+    }
     &::after {
       content: '';
       display: block;
@@ -85,6 +90,10 @@
       -moz-appearance: none;
       text-indent: 1px;
       text-overflow: '';
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
 
       .option {
         display: none;

@@ -13,11 +13,16 @@
 
 <div class="container">
   <pre
+    class="pre"
     aria-hidden="true"
     style="min-height: {minHeight}; max-height: {maxHeight}">{value + '\n'}
   </pre>
 
-  <textarea bind:value on:input={() => dispatch('input', value)} />
+  <textarea
+    class="textarea"
+    bind:value
+    on:input={() => dispatch('input', value)}
+  />
 </div>
 
 <style lang="scss" scoped>
@@ -26,8 +31,8 @@
   .container {
     position: relative;
 
-    pre,
-    textarea {
+    .pre,
+    .textarea {
       font-family: inherit;
       margin: 0;
       @include padding(0, 2);
@@ -39,14 +44,14 @@
       resize: vertical;
     }
 
-    pre {
+    .pre {
       max-width: 90svw;
       @media screen and (min-width: 768px) {
         max-width: 740px;
       }
     }
 
-    textarea {
+    .textarea {
       position: absolute;
       width: 100%;
       height: 100%;

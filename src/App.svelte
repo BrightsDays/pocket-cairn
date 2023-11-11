@@ -12,8 +12,10 @@
   import { scars } from './store/scarsStore'
   import checkJson from './utils/checkJson'
   import { notes } from './store/notesStore'
+  import Form from './lib/creation/Form.svelte'
 
   let nameValue = $name
+  let showForm = false
   name.subscribe((value) => (nameValue = value))
 
   onMount(() => {
@@ -34,8 +36,10 @@
 <main>
   {#if nameValue}
     <Character />
+  {:else if !showForm}
+    <Creation on:show-form={() => (showForm = true)} />
   {:else}
-    <Creation />
+    <Form on:hide-form={() => (showForm = false)} />
   {/if}
 </main>
 
