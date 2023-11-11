@@ -8,9 +8,12 @@
   <input
     id="upload"
     type="file"
+    class="input"
     on:change={(event) => dispatch('change', event)}
   />
-  <label for="upload" class="label">Upload the character (json)</label>
+  <label ontouchstart="" for="upload" class="label"
+    >Upload the character (json)</label
+  >
 </div>
 
 <style lang="scss">
@@ -18,6 +21,10 @@
     position: relative;
     width: 100%;
     height: 40px;
+
+    .input {
+      display: none;
+    }
 
     .label {
       position: absolute;
@@ -34,6 +41,14 @@
       background-color: var(--background);
       font-size: 1.6rem;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: 0.1s;
+      }
     }
   }
 </style>

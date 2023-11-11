@@ -7,7 +7,11 @@
   const dispatch = createEventDispatcher()
 </script>
 
-<label class="checkbox" style={`width: ${size}px;height: ${size}px`}>
+<label
+  ontouchstart=""
+  class="checkbox"
+  style={`width: ${size}px;height: ${size}px`}
+>
   <input type="checkbox" {checked} on:change={() => dispatch('change')} />
   <span class="checkmark" />
 </label>
@@ -44,6 +48,14 @@
       border: 1px solid var(--main);
       border-radius: 50%;
       box-sizing: border-box;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: 0.1s;
+      }
       &:after {
         content: '';
         position: absolute;

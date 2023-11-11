@@ -15,6 +15,7 @@
 </script>
 
 <button
+  ontouchstart=""
   class={`button${borderless ? ' borderless' : ''}`}
   {disabled}
   style={`
@@ -46,10 +47,16 @@
     background-color: var(--background);
     touch-action: manipulation;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: 0.1s;
+    }
     &:disabled {
       opacity: 0.2;
-      // color: var(--second-background);
-      // border: 1px solid var(--second-background);
       pointer-events: none;
     }
 

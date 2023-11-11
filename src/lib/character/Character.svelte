@@ -8,6 +8,7 @@
   import notes from '../../assets/icons/notes.svg'
   import cross from '../../assets/icons/cross.svg'
   import Notes from './Notes.svelte'
+  import { fade } from 'svelte/transition'
 
   let showMenu = false
   let showNotes = false
@@ -19,7 +20,11 @@
   }
 </script>
 
-<div class="character">
+<div
+  class="character"
+  in:fade={{ delay: 200, duration: 200 }}
+  out:fade={{ duration: 200 }}
+>
   <div class="header">
     <Button
       borderless

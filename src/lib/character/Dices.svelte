@@ -16,6 +16,7 @@
 <div class="dice-list">
   {#each dicesValue as dice, index}
     <button
+      ontouchstart=""
       class={`dice d${dice.key}${greenIndex === index ? ' green' : ''}`}
       on:click={() => rollHandler(dice.key, index)}
     >
@@ -48,6 +49,15 @@
       color: var(--main);
       touch-action: manipulation;
       background-size: 100% 100%;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: 0.1s;
+      }
       &.green {
         text-shadow: 0 0 5px greenyellow, 0 0 10px greenyellow,
           0 0 15px greenyellow, 0 0 20px green, 0 0 35px green, 0 0 40px green,

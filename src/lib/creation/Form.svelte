@@ -19,15 +19,20 @@
     background,
     clothing,
     face,
+    femaleNames,
     hair,
+    maleNames,
     misfortune,
     phisique,
     reputation,
     skin,
     speech,
+    surnames,
     vice,
     virtue,
   } from '../data/traits'
+  import dice from '../../assets/icons/dice.svg'
+  import { fade } from 'svelte/transition'
 
   const dispatch = createEventDispatcher()
 
@@ -42,6 +47,14 @@
   let gearList = ['random', ...gearPackages().map((item) => item.title)]
   let selectedGear: string = gearList[0]
   let statsForChange = []
+
+  const setRandomName = () => {
+    const firstName =
+      rollDices(1, 2) === 1
+        ? femaleNames[rollDices(1, 20)]
+        : maleNames[rollDices(1, 20)]
+    character.name = `${firstName} ${surnames[rollDices(1, 20)]}`
+  }
 
   const statHandler = (stat: string) => {
     if (!statsForChange.includes(stat)) {
@@ -108,18 +121,26 @@ You are ${vice[rollDices(1, 10)]} yet ${
 You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     setLocalCharacter()
+    dispatch('hide-form')
   }
-  //TODO: add random name and traits to creation
 </script>
 
-<div class="form">
+<div
+  class="form"
+  in:fade={{ delay: 200, duration: 200 }}
+  out:fade={{ duration: 200 }}
+>
   <h2 class="title">Create a character</h2>
   <div class="name">
     <Input
       value={character.name}
       placeholder="Name"
+      paddingRight="45px"
       on:input={(event) => (character.name = event.detail)}
     />
+    <div class="dice">
+      <Button borderless image={dice} height={25} on:click={setRandomName} />
+    </div>
   </div>
 
   <section class="wrap">
@@ -129,6 +150,9 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
     <div class="stats">
       {#each ['str', 'dex', 'wil'] as stat}
         <button
+          ontouchstart=""
+          disabled={!statsForChange.includes(stat) &&
+            statsForChange.length >= 2}
           class={`item${statsForChange.includes(stat) ? ' selected' : ''}`}
           on:click={() => statHandler(stat)}
         >
@@ -183,6 +207,8 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
     height: 100%;
     flex-direction: column;
     @include gap(12);
+    @include padding(32, 8);
+    box-sizing: border-box;
 
     .title {
       margin-bottom: calc(8px + 1.5625vw);
@@ -194,6 +220,19 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     .name {
       display: flex;
+      position: relative;
+
+      .dice {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: calc(0px + 1.5625vw);
+        right: calc(2px + 1.5625vw);
+        @media screen and (min-width: 768px) {
+          top: calc(0px + 0.5625vw);
+          right: calc(1px + 0.5625vw);
+        }
+      }
     }
 
     .wrap {
@@ -245,8 +284,21 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
         border: 1px solid var(--main);
         border-radius: 5px;
         background: none;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
         &.selected {
           background-color: var(--second-background);
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          transform: scale(0.9);
+          transition: 0.1s;
+        }
+        &:disabled {
+          opacity: 0.2;
+          pointer-events: none;
         }
       }
     }
