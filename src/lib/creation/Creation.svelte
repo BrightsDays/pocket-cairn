@@ -64,7 +64,7 @@
           right: 0;
           font-family: Arial, sans-serif;
           font-weight: 500;
-          font-size: 0.8rem;
+          font-size: 1rem;
         }
       }
 
