@@ -1,6 +1,6 @@
 <script lang="ts">
   import Menu from './MainMenu.svelte'
-  import image from '../../assets/inventory.png'
+  import image from '../../assets/Inventory.png'
   import { fade } from 'svelte/transition'
   import { createEventDispatcher } from 'svelte'
 
