@@ -1,9 +1,9 @@
 <script>
   import Form from './Form.svelte'
   import Menu from './MainMenu.svelte'
+  import image from '../../assets/inventory.png'
 
   let showForm = false
-  //TODO: (1) add image and readme
 </script>
 
 <div class="creation">
@@ -13,6 +13,7 @@
         Pocket Cairn
         <span class="version"> v.0.1</span>
       </h1>
+      <img class="image" src={image} alt="inventory" />
       <span class="info">
         Cairn is a game created by
         <a href="https://newschoolrevolution.com">Yochai Gal</a><br />
@@ -42,8 +43,9 @@
 
     .header {
       display: flex;
+      height: 100%;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       @include gap(16);
 
@@ -60,6 +62,10 @@
           font-weight: 500;
           font-size: 0.8rem;
         }
+      }
+
+      .image {
+        max-width: 80%;
       }
 
       .info {

@@ -109,7 +109,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     setLocalCharacter()
   }
-  //TODO: add random name and traits to creation
+  //TODO: (1) add random name to creation
 </script>
 
 <div class="form">
