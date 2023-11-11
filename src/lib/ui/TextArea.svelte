@@ -40,6 +40,7 @@
     }
 
     pre {
+      display: inline;
       max-width: 90svw;
     }
 
