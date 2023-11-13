@@ -47,7 +47,7 @@ export const increaseAbility = (type: 'change' | 'add', ability?: AbilityKeys) =
   } else {
     if (rollSave(abilityKey as AbilityKeys)) {
       const dice = rollDices(1, 4)
-      stats.setMaxHp(currentAbility + dice)
+      abilities.setMaxAbility(abilityKey as AbilityKeys, currentAbility + dice)
       scars.addHistory(`${dice} has been added to ${abilityKey.toUpperCase()}.`)
     } else {
       scars.addHistory(`${abilityKey.toUpperCase()} save was failed, no upgrade.`)
