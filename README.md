@@ -1,10 +1,10 @@
-# Cairn Character-Sheet for Mobile Devices
+# Pocket Cairn Character-Sheet
 
 Cairn is a simple, quick, and classless role-playing game by [Yochai Gal](https://newschoolrevolution.com/). Game rules can be found on [cairnrpg.com](https://cairnrpg.com). This editor is designed to help you create and manage your character on mobile devices or desktops (with the main focus on using the application on smartphones).
 
-## Why Use Mobile Cairn?
+## Why Use Pocket Cairn?
 
-The primary purpose of this application is to empower a Warden (Game Master) to organize role-playing sessions anytime, anywhere. All a player needs to participate is a smartphone. Mobile Cairn allows character creation, management, and even dice rolling. However, the Game Master still needs to be familiar with the rules and have a scenario prepared.
+The primary purpose of this application is to empower a Warden (Game Master) to organize role-playing sessions anytime, anywhere. All a player needs to participate is a smartphone. Pocket Cairn allows character creation, management, and even dice rolling. However, the Game Master still needs to be familiar with the rules and have a scenario prepared.
 
 ## How and Where Is Data Saved?
 
