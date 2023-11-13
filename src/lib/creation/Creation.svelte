@@ -15,19 +15,21 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version"> v.1.0</span>
+      <span class="version"> v.1.01</span>
     </h1>
     <img class="image" src={image} alt="inventory" />
     <span class="info">
       Cairn is a game created by
       <a href="https://newschoolrevolution.com" target="_blank">Yochai Gal</a
       ><br />
-      Official game page -
+      Official game page:
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
-      Rate or comment this application on
+      Read the instructions on
       <a href="https://github.com/BrightsDays/mobile-cairn" target="_blank"
         >GitHub</a
-      > :)
+      ><br />
+      Application by
+      <a href="https://brightsdays.github.io" target="_blank">brightsdays</a>
     </span>
   </div>
 
@@ -47,11 +49,11 @@
 
     .header {
       display: flex;
-      height: 100%;
+      height: 80%;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      @include gap(16);
+      @include gap(8);
 
       .title {
         display: inline-block;
@@ -70,6 +72,7 @@
 
       .image {
         max-width: 80%;
+        max-height: 60%;
       }
 
       .info {
