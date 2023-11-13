@@ -25,7 +25,7 @@
       Official game page:
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
       Read the instructions on
-      <a href="https://github.com/BrightsDays/mobile-cairn" target="_blank"
+      <a href="https://github.com/BrightsDays/pocket-cairn" target="_blank"
         >GitHub</a
       ><br />
       Application by
