@@ -47,7 +47,6 @@
       margin-right: auto;
       text-transform: uppercase;
       font-size: var(--font-big);
-      font-weight: lighter;
       line-height: 1.2;
     }
 
