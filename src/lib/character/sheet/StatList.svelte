@@ -33,6 +33,8 @@
 </div>
 
 <style lang="scss">
+  @import '../../../app.scss';
+
   .deprived {
     display: flex;
     width: 100%;
@@ -42,7 +44,7 @@
     .title {
       margin-right: auto;
       text-transform: uppercase;
-      font-size: 2.6em;
+      font-size: var(--font-big);
       line-height: 1.2;
     }
   }

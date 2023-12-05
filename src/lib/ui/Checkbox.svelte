@@ -5,12 +5,17 @@
   export let checked: boolean = false
 
   const dispatch = createEventDispatcher()
+  let innerWidth: number
+
+  $: calcSize = innerWidth > 374 ? size : size * 0.75
 </script>
+
+<svelte:window bind:innerWidth />
 
 <label
   ontouchstart=""
   class="checkbox"
-  style={`width: ${size}px;height: ${size}px`}
+  style={`width: ${calcSize}px;height: ${calcSize}px`}
 >
   <input type="checkbox" {checked} on:change={() => dispatch('change')} />
   <span class="checkmark" />

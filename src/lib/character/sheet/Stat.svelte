@@ -34,6 +34,8 @@
 </div>
 
 <style lang="scss">
+  @import '../../../app.scss';
+
   .ability {
     display: flex;
     width: 100%;
@@ -44,7 +46,7 @@
     .title {
       margin-right: auto;
       text-transform: uppercase;
-      font-size: 2.6em;
+      font-size: var(--font-big);
       font-weight: lighter;
       line-height: 1.2;
     }
@@ -58,7 +60,7 @@
       gap: 2%;
 
       .current {
-        font-size: 2.6em;
+        font-size: var(--font-big);
         line-height: 1.2;
       }
     }

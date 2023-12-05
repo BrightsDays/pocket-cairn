@@ -212,6 +212,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     .title {
       margin-bottom: calc(8px + 1.5625vw);
+      font-size: var(--font-big);
       font-weight: 500;
       @media screen and (min-width: 768px) {
         margin-bottom: calc(4px + 0.5625vw);
@@ -278,7 +279,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
       .item {
         padding: 4px;
-        font-size: 1.6em;
+        font-size: var(--font-medium);
         text-transform: uppercase;
         color: var(--main);
         border: 1px solid var(--main);

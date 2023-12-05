@@ -79,7 +79,7 @@
     .select {
       width: 100%;
       padding: 4px 8px;
-      font-size: 1.6em;
+      font-size: var(--font-medium);
       text-align: left;
       text-transform: uppercase;
       color: var(--main);

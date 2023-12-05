@@ -9,19 +9,23 @@
   export let image: string | undefined = undefined
   export let alt: string | undefined = undefined
 
-  $: padding ||= 0
-
   const dispatch = createEventDispatcher()
+  let innerWidth: number
+
+  $: padding ||= 0
+  $: calcHeight = innerWidth > 374 ? height : height * 0.75
 </script>
+
+<svelte:window bind:innerWidth />
 
 <button
   ontouchstart=""
   class={`button${borderless ? ' borderless' : ''}`}
   {disabled}
   style={`
-    min-width: ${height}px;
-    height: ${height}px;
-    border-radius: ${height / 2}px;
+    min-width: ${calcHeight}px;
+    height: ${calcHeight}px;
+    border-radius: ${calcHeight / 2}px;
     padding: ${padding}px;
     font-size: ${fontSize};
     line-height: ${fontSize};

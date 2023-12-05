@@ -31,6 +31,10 @@
   --black: oklch(0 0 0);
   --link: #d6983c;
 
+  --font-big: 2.6rem;
+  --font-medium: 1.6rem;
+  --font-regular: 1rem;
+
   font-family: Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -44,6 +48,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  @media screen and (max-width: 374px) {
+    --font-big: 1.9rem;
+    --font-medium: 1.3rem;
+    --font-regular: 0.8rem;
+  }
 }
 
 a {
@@ -64,6 +74,7 @@ body {
   height: 100svh;
   margin: 0 auto;
   overflow: hidden;
+  font-size: var(--font-regular);
 }
 
 h1 {
