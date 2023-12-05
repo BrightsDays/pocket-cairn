@@ -24,7 +24,7 @@
       ><br />
       Official game page:
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
-      Read the instructions on 
+      Read the instructions on
       <a href="https://github.com/BrightsDays/pocket-cairn" target="_blank"
         >GitHub</a
       ><br />
@@ -66,7 +66,7 @@
           right: 0;
           font-family: Arial, sans-serif;
           font-weight: 500;
-          font-size: 1rem;
+          font-size: var(--font-regular);
         }
       }
 

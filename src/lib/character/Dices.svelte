@@ -45,7 +45,7 @@
       border: none;
       padding: 0;
       aspect-ratio: 1;
-      font-size: 1.6em;
+      font-size: var(--font-medium);
       color: var(--main);
       touch-action: manipulation;
       background-size: 100% 100%;
@@ -59,9 +59,15 @@
         transition: 0.1s;
       }
       &.green {
-        text-shadow: 0 0 5px greenyellow, 0 0 10px greenyellow,
-          0 0 15px greenyellow, 0 0 20px green, 0 0 35px green, 0 0 40px green,
-          0 0 50px green, 0 0 75px green;
+        text-shadow:
+          0 0 5px greenyellow,
+          0 0 10px greenyellow,
+          0 0 15px greenyellow,
+          0 0 20px green,
+          0 0 35px green,
+          0 0 40px green,
+          0 0 50px green,
+          0 0 75px green;
       }
       &.d4 {
         background-image: url('../../assets/icons/d4.svg');

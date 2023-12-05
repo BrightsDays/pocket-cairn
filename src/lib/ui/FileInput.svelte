@@ -11,16 +11,18 @@
     class="input"
     on:change={(event) => dispatch('change', event)}
   />
-  <label ontouchstart="" for="upload" class="label"
-    >Upload the character (json)</label
-  >
+  <label ontouchstart="" for="upload" class="label">Upload the character</label>
 </div>
 
 <style lang="scss">
+  @import '../../app.scss';
   .file {
     position: relative;
     width: 100%;
     height: 40px;
+    @media screen and (max-width: 374px) {
+      height: 30px;
+    }
 
     .input {
       display: none;
@@ -39,7 +41,7 @@
       border: 1px dashed var(--main);
       border-radius: 20px;
       background-color: var(--background);
-      font-size: 1.6rem;
+      font-size: var(--font-medium);
       cursor: pointer;
       transition: all 0.2s ease-in-out;
       &:hover {

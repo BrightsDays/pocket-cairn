@@ -35,8 +35,8 @@
     .textarea {
       font-family: inherit;
       margin: 0;
-      @include padding(0, 2);
-      font-size: 1.4rem;
+      @include padding(4, 2);
+      font-size: var(--font-regular);
       box-sizing: border-box;
       border: none;
       line-height: 1.2;
@@ -55,8 +55,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      @include padding(0, 2);
-      font-size: 1.2rem;
+      font-size: var(--font-regular);
       background: var(--background);
       box-sizing: border-box;
       top: 0;

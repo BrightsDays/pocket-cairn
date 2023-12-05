@@ -131,6 +131,7 @@
             line-height: 1;
             color: var(--main);
             white-space: nowrap;
+            font-size: var(--font-big);
             font-weight: 400;
           }
         }

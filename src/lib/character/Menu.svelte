@@ -54,8 +54,7 @@
     disabled={$stats.hp > 0}
     on:click={() => (showScarCheck = true)}>Add scar</Button
   >
-  <Button padding={4} on:click={() => downloadJson()}
-    >Download character (json)</Button
+  <Button padding={4} on:click={() => downloadJson()}>Download character</Button
   >
   <!-- <Button disabled>Save to character list</Button> -->
   <Button padding={4} on:click={() => (showDeleteModal = true)}
