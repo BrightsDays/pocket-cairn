@@ -17,3 +17,11 @@
     />
   {/each}
 </div>
+
+<style lang="scss" scoped>
+  .abilities {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+</style>
