@@ -17,8 +17,8 @@
   <div
     class="modal"
     transition:slide={{
-      delay: 250,
-      duration: 300,
+      delay: 100,
+      duration: 200,
       easing: quintOut,
       axis: 'y',
     }}

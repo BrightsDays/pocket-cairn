@@ -75,6 +75,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
   font-size: var(--font-regular);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 h1 {

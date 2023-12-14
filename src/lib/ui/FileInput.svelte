@@ -20,9 +20,6 @@
     position: relative;
     width: 100%;
     height: 40px;
-    @media screen and (max-width: 374px) {
-      height: 30px;
-    }
 
     .input {
       display: none;
@@ -41,7 +38,8 @@
       border: 1px dashed var(--main);
       border-radius: 20px;
       background-color: var(--background);
-      font-size: var(--font-medium);
+      // font-size: var(--font-medium);
+      font-size: 1.6rem;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
       &:hover {

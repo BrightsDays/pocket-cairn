@@ -16,6 +16,7 @@
   class="input"
   bind:value
   {placeholder}
+  inputmode={numbers ? 'decimal' : 'text'}
   style={`
     border-bottom: ${border ? '1px solid var(--main)' : 'none'};
     ${paddingRight && 'padding-right: ' + paddingRight}

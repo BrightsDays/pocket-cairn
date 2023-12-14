@@ -15,7 +15,7 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version"> v.1.01</span>
+      <span class="version"> v.1.02</span>
     </h1>
     <img class="image" src={image} alt="inventory" />
     <span class="info">

@@ -35,17 +35,23 @@
 <style lang="scss">
   @import '../../../app.scss';
 
-  .deprived {
+  .stats {
     display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 2%;
+    flex-direction: column;
+    gap: 2px;
 
-    .title {
-      margin-right: auto;
-      text-transform: uppercase;
-      font-size: var(--font-big);
-      line-height: 1.2;
+    .deprived {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 2%;
+
+      .title {
+        margin-right: auto;
+        text-transform: uppercase;
+        font-size: var(--font-big);
+        line-height: 1.2;
+      }
     }
   }
 </style>
