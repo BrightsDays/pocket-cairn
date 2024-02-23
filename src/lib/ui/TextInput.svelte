@@ -31,6 +31,7 @@
     width: 100%;
     @include padding(0, 2);
     font-size: 1.4rem;
+    color: var(--main);
     background: none;
     border: none;
     border-radius: 0;
