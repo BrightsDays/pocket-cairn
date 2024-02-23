@@ -56,6 +56,7 @@
       width: 100%;
       height: 100%;
       font-size: var(--font-regular);
+      color: var(--main);
       background: var(--background);
       box-sizing: border-box;
       top: 0;
