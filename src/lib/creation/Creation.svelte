@@ -15,7 +15,7 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version"> v.1.02</span>
+      <span class="version"> v.1.03</span>
     </h1>
     <img class="image" src={image} alt="inventory" />
     <span class="info">
@@ -24,6 +24,8 @@
       ><br />
       Official game page:
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
+      Watch the video guide
+      <a href="https://youtu.be/jrlL-aNhzeg" target="_blank">YouTube</a><br />
       Read the instructions on
       <a href="https://github.com/BrightsDays/pocket-cairn" target="_blank"
         >GitHub</a
@@ -44,7 +46,7 @@
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
-    @include padding(32, 8);
+    @include padding(24, 8);
     box-sizing: border-box;
 
     .header {
@@ -71,7 +73,7 @@
       }
 
       .image {
-        max-width: 80%;
+        max-width: 60%;
         max-height: 60%;
       }
 
