@@ -3,6 +3,8 @@
   import image from '../../assets/Inventory.png'
   import { fade } from 'svelte/transition'
   import { createEventDispatcher } from 'svelte'
+  import { edition } from '../../store/editionStore'
+  import Tumbler from '../ui/Tumbler.svelte'
 
   const dispatch = createEventDispatcher()
 </script>
@@ -15,7 +17,8 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version"> v.1.03</span>
+      <span class="version">v.1.10</span>
+      <Tumbler checked={$edition === 'second'} on:change={edition.change} />
     </h1>
     <img class="image" src={image} alt="inventory" />
     <span class="info">
@@ -69,6 +72,27 @@
           font-family: Arial, sans-serif;
           font-weight: 500;
           font-size: var(--font-regular);
+        }
+
+        .edition {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          left: 0;
+          @include gap(2);
+
+          .item {
+            display: flex;
+            align-items: center;
+            @include gap(2);
+
+            .text {
+              font-family: Arial, sans-serif;
+              font-weight: 500;
+              font-size: var(--font-regular);
+            }
+          }
         }
       }
 

@@ -8,6 +8,8 @@
   let innerWidth: number
 
   $: calcSize = innerWidth > 374 ? size : size * 0.75
+
+  const change = () => dispatch('change')
 </script>
 
 <svelte:window bind:innerWidth />
@@ -17,7 +19,7 @@
   class="checkbox"
   style={`width: ${calcSize}px;height: ${calcSize}px`}
 >
-  <input type="checkbox" {checked} on:change={() => dispatch('change')} />
+  <input type="checkbox" {checked} on:change={change} />
   <span class="checkmark" />
 </label>
 

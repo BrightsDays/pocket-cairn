@@ -18,6 +18,10 @@
   let showForm = false
   name.subscribe((value) => (nameValue = value))
 
+  const toggleForm = () => {
+    showForm = !showForm
+  }
+
   onMount(() => {
     const character = localStorage.getItem('pc__character')
 
@@ -37,9 +41,9 @@
   {#if nameValue}
     <Character />
   {:else if !showForm}
-    <Creation on:show-form={() => (showForm = true)} />
+    <Creation on:show-form={toggleForm} />
   {:else}
-    <Form on:hide-form={() => (showForm = false)} />
+    <Form on:hide-form={toggleForm} />
   {/if}
 </main>
 
