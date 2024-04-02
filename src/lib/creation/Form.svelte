@@ -15,6 +15,7 @@
   import SelectInput from '../ui/SelectInput.svelte'
   import { gearPackages } from '../data/gearPackages'
   import { notes } from '../../store/notesStore'
+  import { biography } from '../../store/biographyStore'
   import {
     background,
     clothing,
@@ -33,16 +34,27 @@
   } from '../data/traits'
   import dice from '../../assets/icons/dice.svg'
   import { fade } from 'svelte/transition'
+  import { edition } from '../../store/editionStore'
+  import { secondEdBacks } from '../data/secondEdBacks'
 
   const dispatch = createEventDispatcher()
 
+  const secondEdBack =
+    $edition === 'second'
+      ? secondEdBacks[rollDices(1, secondEdBacks.length) - 1]
+      : null
+  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 6) - 1]
+  const secondPerk = secondEdBack?.secondPerk.list[rollDices(1, 6) - 1]
+
   let character = {
-    name: '',
+    name: secondEdBack
+      ? secondEdBack.names[rollDices(1, secondEdBack.names.length - 1)]
+      : '',
     str: rollDices(3, 6),
     dex: rollDices(3, 6),
     wil: rollDices(3, 6),
     hp: rollDices(1, 6),
-    gp: rollDices(3, 6),
+    gp: secondEdBack ? rollDices(secondEdBack.goldDices, 6) : rollDices(3, 6),
   }
   let gearList = ['random', ...gearPackages().map((item) => item.title)]
   let selectedGear: string = gearList[0]
@@ -99,26 +111,49 @@
       sp: '0',
       cp: '0',
     })
-    inventory.set(
-      selectedGear === 'random'
-        ? startingInventory()
-        : gearPackages().find((item) => item.title === selectedGear).inventory
-    )
-    notes.set(`Age: ${rollDices(2, 20) + 10}, formerly a ${
-      background[rollDices(1, 20)]
-    }.
+
+    if ($edition === 'second') {
+      inventory.set(secondEdBack.inventory)
+      biography.set({
+        background: secondEdBack.title,
+        description: secondEdBack.description,
+        firstPerk: {
+          title: secondEdBack.firstPerk.title,
+          content: firstPerk.content,
+        },
+        secondPerk: {
+          title: secondEdBack.secondPerk.title,
+          content: secondPerk.content,
+        },
+      })
+      notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${
-      skin[rollDices(1, 10)]
-    } skin, ${hair[rollDices(1, 10)]} hair, and a ${
-      face[rollDices(1, 10)]
-    } face.
+        skin[rollDices(1, 10)]
+      } skin, ${hair[rollDices(1, 10)]} hair, and a ${face[rollDices(1, 10)]} face.
 You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
-      clothing[rollDices(1, 10)]
-    } clothing.
+        clothing[rollDices(1, 10)]
+      } clothing.
+You are ${vice[rollDices(1, 10)]} yet ${virtue[rollDices(1, 10)]}.`)
+    } else if ($edition === 'first') {
+      inventory.set(
+        selectedGear === 'random'
+          ? startingInventory()
+          : gearPackages().find((item) => item.title === selectedGear).inventory
+      )
+      notes.set(`Age: ${rollDices(2, 20) + 10}, formerly a ${
+        background[rollDices(1, 20)]
+      }.
+You have an ${phisique[rollDices(1, 10)]} physique, ${
+        skin[rollDices(1, 10)]
+      } skin, ${hair[rollDices(1, 10)]} hair, and a ${face[rollDices(1, 10)]} face.
+You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
+        clothing[rollDices(1, 10)]
+      } clothing.
 You are ${vice[rollDices(1, 10)]} yet ${
-      virtue[rollDices(1, 10)]
-    }, and are generally regarded as ${reputation[rollDices(1, 10)]}.
+        virtue[rollDices(1, 10)]
+      }, and are generally regarded as ${reputation[rollDices(1, 10)]}.
 You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
+    }
 
     setLocalCharacter()
     dispatch('hide-form')
@@ -166,29 +201,41 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
     </div>
   </section>
 
-  <section class="wrap">
-    <div class="heading">
-      <span class="text">Starting gear</span>
-    </div>
-    <div class="inventory">
-      <SelectInput
-        options={gearList}
-        value={selectedGear}
-        on:select={(value) => (selectedGear = value.detail)}
-      />
-      <span class="info">
-        You can use randomly generated starting gear or choose one of the
-        starting packages.
-      </span>
-      {#if selectedGear !== 'random'}
-        <div class="items-list">
-          {#each gearPackages().find((item) => item.title === selectedGear).inventory as item}
-            {#if item.title}<span class="item">{item.title}</span>{/if}
-          {/each}
-        </div>
-      {/if}
-    </div>
-  </section>
+  {#if $edition === 'second'}
+    <section class="wrap">
+      <div class="heading">
+        <span class="text"> Background </span>
+      </div>
+      <div class="inventory">
+        <span class="background">{secondEdBack.title}</span>
+        <span class="info">{secondEdBack.description}</span>
+      </div>
+    </section>
+  {:else}
+    <section class="wrap">
+      <div class="heading">
+        <span class="text">Starting gear</span>
+      </div>
+      <div class="inventory">
+        <SelectInput
+          options={gearList}
+          value={selectedGear}
+          on:select={(value) => (selectedGear = value.detail)}
+        />
+        <span class="info">
+          You can use randomly generated starting gear or choose one of the
+          starting packages.
+        </span>
+        {#if selectedGear !== 'random'}
+          <div class="items-list">
+            {#each gearPackages().find((item) => item.title === selectedGear).inventory as item}
+              {#if item.title}<span class="item">{item.title}</span>{/if}
+            {/each}
+          </div>
+        {/if}
+      </div>
+    </section>
+  {/if}
 
   <div class="controls">
     <Button on:click={() => dispatch('hide-form')}>Back</Button>
@@ -264,6 +311,12 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
           background-color: var(--background);
           z-index: 1;
         }
+      }
+
+      .background {
+        font-size: var(--font-medium);
+        text-transform: uppercase;
+        color: var(--main);
       }
 
       .info {

@@ -1,9 +1,36 @@
 <script lang="ts">
   import TextArea from '../ui/TextArea.svelte'
   import { notes } from '../../store/notesStore'
+  import { edition } from '../../store/editionStore'
+  import { biography } from '../../store/biographyStore'
 </script>
 
 <div class="notes">
+  {#if $edition === 'second'}
+    <span class="title">Biography:</span>
+    <div class="content">
+      <div class="wrap">
+        <span>
+          {$biography.background}
+        </span>
+        <span>
+          {$biography.description}
+        </span>
+        <span>
+          {$biography.firstPerk.title}
+        </span>
+        <span>
+          {$biography.firstPerk.content}
+        </span>
+        <span>
+          {$biography.secondPerk.title}
+        </span>
+        <span>
+          {$biography.secondPerk.content}
+        </span>
+      </div>
+    </div>
+  {/if}
   <span class="title">Notes:</span>
   <div class="content">
     <div class="wrap">

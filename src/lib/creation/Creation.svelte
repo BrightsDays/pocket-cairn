@@ -18,7 +18,12 @@
     <h1 class="title">
       Pocket Cairn
       <span class="version">v.1.10</span>
-      <Tumbler checked={$edition === 'second'} on:change={edition.change} />
+      <Tumbler
+        checked={$edition === 'second'}
+        on:change={edition.change}
+        firstLabel="1 ed."
+        secondLabel="2 ed."
+      />
     </h1>
     <img class="image" src={image} alt="inventory" />
     <span class="info">

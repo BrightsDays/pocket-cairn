@@ -9,17 +9,20 @@
   const dispatch = createEventDispatcher()
   let showModal = false
 
+  const rollHandler = () => {
+    dispatch('show-form')
+  }
+
   const uploadHandler = (event: CustomEvent) => {
     uploadCharacter(event.detail)
     if (!$name.length) showModal = true
+    //TODO: check for both editions?
   }
 </script>
 
 <div class="menu">
-  <Button on:click={() => dispatch('show-form')}>Roll a character</Button>
+  <Button on:click={rollHandler}>Roll a character</Button>
   <FileInput on:change={(event) => uploadHandler(event)} />
-  <!-- <Button disabled>Characters list</Button>
-  <Button disabled>Warden space</Button> -->
 </div>
 
 <Modal submission isShown={showModal} on:cancel={() => (showModal = false)}>

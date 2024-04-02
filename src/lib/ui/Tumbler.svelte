@@ -2,6 +2,8 @@
   import { createEventDispatcher } from 'svelte'
 
   export let checked: boolean = false
+  export let firstLabel: string | null = null
+  export let secondLabel: string | null = null
 
   const dispatch = createEventDispatcher()
 
@@ -13,10 +15,12 @@
     <div class="dot" />
     <span class="checkmark" />
   </button>
-  <div class="item">
-    <span class="text"> 1 ed. </span>
-    <span class="text"> 2 ed. </span>
-  </div>
+  {#if firstLabel && secondLabel}
+    <div class="labels">
+      <span class="text"> {firstLabel} </span>
+      <span class="text"> {secondLabel} </span>
+    </div>
+  {/if}
 </div>
 
 <style lang="scss" scoped>
@@ -61,7 +65,7 @@
       }
     }
 
-    .item {
+    .labels {
       display: flex;
       flex-direction: column;
       justify-content: space-between;

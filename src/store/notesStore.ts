@@ -9,7 +9,7 @@ const createNotes = () => {
     set,
     change: (value: string) => update((notes) => {
       notes = value
-      setLocalCharacter()      
+      setLocalCharacter()
       return notes
     })
 	}
