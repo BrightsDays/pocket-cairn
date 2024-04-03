@@ -5,6 +5,7 @@
   import Coins from '../sheet/Coins.svelte'
   import Section from '../../ui/Section.svelte'
   import { edition } from '../../../store/editionStore'
+  //TODO: add petty items
 </script>
 
 <div class="sheet">

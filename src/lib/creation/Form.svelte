@@ -125,6 +125,7 @@
           title: secondEdBack.secondPerk.title,
           content: secondPerk.content,
         },
+        //TODO: add bonds, petty and bio items
       })
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${

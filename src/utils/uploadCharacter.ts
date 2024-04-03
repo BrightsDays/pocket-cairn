@@ -26,3 +26,4 @@ export default (event: Event) => {
     if (result) reader.readAsText(result[0])
   }
 }
+//TODO: 2ed upload
