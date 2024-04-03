@@ -3,43 +3,65 @@
   import { notes } from '../../store/notesStore'
   import { edition } from '../../store/editionStore'
   import { biography } from '../../store/biographyStore'
+
+  let showBio = true
+  let checked: 'biography' | 'notes' = 'biography'
+
+  const bioHandler = () => {
+    checked = 'biography'
+  }
+  const notesHandler = () => {
+    checked = 'notes'
+  }
 </script>
 
 <div class="notes">
   {#if $edition === 'second'}
-    <span class="title">Biography:</span>
+    <div class="menu">
+      <button
+        class={`title button ${checked === 'biography' ? ' checked' : ''}`}
+        on:click={bioHandler}>Biography</button
+      >
+      <button
+        class={`title button ${checked === 'notes' ? ' checked' : ''}`}
+        on:click={notesHandler}>Notes</button
+      >
+    </div>
+    {#if checked === 'biography'}
+      <div class="content">
+        <div class="wrap">
+          <div class="text">
+            <b>{$biography.background}</b>
+            <p>{$biography.description}</p>
+            <b>{$biography.firstPerk.title}</b>
+            <p>{$biography.firstPerk.content}</p>
+            <b>{$biography.secondPerk.title}</b>
+            <p>{$biography.secondPerk.content}</p>
+            <b>Your bond</b>
+          </div>
+        </div>
+      </div>
+    {:else if checked === 'notes'}
+      <div class="content">
+        <div class="wrap">
+          <TextArea
+            value={$notes}
+            on:input={(event) => notes.change(event.detail)}
+          />
+        </div>
+      </div>
+    {/if}
+  {:else if $edition === 'first'}
+    <span class="title">Notes:</span>
     <div class="content">
       <div class="wrap">
-        <span>
-          {$biography.background}
-        </span>
-        <span>
-          {$biography.description}
-        </span>
-        <span>
-          {$biography.firstPerk.title}
-        </span>
-        <span>
-          {$biography.firstPerk.content}
-        </span>
-        <span>
-          {$biography.secondPerk.title}
-        </span>
-        <span>
-          {$biography.secondPerk.content}
-        </span>
+        <TextArea
+          value={$notes}
+          on:input={(event) => notes.change(event.detail)}
+        />
       </div>
     </div>
   {/if}
-  <span class="title">Notes:</span>
-  <div class="content">
-    <div class="wrap">
-      <TextArea
-        value={$notes}
-        on:input={(event) => notes.change(event.detail)}
-      />
-    </div>
-  </div>
 </div>
 
 <style lang="scss" scoped>
@@ -57,6 +79,13 @@
     box-sizing: border-box;
     @include gap(8);
 
+    .menu {
+      display: flex;
+      width: 100%;
+      height: max-content;
+      @include gap(2);
+    }
+
     .title {
       padding-left: calc(0px + 1.5625vw);
       padding-bottom: calc(0px + 1.5625vw);
@@ -68,6 +97,25 @@
         padding-left: calc(0px + 0.5625vw);
         padding-bottom: calc(0px + 0.5625vw);
         margin-bottom: calc(-4px - 0.5625vw);
+      }
+
+      &.button {
+        background: none;
+        opacity: 0.6;
+        border: 1px solid var(--second);
+        border-bottom: none;
+        transition: opacity 0.2s;
+        &:hover {
+          opacity: 0.4;
+        }
+        &:active {
+          transform: scale(0.9);
+          transition: 0.1s;
+        }
+
+        &.checked {
+          opacity: 1;
+        }
       }
     }
 
@@ -114,6 +162,22 @@
     .wrap {
       position: relative;
       overflow: auto;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        margin: 0;
+        @include padding(4, 2);
+        text-align: left;
+        font-size: var(--font-regular);
+        box-sizing: border-box;
+        border: none;
+        line-height: 1.2;
+        overflow: hidden;
+        resize: vertical;
+        @include gap(2);
+      }
     }
   }
 
