@@ -75,7 +75,7 @@
         line-height: 1.2;
 
         &.second {
-          font-size: 2rem;
+          font-size: 2.2rem;
         }
       }
     }

@@ -11,7 +11,7 @@
 <div class="coins">
   {#each list as coin}
     <div class="item">
-      <span class="currency">{coin}:</span>
+      <span class={`currency${allCoins ? '' : ' golden'}`}>{coin}:</span>
       <Input
         value={$coins[coin]}
         numbers
@@ -38,6 +38,10 @@
       .currency {
         font-size: 1.4rem;
         text-transform: uppercase;
+
+        &.golden {
+          font-size: 2.2rem;
+        }
       }
     }
   }
