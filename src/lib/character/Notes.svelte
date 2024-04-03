@@ -19,10 +19,12 @@
   {#if $edition === 'second'}
     <div class="menu">
       <button
+        ontouchstart=""
         class={`title button ${checked === 'biography' ? ' checked' : ''}`}
         on:click={bioHandler}>Biography</button
       >
       <button
+        ontouchstart=""
         class={`title button ${checked === 'notes' ? ' checked' : ''}`}
         on:click={notesHandler}>Notes</button
       >
@@ -32,11 +34,11 @@
         <div class="wrap">
           <div class="text">
             <b>{$biography.background}</b>
-            <p>{$biography.description}</p>
+            <span>{$biography.description}</span>
             <b>{$biography.firstPerk.title}</b>
-            <p>{$biography.firstPerk.content}</p>
+            <span>{$biography.firstPerk.content}</span>
             <b>{$biography.secondPerk.title}</b>
-            <p>{$biography.secondPerk.content}</p>
+            <span>{$biography.secondPerk.content}</span>
             <b>Your bond</b>
           </div>
         </div>
@@ -92,7 +94,6 @@
       margin-bottom: calc(-8px - 1.5625vw);
       text-align: left;
       font-size: 1.4rem;
-      border-bottom: 1px solid var(--second);
       @media screen and (min-width: 768px) {
         padding-left: calc(0px + 0.5625vw);
         padding-bottom: calc(0px + 0.5625vw);
@@ -102,15 +103,17 @@
       &.button {
         background: none;
         opacity: 0.6;
+        color: var(--main);
         border: 1px solid var(--second);
         border-bottom: none;
+        border-radius: 5px 5px 0 0;
         transition: opacity 0.2s;
         &:hover {
           opacity: 0.4;
         }
         &:active {
-          transform: scale(0.9);
-          transition: 0.1s;
+          transform: translateY(-5px);
+          transition: 0.2s;
         }
 
         &.checked {
@@ -125,6 +128,8 @@
       flex-direction: column;
       height: 100%;
       overflow: hidden;
+
+      border-top: 1px solid var(--second);
       &::before {
         content: '';
         display: block;

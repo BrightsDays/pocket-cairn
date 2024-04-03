@@ -1,6 +1,8 @@
 <script lang="ts">
   import { stats } from '../../../store/characterStore'
+  import { edition } from '../../../store/editionStore'
   import Checkbox from '../../ui/Checkbox.svelte'
+  import Coins from './Coins.svelte'
   import Stat from './Stat.svelte'
 </script>
 
@@ -22,14 +24,28 @@
     on:increase={stats.increaceArmor}
   />
 
-  <div class="deprived">
-    <span class="title"> Deprived </span>
-    <Checkbox
-      size={40}
-      checked={$stats.deprived}
-      on:change={stats.changeDeprived}
-    />
-  </div>
+  {#if $edition === 'second'}
+    <div class="deprived">
+      <div class="wrap">
+        <Coins />
+      </div>
+      <span class="title second"> Deprived </span>
+      <Checkbox
+        size={40}
+        checked={$stats.deprived}
+        on:change={stats.changeDeprived}
+      />
+    </div>
+  {:else if $edition === 'first'}
+    <div class="deprived">
+      <span class="title"> Deprived </span>
+      <Checkbox
+        size={40}
+        checked={$stats.deprived}
+        on:change={stats.changeDeprived}
+      />
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -46,11 +62,21 @@
       align-items: center;
       gap: 2%;
 
+      .wrap {
+        width: 30%;
+        padding-right: 1rem;
+        border-right: 1px solid var(--second-background);
+      }
+
       .title {
         margin-right: auto;
         text-transform: uppercase;
         font-size: var(--font-big);
         line-height: 1.2;
+
+        &.second {
+          font-size: 2rem;
+        }
       }
     }
   }

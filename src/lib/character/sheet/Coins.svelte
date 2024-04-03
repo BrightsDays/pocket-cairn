@@ -3,7 +3,9 @@
   import { coins } from '../../../store/characterStore'
   import Input from '../../ui/TextInput.svelte'
 
-  const list: CoinKeys[] = ['gp', 'sp', 'cp']
+  export let allCoins: boolean = false
+
+  const list: CoinKeys[] = allCoins ? ['gp', 'sp', 'cp'] : ['gp']
 </script>
 
 <div class="coins">
