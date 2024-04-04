@@ -38,6 +38,7 @@
   import { edition } from '../../store/editionStore'
   import { secondEdBacks } from '../data/secondEdBacks'
   import { bonds } from '../data/bonds'
+  import type { Item } from '../../../types/types'
 
   const dispatch = createEventDispatcher()
 
@@ -115,8 +116,45 @@
     })
 
     if ($edition === 'second') {
+      const bond = bonds[rollDices(1, bonds.length) - 1]
+
+      if (bond.gold) {
+        coins.change('gp', (+$coins.gp + 20).toString())
+      }
+
       inventory.set(secondEdBack.inventory)
+
+      if (firstPerk.items)
+        firstPerk.items.forEach((item) => {
+          const temporal = [...$inventory]
+          const index = temporal.findIndex((element) => !element.title.length)
+          temporal[index] = item
+          inventory.set(temporal)
+        })
+      if (bond.items)
+        bond.items.forEach((item: Item) => {
+          const temporal = [...$inventory]
+          const index = temporal.findIndex((element) => !element.title.length)
+          temporal[index] = item
+          inventory.set(temporal)
+        })
+
       petty.set(secondEdBack.petty)
+      if (firstPerk.petty)
+        firstPerk.petty.forEach((item) => {
+          const temporal = [...$petty]
+          const index = temporal.findIndex((element) => !element.title.length)
+          temporal[index] = item
+          petty.set(temporal)
+        })
+      if (bond.petty)
+        bond.petty.forEach((item) => {
+          const temporal = [...$petty]
+          const index = temporal.findIndex((element) => !element.title.length)
+          temporal[index] = item
+          petty.set(temporal)
+        })
+
       biography.set({
         background: secondEdBack.title,
         description: secondEdBack.description,
@@ -128,8 +166,7 @@
           title: secondEdBack.secondPerk.title,
           content: secondPerk.content,
         },
-        bonds: bonds[rollDices(1, bonds.length - 1)].content,
-        //TODO: add bonds/bio items
+        bonds: bond.content, //TODO: rename to bond
       })
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${
@@ -139,7 +176,8 @@ You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
         clothing[rollDices(1, 10)]
       } clothing.
 You are ${vice[rollDices(1, 10)]} yet ${virtue[rollDices(1, 10)]}.`)
-    } else if ($edition === 'first') {
+    }
+    if ($edition === 'first') {
       inventory.set(
         selectedGear === 'random'
           ? startingInventory()

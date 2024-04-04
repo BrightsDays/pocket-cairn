@@ -40,6 +40,32 @@ export type Resolve = {
   key?: AbilityKeys
 }
 
+export type Background = {
+  title: string
+  description: string
+  names: string[]
+  inventory: Item[],
+  petty: { title: string }[]
+  goldDices: number
+  firstPerk: {
+    title: string
+    list: [
+      {
+        content: string
+        items: Item[] | null
+        petty: { title: string }[] | null
+      }
+    ]
+  }
+  secondPerk: {
+    title: string,
+    list: {
+      title: string
+      content: string
+    }[]
+  }
+}
+
 export type Biography = {
   background: string
   description: string
@@ -52,6 +78,13 @@ export type Biography = {
     content: string
   },
   bonds: string
+}
+
+export type Bond = {
+  content: string,
+  items: Item[] | null,
+  petty: { title: string }[] | null,
+  gold: number
 }
 
 export type Inventory = Item[]

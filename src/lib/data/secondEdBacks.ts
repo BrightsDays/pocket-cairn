@@ -1,4 +1,6 @@
-export const secondEdBacks = [
+import type { Background } from "../../../types/types"
+
+export const secondEdBacks: Background[] = [
   {
     title: 'Aurifex',
     description: 'You are an artisan of the arcane, a smith of subtle forces. In the crucible of your workshop, the laws that govern this world are warped to suit your needs.',
@@ -76,13 +78,18 @@ export const secondEdBacks = [
               inHand: false,
               fatigue: false
             }
-          ]
+          ],
+          petty: null
         },
         {
-          content: 'You dematerialized a beloved pet. Now it follows you around, invisible but always present. Although it cannot interact with the physical realm, you are able to share its senses (add a Fatigue each time). It follows basic commands.'
+          content: 'You dematerialized a beloved pet. Now it follows you around, invisible but always present. Although it cannot interact with the physical realm, you are able to share its senses (add a Fatigue each time). It follows basic commands.',
+          items: null,
+          petty: null
         },
         {
-          content: 'You were exposed to a long-acting truth serum whose effects have yet to wear off. The disorder has its advantages: you cannot repeat lies you`ve heard, either.'
+          content: 'You were exposed to a long-acting truth serum whose effects have yet to wear off. The disorder has its advantages: you cannot repeat lies you`ve heard, either.',
+          items: null,
+          petty: null
         },
         {
           content: 'You were adept at creating fake gold, which is almost as good. Eventually, your ruse was discovered and you had to make a hasty retreat. Take a heavy Metal Ingot and Gold Powder (3 uses).',
@@ -97,7 +104,8 @@ export const secondEdBacks = [
               inHand: false,
               fatigue: false
             }
-          ]
+          ],
+          petty: null
         },
         {
           content: 'Your recipe worked, but a rival stole the blueprint before your claims could be proven. Take a prototype Blunderbuss (d12, blast, bulky) and a taste for revenge.',
@@ -107,7 +115,8 @@ export const secondEdBacks = [
               inHand: false,
               fatigue: false
             }
-          ]
+          ],
+          petty: null
         },
         {
           content: 'Ridiculed for discovering how to turn gold into lead, you were a laughing stock. Take a bottle of Universal Solvent (2 uses) that dissolves anything it touches into its constituent parts.',
@@ -117,7 +126,8 @@ export const secondEdBacks = [
               inHand: false,
               fatigue: false
             }
-          ]
+          ],
+          petty: null
         }
       ]
     },
@@ -221,7 +231,9 @@ export const secondEdBacks = [
       title: 'How have you “improved” yourself?',
       list: [
         {
-          content: 'You have a replacement eye that can magnify objects, acts as a telescope, and provides minimal night vision. You cannot wear anything metal on your head, and strong magnets make you deprived.'
+          content: 'You have a replacement eye that can magnify objects, acts as a telescope, and provides minimal night vision. You cannot wear anything metal on your head, and strong magnets make you deprived.',
+          items: null,
+          petty: null
         },
         {
           content: 'One foot is mostly metal (kick, d6), and you treat some Tough Terrain as Easy. Carry an Oil Can (6 uses). Without a daily application you are deprived and noisy.',
@@ -231,20 +243,28 @@ export const secondEdBacks = [
               inHand: false,
               fatigue: false
             }
-          ]
+          ],
+          petty: null
         },
         {
           content: 'One of your fingers has been swapped, the bone replaced by gold and iron. Take a Hook and a Screwdriver that can attach to the fingertip.',
-          petty: ['Hook and Screwdriver']
+          items: null,
+          petty: [{title: 'Hook and Screwdriver'}]
         },
         {
-          content: 'Both ears have been surgically enhanced, tripling your hearing. You can focus on a specific sound at a great distance, such as a conversation. You wear an ear flap to protect against sudden loud noises (WIL save to avoid temporary paralysis).'
+          content: 'Both ears have been surgically enhanced, tripling your hearing. You can focus on a specific sound at a great distance, such as a conversation. You wear an ear flap to protect against sudden loud noises (WIL save to avoid temporary paralysis).',
+          items: null,
+          petty: null
         },
         {
-          content: 'Your chest is lined with alchemical sigils, toughening the skin (1 Armor). Wearing other metallic armor nullifies the effect.'
+          content: 'Your chest is lined with alchemical sigils, toughening the skin (1 Armor). Wearing other metallic armor nullifies the effect.',
+          items: null,
+          petty: null
         },
         {
-          content: 'One arm is fully metal, and comes off at the shoulder. It can be used as a weapon (d8, bulky when not attached) and can move independently if you are within sight of it.'
+          content: 'One arm is fully metal, and comes off at the shoulder. It can be used as a weapon (d8, bulky when not attached) and can move independently if you are within sight of it.',
+          items: null,
+          petty: null
         }
       ]
     },
