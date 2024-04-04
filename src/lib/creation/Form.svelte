@@ -153,7 +153,7 @@
           const index = temporal.findIndex((element) => !element.title.length)
           temporal[index] = item
           petty.set(temporal)
-        })
+        }) //TODO: use it as utility
 
       biography.set({
         background: secondEdBack.title,

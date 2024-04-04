@@ -28,6 +28,10 @@ export type Item = {
   fatigue: boolean
 }
 
+export type Petty = {
+  title: string
+}
+
 export type Scar = {
   content: string
   resolve?: Resolve
@@ -45,7 +49,7 @@ export type Background = {
   description: string
   names: string[]
   inventory: Item[],
-  petty: { title: string }[]
+  petty: Petty[]
   goldDices: number
   firstPerk: {
     title: string
@@ -53,7 +57,7 @@ export type Background = {
       {
         content: string
         items: Item[] | null
-        petty: { title: string }[] | null
+        petty: Petty[] | null
       }
     ]
   }
@@ -83,12 +87,11 @@ export type Biography = {
 export type Bond = {
   content: string,
   items: Item[] | null,
-  petty: { title: string }[] | null,
+  petty: Petty[] | null,
   gold: number
 }
 
 export type Inventory = Item[]
-export type Petty = { title: string }[]
 
 export type AbilityKeys = 'str' | 'dex' | 'wil'
 export type CoinKeys = 'gp' | 'sp' |'cp'

@@ -185,7 +185,7 @@ const createPetty = () => {
   return {
 		subscribe,
     set,
-    change: (value: Petty) => update((petty) => {
+    change: (value: Petty[]) => update((petty) => {
       petty = value
       setLocalCharacter()
       return [...petty]
