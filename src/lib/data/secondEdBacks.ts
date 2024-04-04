@@ -297,5 +297,620 @@ export const secondEdBacks: Background[] = [
         }
       ]
     }
+  },
+  {
+    title: 'Beast Handler',
+    description: 'You alone can walk among the creatures of the wild, fearless and in control. You share a connection with animals that others can only dream of...so long as you don`t become their snack.',
+    names: ['Amara', 'Wulf', 'Mireille', 'Soren', 'Freki', 'Aster', 
+    'Gerrik', 'Boreas', 'Delphine', 'Matheus'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Leather Whip (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Soporific Darts (STR save or fall asleep, 6 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Lure',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Rope (25ft)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What do creatures of the wild understand that your kind do not?',
+      list: [
+        {
+          content: 'There is far more to the world than meets the eye. With quiet concentration, you can borrow the senses of a nearby creature of your specialty.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'The behavior of beasts is a language in itself. When observing beasts of your specialty, you gain insight into weather patterns and impending disasters.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'The pulse of the hunt is a powerful impulse. You have a sense for when predators, even those not of your specialty, are near.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'You know some lands intimately. Your chance of becoming lost in a terrain dominated by the beasts of your specialty is reduced by one step (e.g. 4-in-6 becomes 3-in-6).',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'Nature`s symphony can be heard if you attune to its rhythm. When surrounded by creatures of your specialty they can alert you to approaching danger before it arrives.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'Survival is about adaptability. Once per day, you may take on a simple feature from a creature of your speciality (webbed fingers, night vision, etc.). Add a Fatigue each time.',
+          items: null,
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What creature is your specialty?',
+      list: [
+        {
+          title: 'Arachnids',
+          content: 'Take a Quick-Flame Rod and an Oil Can (6 uses). It can destroy a large spider nest in seconds.'
+        },
+        {
+          title: 'Felines',
+          content: 'Take a sack of Whiskerwort. Its odor can calm and control even the largest of cats.'
+        },
+        {
+          title: 'Canines',
+          content: 'Take a wreath of Wolfsbane and a Large Net. Also effective against werewolves!'
+        },
+        {
+          title: 'Birds',
+          content: 'Take a Warble-Whistle (3 charges). It can imitate any bird call, and can even be used to send simple messages. Recharge: Feed a baby bird as its mother would, then blow.'
+        },
+        {
+          title: 'Rodents',
+          content: 'Take a Windpipe that emits a high-pitched sound that only rodents can hear. So long as you play, they will follow. Even to their deaths.'
+        },
+        {
+          title: 'Serpents',
+          content: 'Take a Warming Stone that generates an irresistible heat, and a vial of Antitoxin (2 uses).'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Bonekeeper',
+    description: 'You are a shepherd to the departed. You listen to the final whispers of the dead as they descend into the cold, unyielding earth. You know that to fully celebrate the gift of life, we must honor its finale as well.',
+    names: ['Rook', 'Ebon', 'Moro', 'Yew', 'Pall', 'Leth', 'Nix', 
+    'Barnaby', 'Vesper', 'Leder'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Lantern',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Oil Can (6 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Stake (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Chains (10ft)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What did you take from the dead?',
+      list: [
+        {
+          content: 'A Crow-Shaped Amulet. You can ask a question of the dead, but must add a Fatigue each time.',
+          items: [
+            {
+              title: 'Crow-Shaped Amulet',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A mortal wound from a freed revenant. You were healed, but the disfigurement has made you a pariah. You require neither air nor sustenance, but are still subject to pain and death. Trapped between, the dead see you as one of their own.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'A Blood Pail (bulky) from a local death-cult. Empty its contents to summon a creature built from items buried below (bones, rocks, pottery, etc). It obeys your command, but if destroyed you permanently lose 1d4 STR. It has 6 HP, 1 Armor, 13 STR, 11 DEX, 4 WIL, shard fists (d8). Recharge: Fill the bucket with the blood of a dying warrior.',
+          items: [
+            {
+              title: 'Blood Pail (bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A Burial Wagon (+6 slots) from your last job. It came with a stubborn old Donkey (+4 slots, +2 slots if pulling wagon, slow).',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'The Detect Magic Spellbook, stolen from an ancient library. Your family worked in service to an obscure underworld deity, but you lost your faith. Though exiled, you continue to serve, even as an apostate.',
+          items: [
+            {
+              title: 'Detect Magic Spellbook',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A Plague Doctor`s Mask, after its owner succumbed to the disease that wiped out everyone you once knew. They should have kept it on.',
+          items: [
+            {
+              title: 'Plague Doctor`s Mask',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What tool was invaluable in your work?',
+      list: [
+        {
+          title: 'Manacles',
+          content: 'Though old, it`s still effective even against the very strong. You don`t have the key.'
+        },
+        {
+          title: 'Sponge',
+          content: 'Supposedly made from the remains of a rare sea creature. It never seems to dry out.'
+        },
+        {
+          title: 'Pulley',
+          content: 'Great for moving gravestones, rocks, or even bodies.'
+        },
+        {
+          title: 'Incense',
+          content: 'Perfect for rituals, or to keep the flies at bay. Cools the blood.'
+        },
+        {
+          title: 'Crowbar',
+          content: 'd6 damage. Sometimes you just need to get the damn thing open!'
+        },
+        {
+          title: 'Repellent',
+          content: 'Powerful stuff. Its faded label makes it unclear what it is actually meant to repel, though. Perhaps everything. 3 uses.'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Cutpurse',
+    description: 'You live in the grey space between those who have power and those who don`t. You find opportunity where others see only chaos. With nimble fingers, you unburden both the richest merchant and the lowliest guard.',
+    names: ['Sable', 'Lyra', 'Eamon', 'Salina', 'Elara', 'Freya', 'Isolde', 
+    'Sparrow', 'Ivy', 'Silas'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Twin Daggers (d6+d6, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Padded Leather (1 Armor)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Lockpicks',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: 'Black Outfit'},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What was your last big job?',
+      list: [
+        {
+          content: 'A noble`s summer home. The place was full of fancy wine (+20gp) but not much else. Take Fence Cutters.',
+          items: [
+            {
+              title: 'Fence Cutters',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A bank (you were caught). You bear a brand only visible by firelight, and anyone that sees the mark can ask you for a beer. Take Retractable Wires.',
+          items: [
+            {
+              title: 'Retractable Wires',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A guild warehouse. Take a Ladder (bulky, 10ft) and Blinding Powder (1 use).',
+          items: [
+            {
+              title: 'Ladder (bulky, 10ft)',
+              inHand: false,
+              fatigue: false
+            },
+            {
+              title: 'Blinding Powder (1 use)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Moneylender. Someone beat you to the job, but left behind a Scroll of Arcane Eye (petty).',
+          items: null,
+          petty: [
+            {
+              title: 'Scroll of Arcane Eye'
+            }
+          ]
+        },
+        {
+          content: 'Constable`s quarters. You escaped, but left some friends behind. Take Strong Silk Rope and a queasy feeling.',
+          items: [
+            {
+              title: 'Strong Silk Rope',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A university. You were seen, but not pursued. You still don`t know why. Take Smoke Pellets (3 uses).',
+          items: [
+            {
+              title: 'Smoke Pellets (3 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What helps you steal?',
+      list: [
+        {
+          title: 'Catring',
+          content: '2 charges. Climb up walls and fall safely. Recharge: Place the ring on a stray cat`s tail.'
+        },
+        {
+          title: 'Gildfinger',
+          content: '1 charge. A finger glove that mimics any mundane key. Recharge: Bundle it with at least 100gp for a night.'
+        },
+        {
+          title: 'Glimpse Glass',
+          content: '3 charges. A monocle that lets you see through walls or other obstructions. It shatters after the last use.'
+        },
+        {
+          title: 'Sweetwhistle',
+          content: '1 charge. Listeners hear a soft, familiar voice in the distance that they cannot resist following. Recharge: Lose a dear memory (describe it).'
+        },
+        {
+          title: 'Vagrant`s Veil',
+          content: '1 charge. Wear it to blend seamlessly into crowds, appearing as a simple pauper. Recharge: Donate all the day’s winnings to the poor (Petty).'
+        },
+        {
+          title: 'Smokestack Marble',
+          content: '3 uses. Crush to release a dense cloud of smoke that follows you (Petty).'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Fieldwarden',
+    description: 'Protectors of the harvest, defense against pests, thieves, and beasts. A position of great honor, while it lasts: many guardians do not live out their natural lives.',
+    names: ['Seed', 'Thresh', 'Dibber', 'Sow', 'Stalk', 'Harrow', 'Cobb', 
+    'Flax', 'Briar', 'Rye'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Brigandine (1 Armor, bulky)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Sling (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Hand Axe (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Repellent (state the creature, 3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What got the better of you?',
+      list: [
+        {
+          content: 'A voracious swarm of pests that swallowed crops and animals alike. With nothing to defend, you left. Take Gale Seed Extract (3 uses). Ingesting one lets you sprint with a speed four times your regular rate. Afterward you add two Fatigue.',
+          items: [
+            {
+              title: 'Gale Seed Extract (3 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A crop spirit, angered by a poor tithing. The fires consumed nearly everything, and afterwards you were able to gather a pouch of Fireseeds (d8, blast, 4 uses).',
+          items: [
+            {
+              title: 'Fireseeds (d8, blast, 4 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'An antlered, toothy demon that nearly ended you. Take a blood-stained bone knife (d6). On critical damage, its next attack becomes enhanced from contact with blood.',
+          items: [
+            {
+              title: 'blood-stained bone knife (d6)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'The Withering, a type of stem rot from The Roots. Take a Diseased Crop (6 uses) that decays any plant it touches.',
+          items: null,
+          petty: [
+            {
+              title: 'Diseased Crop (6 uses)'
+            }
+          ]
+        },
+        {
+          content: 'Wolves, or so you thought. You are now a Werewolf [8 HP, 15 STR, 14 DEX, claws (d6+d6) or bite (d8)]. Your WIL remains the same. You can turn at will (once per day) but must make a WIL save to revert. Anyone left alive from your attacks must make a WIL save to avoid infection.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'Crop thieves. Not all of them survived, but you were outnumbered. Take a +d4 HP and a Hilted Broadsword (d8, bulky).',
+          items: [
+            {
+              title: 'Smoke Pellets (3 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What tool saved your life?',
+      list: [
+        {
+          title: 'Bloodvine Whip',
+          content: 'd8 damage. On Critical Damage it drains the target’s blood, granting the weapon’s next attack the blast quality.'
+        },
+        {
+          title: 'Clatter Keeper',
+          content: 'A hand-cranked device that emits a loud noise, frightening away most creatures.'
+        },
+        {
+          title: 'Sun Stick',
+          content: 'Provides ample warmth and light for up to one hour (1 use). Recharge: Leave in heavy sunlight for a full day.'
+        },
+        {
+          title: 'Root Tether',
+          content: 'When thrown, binds up to a wolf-sized creature to the soil for a short time.'
+        },
+        {
+          title: 'Greenwhistle',
+          content: 'A small flute that calms plants, making passage through areas heavy with plant life a bit easier.'
+        },
+        {
+          title: 'Everbloom Band',
+          content: 'A circlet adorned with flowers that never wilt. On taking Critical Damage the flowers dissolve into dust, but you act as if your save succeeded (STR loss still occurs).'
+        }
+      ]
+    }
   }
-]//TODO: finish list
+]//TODO: finish list and add items to second perk

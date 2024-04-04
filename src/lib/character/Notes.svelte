@@ -12,6 +12,7 @@
   const notesHandler = () => {
     checked = 'notes'
   }
+  //TODO: add second perk's title
 </script>
 
 <div class="notes">

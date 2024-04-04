@@ -154,7 +154,7 @@
           temporal[index] = item
           petty.set(temporal)
         }) //TODO: use it as utility
-
+      //TODO: add second perk's items
       biography.set({
         background: secondEdBack.title,
         description: secondEdBack.description,
@@ -200,7 +200,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     setLocalCharacter()
     dispatch('hide-form')
-  }
+  } //TODO: add second bond and other strange staff to warden
 </script>
 
 <div
