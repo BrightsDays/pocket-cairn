@@ -745,7 +745,7 @@ export const secondEdBacks: Background[] = [
         },
         {
           title: 'Vagrant`s Veil',
-          content: '1 charge. Wear it to blend seamlessly into crowds, appearing as a simple pauper. Recharge: Donate all the day’s winnings to the poor (Petty).'
+          content: '1 charge. Wear it to blend seamlessly into crowds, appearing as a simple pauper. Recharge: Donate all the day`s winnings to the poor (Petty).'
         },
         {
           title: 'Smokestack Marble',
@@ -888,7 +888,7 @@ export const secondEdBacks: Background[] = [
       list: [
         {
           title: 'Bloodvine Whip',
-          content: 'd8 damage. On Critical Damage it drains the target’s blood, granting the weapon’s next attack the blast quality.'
+          content: 'd8 damage. On Critical Damage it drains the target`s blood, granting the weapon`s next attack the blast quality.'
         },
         {
           title: 'Clatter Keeper',
@@ -909,6 +909,686 @@ export const secondEdBacks: Background[] = [
         {
           title: 'Everbloom Band',
           content: 'A circlet adorned with flowers that never wilt. On taking Critical Damage the flowers dissolve into dust, but you act as if your save succeeded (STR loss still occurs).'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Fletchwind',
+    description: 'Protectors of the harvest, defense against pests, thieves, and beasts. A position of great honor, while it lasts: many guardians do not live out their natural lives.',
+    names: ['Flint', 'Feather', 'Crier', 'Thunder', 'Falcon', 'Pluck', 'Needle', 
+    'Warsong', 'Hawk', 'Cai'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Serrated Knife (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Boiled Leather (1 Armor)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Heartroot Salve (restores 1d4 STR, 1 use)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What kind of wood is your bow made from?',
+      list: [
+        {
+          content: 'Western Yew (d6, bulky). Can be wielded as a blunt weapon (d6). Noisy.',
+          items: [
+            {
+              title: 'Western Yew (d6, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Sessile Oak (d8, bulky). Slams into targets. On critical damage, something is torn off.',
+          items: [
+            {
+              title: 'Sessile Oak (d8, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Stone Pine (d6, bulky). Produces one use of Sticky Sap per day. It is highly explosive.',
+          items: [
+            {
+              title: 'Stone Pine (d6, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'White Ash (d6, bulky). Can be used in place of a shield in melee combat (+1 Armor).',
+          items: [
+            {
+              title: 'White Ash (d6, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: []
+        },
+        {
+          content: 'Striped Bamboo (d6). Collapsible, it only requires one slot (but still requires both hands).',
+          items: [
+            {
+              title: 'Striped Bamboo (d6)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Wych Elm (d6, bulky). Protects the bearer from poisons and toxins, so long as they are holding it.',
+          items: [
+            {
+              title: 'Wych Elm (d6, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'How did you earn your bow?',
+      list: [
+        {
+          title: 'War',
+          content: 'If you are first to attack, your bow gains the blast property for the first round.'
+        },
+        {
+          title: 'Falconry',
+          content: 'You keep a falcon [3 hp, 5 STR, 16 DEX, 4 WIL, claws (d6+d6), bite (d6)]. It only eats live game.'
+        },
+        {
+          title: 'Hunting',
+          content: 'When taking the Supply (pg. 80) action your ability to secure Rations increases by one step (e.g. 1d4 becomes 1d6).'
+        },
+        {
+          title: 'Tournaments',
+          content: 'Attacks with your bow are enhanced if the target is immobile.'
+        },
+        {
+          title: 'Training',
+          content: 'If you are the first to attack, melee attacks against you are impaired until you take STR damage.'
+        },
+        {
+          title: 'Scouting',
+          content: 'When taking the Travel (pg. 80) action, your presence decreases the chance of getting lost by one step (e.g. 4-in-6 becomes 3-in-6).'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Foundling',
+    description: 'An odd birthmark, a strange smell: somehow, the touch of elsewhere still lingers. You`ll never fit in, at least not where you`re at. Roll on the Omens table, but keep the results private for now.',
+    names: ['Faunus', 'Snowdrop', 'Wisp', 'Silverdew', 'Brim', 'Solstice', 'Steeleye', 
+    'Sileas', 'Gossamer', 'Hazel'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Salt Pouch',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Sling (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Dagger (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: 'Heirloom Amulet (glows in the presence of magic)'},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'Who took you in?',
+      list: [
+        {
+          content: 'An old hunter. You were both quite happy, until it all ended. Take a Weathered Longbow (d8, bulky) and a Leather Jerkin (1 Armor).',
+          items: [
+            {
+              title: 'Weathered Longbow (d8, bulky)',
+              inHand: false,
+              fatigue: false
+            },
+            {
+              title: 'Leather Jerkin (1 Armor)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A wizened apothecary, who taught you the healing arts but maintained a clinical detachment. Take a Healing Ungent (restores d4 STR).',
+          items: [
+            {
+              title: 'Healing Ungent (restores d4 STR)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A druid, who taught you the language of trees. When it came time to leave you took with you only a Gnarled Staff (d8) and the promise that one day you would return.',
+          items: [
+            {
+              title: 'Gnarled Staff (d8)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A gruff blacksmith from a sleepy river town. You were always kept at arm`s length. Now the forge is cold, and you`ve moved on. Take a Smith`s Apron (petty) and a set of oft-mended Chain Mail (2 Armor, bulky).',
+          items: [
+            {
+              title: 'Chain Mail (2 Armor, bulky)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: [
+            {
+              title: 'Smith`s Apron'
+            }
+          ]
+        },
+        {
+          content: 'A troupe of traveling entertainers. For a time, they were like family to you. One day you woke up and they were gone with no explanation. Take a Storybook, a Dagger (d6), and some burning questions.',
+          items: [
+            {
+              title: 'Storybook',
+              inHand: false,
+              fatigue: false
+            },
+            {
+              title: 'Dagger (d6)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'The monks of a secluded forest monastery. When their rules became too strict, you snuck away. Take a Monk`s Habit (warm, petty) and a Spellbook of Control Plants.',
+          items: [
+            {
+              title: 'Spellbook of Control Plants',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: [
+            {
+              title: 'Monk`s Habit (warm)'
+            }
+          ]
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What keeps away bad tidings?',
+      list: [
+        {
+          title: 'Pipeweed',
+          content: 'Your good luck charm. Conversations tend to flow more easily after a smoke (6 uses).'
+        },
+        {
+          title: 'Stink Jar',
+          content: 'Shattering this jar releases an odor so foul all nearby must make a STR save or immediately vomit (1 use).'
+        },
+        {
+          title: 'Ivy Worm',
+          content: 'A green worm often mistaken for a weed. Swallowed whole, it absorbs any toxins or rot in the body before exiting through the usual way.'
+        },
+        {
+          title: 'Dream Stone',
+          content: 'A smooth blue stone that helps recall dreams more clearly. Overuse can cause dream-addiction.'
+        },
+        {
+          title: 'Drowning Rod',
+          content: 'A finger-sized wooden stick that doubles in size each time it is fully submerged in water. It doesn`t shrink back down.'
+        },
+        {
+          title: 'Rabbit`s Foot',
+          content: 'You were wearing it when they found you. They say it is the foot of she who left you, and that it protects you from witch magic.'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Fungal Forager',
+    description: 'You follow the whisperings of the deep earth, the rhythmic pulse of the mycelium forest that grows beneath the surface. The dark holds no terror for you. Also, you really love mushrooms.',
+    names: ['Unther', 'Woozy', 'Hilda', 'Current', 'Leif', 'Ratan', 'Mourella', 
+    'Lal', 'Per', 'Madrigal'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Sharpened Trowel (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Candle Helmet (+1 Armor, dim, 6 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Rope (25ft)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Metal Pail',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'What strange fungi did you discover?',
+      list: [
+        {
+          content: 'Shrieking Trumpet. When exposed to light it screams so loudly that all nearby attacks (including your own) are impaired (2 uses).',
+          items: [
+            {
+              title: 'Shrieking Trumpet (2 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Torch Fungus. When crushed it creates a heatless light for ten minutes (3 uses).',
+          items: [
+            {
+              title: 'Torch Fungus (3 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Murderous Truffle. Pungent, highly toxic, and very rare (worth 50gp to assassins). Illegal pretty much everywhere (1 use).',
+          items: [
+            {
+              title: 'Murderous Truffle (1 use)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Hellcap. Exposure to its aroma causes intense nausea, even vomiting. Either way, it clears the room. Bottled (1 use).',
+          items: [
+            {
+              title: 'Hellcap (1 use)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Sproutcup. Ingest to shrink down to the size of a mouse (your belongings stay the same size). You return to normal size within the hour, often in fits and starts (1 use).',
+          items: [
+            {
+              title: 'Sproutcup (1 use)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Rootflower. A white fungus found only on corpses deep underground. Ingest to restore d6 WIL. You will dream of the dead, and their stories (1 use).',
+          items: [
+            {
+              title: 'Rootflower (1 use)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What keeps you sane, even in utter darkness?',
+      list: [
+        {
+          title: 'Glowsnail',
+          content: 'Casts a soft, bioluminescent light. Feeds on one ration every two days.'
+        },
+        {
+          title: 'Silk Moth Shawl',
+          content: 'A weatherproof blanket, it can also douse a fire without being damaged.'
+        },
+        {
+          title: 'Milkflower',
+          content: 'A gentle stimulant. Chewing makes you immune to panic for the next hour (3 uses).'
+        },
+        {
+          title: 'Luxcompass',
+          content: 'Hums softly as it moves closer to the Sun. Eventually, the noise becomes unbearably loud.'
+        },
+        {
+          title: 'Sloth-Tarp',
+          content: 'A tough and weatherproof fabric, useful for hanging off trees. When inside, take +1 Armor.'
+        },
+        {
+          title: 'Miner`s Grease',
+          content: 'Great for dislodging a gem, tool, or limb from a tight crack. Highly explosive (3 uses).'
+        }
+      ]
+    }
+  },
+  {
+    title: 'Greenwise',
+    description: 'You delve deep into The Woods, prying its secrets from between rough boughs and whispering leaves. In this verdant kingdom, you are no mere scholar, but its confidant as well.',
+    names: ['Briar', 'Moss', 'Fern', 'Lichen', 'Root', 'Willow', 'Sage', 'Yarrow', 
+    'Rowan', 'Ash'],
+    inventory: [
+      {
+        title: 'Rations (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Torch (3 uses)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Iron Pot',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Root Knife (d6)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: 'Healing Salve (restores 1d4 STR, 1 use)',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      },
+      {
+        title: '',
+        inHand: false,
+        fatigue: false
+      }
+    ],
+    petty: [
+      {title: 'Twine Bauble (petty, Ward once per day)'},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
+    goldDices: 3,
+    firstPerk: {
+      title: 'How have The Woods failed you?',
+      list: [
+        {
+          content: 'An ill-tempered forest spirit cursed you for stealing, marking you as an enemy of their kind. Take a Bezoar Stone. Ingesting it cures any poison (1 use, unless retrieved).',
+          items: [
+            {
+              title: 'Bezoar Stone',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'A close friend, swallowed whole. Now you see their face in any tea you brew. Take a Soporific Concoction (3 uses).',
+          items: [
+            {
+              title: 'Soporific Concoction (3 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'You were poisoned, losing your sense of taste and smell. You can now withstand noxious fumes, and always carry Antitoxin (2 uses).',
+          items: [
+            {
+              title: 'Antitoxin (2 uses)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'Your radical experiments turned your skin green, and you now gain nourishment as a plant. You don`t need rations, but a day without sufficient sunlight and water leaves you deprived.',
+          items: null,
+          petty: null
+        },
+        {
+          content: 'Your impressive corpseflower won a local contest then promptly killed a judge. You fled, but not without the Prize Money (100gp) and a warrant for your arrest.',
+          items: [
+            {
+              title: 'Prize Money (100gp)',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        },
+        {
+          content: 'You created a restorative tincture that also caused accidental infertility. Take a Healing Potion that completely restores STR. Only you know of its unintended side-effects.',
+          items: [
+            {
+              title: 'Healing Potion',
+              inHand: false,
+              fatigue: false
+            }
+          ],
+          petty: null
+        }
+      ]
+    },
+    secondPerk: {
+      title: 'What keeps you safe while in The Woods?',
+      list: [
+        {
+          title: 'Amadou',
+          content: 'A vermillion fungus that catches fire quite easily (3 uses).'
+        },
+        {
+          title: 'Delphinium',
+          content: 'Breathe water for up to one hour (1 use, but can be divided into fractional doses).'
+        },
+        {
+          title: 'Tacky Stalk',
+          content: 'A woody reed that hardens into a permanent adhesive when chewed (2 uses).'
+        },
+        {
+          title: 'Wisp Lantern',
+          content: 'Caged in wrought iron, provides a dim light so long as the wisp is able to feed on nearby pain and fear.'
+        },
+        {
+          title: 'Seed Bomb',
+          content: 'A canvas sack filled with seeds that explodes on impact. d6 damage (blast, 3 uses).'
+        },
+        {
+          title: 'Briarvine',
+          content: 'Entangles any creature up to horse size (STR to break free, reusable).'
         }
       ]
     }
