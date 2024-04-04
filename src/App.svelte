@@ -41,6 +41,7 @@
       biography.set(JSON.parse(character).biography)
     }
   })
+  //TODO: add loading
 </script>
 
 <main>

@@ -16,7 +16,6 @@
   const uploadHandler = (event: CustomEvent) => {
     uploadCharacter(event.detail)
     if (!$name.length) showModal = true
-    //TODO: check for both editions?
   }
 </script>
 
