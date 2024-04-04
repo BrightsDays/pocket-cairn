@@ -77,7 +77,7 @@ export type Biography = {
     title: string
     content: string
   },
-  bonds: string
+  bond: string
 }
 
 export type Bond = {

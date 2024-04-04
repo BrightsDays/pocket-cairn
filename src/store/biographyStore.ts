@@ -13,7 +13,7 @@ const createBiography = () => {
       title: '',
       content: ''
     },
-    bonds: ''
+    bond: ''
   })
 
   return {

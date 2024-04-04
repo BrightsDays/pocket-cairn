@@ -166,7 +166,7 @@
           title: secondEdBack.secondPerk.title,
           content: secondPerk.content,
         },
-        bonds: bond.content, //TODO: rename to bond
+        bond: bond.content,
       })
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${

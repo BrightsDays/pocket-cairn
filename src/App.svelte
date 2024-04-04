@@ -16,16 +16,16 @@
   import Form from './lib/creation/Form.svelte'
   import { edition } from './store/editionStore'
   import { biography } from './store/biographyStore'
+  import Loading from './lib/ui/Loading.svelte'
 
-  let nameValue = $name
   let showForm = false
-  name.subscribe((value) => (nameValue = value))
+  let loading = true
 
   const toggleForm = () => {
     showForm = !showForm
   }
 
-  onMount(() => {
+  const setCharacter = () => {
     const character = localStorage.getItem('pc__character')
 
     if (character && checkJson(JSON.parse(character))) {
@@ -40,12 +40,20 @@
       notes.set(JSON.parse(character).notes)
       biography.set(JSON.parse(character).biography)
     }
+
+    return true
+  }
+
+  onMount(() => {
+    setCharacter()
+    setTimeout(() => (loading = false), 200)
   })
-  //TODO: add loading
 </script>
 
 <main>
-  {#if nameValue}
+  {#if loading}
+    <Loading />
+  {:else if $name}
     <Character />
   {:else if !showForm}
     <Creation on:show-form={toggleForm} />

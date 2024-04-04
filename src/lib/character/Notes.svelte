@@ -4,7 +4,6 @@
   import { edition } from '../../store/editionStore'
   import { biography } from '../../store/biographyStore'
 
-  let showBio = true
   let checked: 'biography' | 'notes' = 'biography'
 
   const bioHandler = () => {
@@ -33,14 +32,14 @@
       <div class="content">
         <div class="wrap">
           <div class="text">
-            <b>{$biography.background}</b>
+            <h3>{$biography.background}</h3>
             <span>{$biography.description}</span>
             <b>{$biography.firstPerk.title}</b>
             <span>{$biography.firstPerk.content}</span>
             <b>{$biography.secondPerk.title}</b>
             <span>{$biography.secondPerk.content}</span>
             <b>Your bond</b>
-            <span>{$biography.bonds}</span>
+            <span>{$biography.bond}</span>
           </div>
         </div>
       </div>
@@ -183,6 +182,10 @@
         overflow: hidden;
         resize: vertical;
         @include gap(2);
+
+        h3 {
+          margin: 0;
+        }
       }
     }
   }
