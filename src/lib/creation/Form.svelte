@@ -7,6 +7,7 @@
     coins,
     inventory,
     name,
+    petty,
     stats,
   } from '../../store/characterStore'
   import rollDices from '../../utils/rollDices'
@@ -36,6 +37,7 @@
   import { fade } from 'svelte/transition'
   import { edition } from '../../store/editionStore'
   import { secondEdBacks } from '../data/secondEdBacks'
+  import { bonds } from '../data/bonds'
 
   const dispatch = createEventDispatcher()
 
@@ -114,6 +116,7 @@
 
     if ($edition === 'second') {
       inventory.set(secondEdBack.inventory)
+      petty.set(secondEdBack.petty)
       biography.set({
         background: secondEdBack.title,
         description: secondEdBack.description,
@@ -125,7 +128,8 @@
           title: secondEdBack.secondPerk.title,
           content: secondPerk.content,
         },
-        //TODO: add bonds, petty and bio items
+        bonds: bonds[rollDices(1, bonds.length - 1)].content,
+        //TODO: add bonds/bio items
       })
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${

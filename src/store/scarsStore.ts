@@ -204,4 +204,3 @@ const createScars = () => {
 }
 
 export const scars = createScars()
-//TODO: check and update scars list

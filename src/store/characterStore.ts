@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import type { AbilityKeys, CoinKeys, Inventory } from '../../types/types'
+import type { AbilityKeys, CoinKeys, Inventory, Petty } from '../../types/types'
 import setLocalCharacter from '../utils/setLocalCharacter'
 
 const createAbilities = () => {
@@ -160,8 +160,42 @@ const createInventory = () => {
 	}
 }
 
+const createPetty = () => {
+  const { subscribe, set, update } = writable([
+    {
+      title: ''
+    },
+    {
+      title: ''
+    },
+    {
+      title: ''
+    },
+    {
+      title: ''
+    },
+    {
+      title: ''
+    },
+    {
+      title: ''
+    },
+  ])
+
+  return {
+		subscribe,
+    set,
+    change: (value: Petty) => update((petty) => {
+      petty = value
+      setLocalCharacter()
+      return [...petty]
+    })
+	}
+}
+
 export const name = writable('')
 export const abilities = createAbilities()
 export const stats = createStats()
 export const coins = createCoins()
 export const inventory = createInventory()
+export const petty = createPetty()

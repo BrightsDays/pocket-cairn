@@ -40,7 +40,7 @@
         text-transform: uppercase;
 
         &.golden {
-          font-size: 2.2rem;
+          font-size: 2rem;
         }
       }
     }

@@ -1,3 +1,5 @@
+export type Edition = 'first' | 'second'
+
 export type Abilities = {
   str: number
   dex: number
@@ -38,7 +40,22 @@ export type Resolve = {
   key?: AbilityKeys
 }
 
+export type Biography = {
+  background: string
+  description: string
+  firstPerk: {
+    title: string
+    content: string
+  },
+  secondPerk: {
+    title: string
+    content: string
+  },
+  bonds: string
+}
+
 export type Inventory = Item[]
+export type Petty = { title: string }[]
 
 export type AbilityKeys = 'str' | 'dex' | 'wil'
 export type CoinKeys = 'gp' | 'sp' |'cp'

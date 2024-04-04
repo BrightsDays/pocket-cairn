@@ -40,6 +40,7 @@
             <b>{$biography.secondPerk.title}</b>
             <span>{$biography.secondPerk.content}</span>
             <b>Your bond</b>
+            <span>{$biography.bonds}</span>
           </div>
         </div>
       </div>

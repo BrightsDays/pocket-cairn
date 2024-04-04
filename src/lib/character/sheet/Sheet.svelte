@@ -5,7 +5,7 @@
   import Coins from '../sheet/Coins.svelte'
   import Section from '../../ui/Section.svelte'
   import { edition } from '../../../store/editionStore'
-  //TODO: add petty items
+  import Petty from './Petty.svelte'
 </script>
 
 <div class="sheet">
@@ -20,9 +20,14 @@
       <Coins allCoins />
     </Section>
   {/if}
-  <Section position="last">
+  <Section position={$edition !== 'second' ? 'last' : ''}>
     <Inventory />
   </Section>
+  {#if $edition === 'second'}
+    <Section position="last">
+      <Petty />
+    </Section>
+  {/if}
 </div>
 
 <style lang="scss" scoped>

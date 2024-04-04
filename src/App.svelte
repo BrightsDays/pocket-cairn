@@ -7,12 +7,15 @@
     coins,
     inventory,
     name,
+    petty,
     stats,
   } from './store/characterStore'
   import { scars } from './store/scarsStore'
   import checkJson from './utils/checkJson'
   import { notes } from './store/notesStore'
   import Form from './lib/creation/Form.svelte'
+  import { edition } from './store/editionStore'
+  import { biography } from './store/biographyStore'
 
   let nameValue = $name
   let showForm = false
@@ -26,13 +29,16 @@
     const character = localStorage.getItem('pc__character')
 
     if (character && checkJson(JSON.parse(character))) {
+      edition.set(JSON.parse(character).edition)
       name.set(JSON.parse(character).name)
       abilities.set(JSON.parse(character).abilities)
       stats.set(JSON.parse(character).stats)
       coins.set(JSON.parse(character).coins)
       inventory.set(JSON.parse(character).inventory)
+      petty.set(JSON.parse(character).petty)
       scars.set(JSON.parse(character).scars)
       notes.set(JSON.parse(character).notes)
+      biography.set(JSON.parse(character).biography)
     }
   })
 </script>

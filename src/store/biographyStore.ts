@@ -12,7 +12,8 @@ const createBiography = () => {
     secondPerk: {
       title: '',
       content: ''
-    }
+    },
+    bonds: ''
   })
 
   return {

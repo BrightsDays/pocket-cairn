@@ -63,7 +63,8 @@
       gap: 2%;
 
       .wrap {
-        width: 30%;
+        width: 100%;
+        max-width: fit-content;
         padding-right: 1rem;
         border-right: 1px solid var(--second-background);
       }
@@ -75,7 +76,7 @@
         line-height: 1.2;
 
         &.second {
-          font-size: 2.2rem;
+          font-size: 2rem;
         }
       }
     }

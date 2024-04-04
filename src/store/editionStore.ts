@@ -1,7 +1,7 @@
 import { writable } from "svelte/store"
 
 const createEdition = () => {
-  const { subscribe, set, update } = writable('second')
+  const { subscribe, set, update } = writable('first')
 
   return {
 		subscribe,

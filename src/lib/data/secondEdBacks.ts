@@ -56,7 +56,14 @@ export const secondEdBacks = [
         fatigue: false
       }
     ],
-    petty: ['Protective Gloves'],
+    petty: [
+      {title: 'Protective Gloves'},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
     goldDices: 3,
     firstPerk: {
       title: 'What experiment went horribly wrong?',
@@ -201,7 +208,14 @@ export const secondEdBacks = [
         fatigue: false
       }
     ],
-    petty: ['Stained Medical Finery'],
+    petty: [
+      {title: 'Stained Medical Finery'},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+      {title: ''},
+    ],
     goldDices: 3,
     firstPerk: {
       title: 'How have you “improved” yourself?',
