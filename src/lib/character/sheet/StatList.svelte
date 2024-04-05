@@ -36,7 +36,7 @@
         on:change={stats.changeDeprived}
       />
     </div>
-  {:else if $edition === 'first'}
+  {:else}
     <div class="deprived">
       <span class="title"> Deprived </span>
       <Checkbox

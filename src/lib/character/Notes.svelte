@@ -63,7 +63,7 @@
         </div>
       </div>
     {/if}
-  {:else if $edition === 'first'}
+  {:else}
     <span class="title">Notes:</span>
     <div class="content">
       <div class="wrap">
