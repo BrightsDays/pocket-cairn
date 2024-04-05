@@ -42,5 +42,3 @@ export const secondEdBacks: Background[] = [
   runner,
   scrivener
 ]
-//TODO: Hexenbane - -d4WIL, -d6WIL
-//TODO: Marchguard - -1STR

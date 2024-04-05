@@ -17,12 +17,19 @@
   import { edition } from './store/editionStore'
   import { biography } from './store/biographyStore'
   import Loading from './lib/ui/Loading.svelte'
+  import Modal from './lib/ui/Modal.svelte'
 
+  let showModal = false
   let showForm = false
   let loading = true
 
   const toggleForm = () => {
     showForm = !showForm
+  }
+
+  const closeModal = () => {
+    showModal = false
+    localStorage.setItem('pc_modal_2ed', 'shown')
   }
 
   const setCharacter = () => {
@@ -45,6 +52,7 @@
   }
 
   onMount(() => {
+    if (!localStorage.getItem('pc_modal_2ed')) showModal = true
     setCharacter()
     setTimeout(() => (loading = false), 200)
   })
@@ -60,6 +68,24 @@
   {:else}
     <Form on:hide-form={toggleForm} />
   {/if}
+
+  <Modal isShown={showModal} submission on:cancel={closeModal}>
+    <span
+      >This is a new version of the app and you can now create characters for
+      Cairn 2ed!
+    </span><br />
+    <span
+      >It is based on testing rules, and some mechanics (animals, mercenaries,
+      and permanent decline stats) are not implemented now. If you want to add
+      Horses or Mercenaries right now, you can write them in the notes.</span
+    ><br />
+    <span>
+      If you find any bug, please<br />
+      <a href="https://brightsdays.github.io/contacts/" target="_blank"
+        >let me know</a
+      > :)
+    </span>
+  </Modal>
 </main>
 
 <style lang="scss" scoped>

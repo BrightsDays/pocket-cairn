@@ -55,7 +55,6 @@
   >
   <Button padding={4} on:click={() => downloadJson()}>Download character</Button
   >
-  <!-- <Button disabled>Save to character list</Button> -->
   <Button padding={4} on:click={() => (showDeleteModal = true)}
     >Delete character</Button
   >

@@ -12,6 +12,7 @@
   const notesHandler = () => {
     checked = 'notes'
   }
+  //TODO: Add companions
 </script>
 
 <div class="notes">
