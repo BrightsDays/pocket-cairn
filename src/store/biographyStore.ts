@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store'
-import setLocalCharacter from '../utils/setLocalCharacter'
 
 const createBiography = () => {
   const { subscribe, set } = writable({
@@ -11,6 +10,7 @@ const createBiography = () => {
     },
     secondPerk: {
       title: '',
+      subtitle: '',
       content: ''
     },
     bond: ''

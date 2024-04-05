@@ -38,7 +38,10 @@
             <b>{$biography.firstPerk.title}</b>
             <span>{$biography.firstPerk.content}</span>
             <b>{$biography.secondPerk.title}</b>
-            <span>{$biography.secondPerk.content}</span>
+            <span
+              ><i>{$biography.secondPerk.subtitle}</i> - {$biography.secondPerk
+                .content}</span
+            >
             <b>Your bond</b>
             <span>{$biography.bond}</span>
           </div>

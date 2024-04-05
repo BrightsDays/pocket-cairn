@@ -142,6 +142,7 @@
         },
         secondPerk: {
           title: secondEdBack.secondPerk.title,
+          subtitle: secondPerk.title,
           content: secondPerk.content,
         },
         bond: bond.content,
