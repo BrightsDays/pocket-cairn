@@ -12,7 +12,6 @@
   const notesHandler = () => {
     checked = 'notes'
   }
-  //TODO: add second perk's title
 </script>
 
 <div class="notes">
@@ -42,8 +41,14 @@
               ><i>{$biography.secondPerk.subtitle}</i> - {$biography.secondPerk
                 .content}</span
             >
-            <b>Your bond</b>
-            <span>{$biography.bond}</span>
+            {#if $biography.bonds.length === 1}
+              <b>Your bond</b>
+            {:else}
+              <b>Your bonds</b>
+            {/if}
+            {#each $biography.bonds as bond}
+              <span>{bond}</span>
+            {/each}
           </div>
         </div>
       </div>

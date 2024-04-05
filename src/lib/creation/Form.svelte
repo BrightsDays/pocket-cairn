@@ -47,7 +47,7 @@
     $edition === 'second'
       ? secondEdBacks[rollDices(1, secondEdBacks.length) - 1]
       : null
-  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 6) - 1]
+  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 2) - 1]
   const secondPerk = secondEdBack?.secondPerk.list[rollDices(1, 6) - 1]
 
   let character = {
@@ -117,21 +117,35 @@
     })
 
     if ($edition === 'second') {
-      const bond = bonds[rollDices(1, bonds.length) - 1]
+      const extraBond =
+        secondEdBack.title === 'Fieldwarden' ||
+        (secondEdBack.title === 'Outrider' &&
+          firstPerk.items.length &&
+          firstPerk.items[0].title === 'Blacked-out Ledger')
 
-      if (bond.gold) {
-        coins.change('gp', (+$coins.gp + 20).toString())
-      }
+      const bondList = extraBond
+        ? [
+            bonds[rollDices(1, bonds.length) - 1],
+            bonds[rollDices(1, bonds.length) - 1],
+          ]
+        : [bonds[rollDices(1, bonds.length) - 1]]
 
       inventory.set(secondEdBack.inventory)
       if (firstPerk.items) addItems(firstPerk.items)
       if (secondPerk.items) addItems(secondPerk.items)
-      if (bond.items) addItems(bond.items)
 
       petty.set(secondEdBack.petty)
       if (firstPerk.petty) addItems(firstPerk.petty)
       if (secondPerk.petty) addItems(secondPerk.petty)
-      if (bond.petty) addItems(bond.petty)
+
+      bondList.forEach((bond) => {
+        if (bond.gold) {
+          coins.change('gp', (+$coins.gp + 20).toString())
+        }
+
+        if (bond.items) addItems(bond.items)
+        if (bond.petty) addItems(bond.petty)
+      })
 
       biography.set({
         background: secondEdBack.title,
@@ -145,7 +159,9 @@
           subtitle: secondPerk.title,
           content: secondPerk.content,
         },
-        bond: bond.content,
+        bonds: extraBond
+          ? [bondList[0].content, bondList[1].content]
+          : [bondList[0].content],
       })
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${
@@ -179,7 +195,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     setLocalCharacter()
     dispatch('hide-form')
-  } //TODO: add second bond and other strange staff to warden
+  }
 </script>
 
 <div
