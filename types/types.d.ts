@@ -57,6 +57,7 @@ export type Background = {
       content: string
       items: Item[] | null
       petty: Petty[] | null
+      hp?: boolean
     }[]
   }
   secondPerk: {

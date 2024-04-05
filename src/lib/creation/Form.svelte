@@ -47,7 +47,7 @@
     $edition === 'second'
       ? secondEdBacks[rollDices(1, secondEdBacks.length) - 1]
       : null
-  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 2) - 1]
+  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 1) - 1]
   const secondPerk = secondEdBack?.secondPerk.list[rollDices(1, 6) - 1]
 
   let character = {
@@ -57,7 +57,7 @@
     str: rollDices(3, 6),
     dex: rollDices(3, 6),
     wil: rollDices(3, 6),
-    hp: rollDices(1, 6),
+    hp: firstPerk?.hp ? rollDices(1, 6) + rollDices(1, 4) : rollDices(1, 6),
     gp: secondEdBack ? rollDices(secondEdBack.goldDices, 6) : rollDices(3, 6),
   }
   let gearList = ['random', ...gearPackages().map((item) => item.title)]

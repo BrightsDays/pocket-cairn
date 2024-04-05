@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const kettlewright: Background = {
   title: 'Kettlewright',
   description: 'You are known by the smell of molten metal and the jingle of tin. You are not a mere merchant, but an artisan of fire and metal.',
   names: ['Fergus', 'Eamon', 'Bram', 'Idris', 'Elara', 'Darragh', 'Seren', 
@@ -133,10 +135,11 @@ export default {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        hp: true
       },
       {
-        content: 'You scavenge raw tin and iron from battlefields, pulling teeth from still- twitching corpses. Start with a young Donkey (+4 slots, slow), a Crossbow (d8 damage, bulky), and a Saw (d6).',
+        content: 'You scavenge raw tin and iron from battlefields, pulling teeth from still-twitching corpses. Start with a young Donkey (+4 slots, slow), a Crossbow (d8 damage, bulky), and a Saw (d6).',
         items: [
           {
             title: 'Crossbow (d8 damage, bulky)',

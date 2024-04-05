@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const fieldwarden: Background = {
   title: 'Fieldwarden',
   description: 'Protectors of the harvest, defense against pests, thieves, and beasts. A position of great honor, while it lasts: many guardians do not live out their natural lives.',
   names: ['Seed', 'Thresh', 'Dibber', 'Sow', 'Stalk', 'Harrow', 'Cobb', 
@@ -125,7 +127,8 @@ export default {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        hp: true
       }
     ]
   },
