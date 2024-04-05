@@ -4,12 +4,12 @@
   @if $second-value {
     padding: calc(#{$value}px + 1.5625vw) calc(#{$second-value}px + 1.5625vw);
     @media screen and (min-width: 768px) {
-      padding: calc(#{$value/2}px + 0.5625vw) calc(#{$second-value/2}px + 0.5625vw);
+      padding: calc(#{$value / 2}px + 0.5625vw) calc(#{$second-value / 2}px + 0.5625vw);
     }
   } @else {
     padding: calc(#{$value}px + 1.5625vw);
     @media screen and (min-width: 768px) {
-      padding: calc(#{$value/2}px + 0.5625vw);
+      padding: calc(#{$value / 2}px + 0.5625vw);
     }
   }
 }
@@ -17,7 +17,7 @@
 @mixin gap($value) {
   gap: calc(#{$value}px + 1.5625vw);
   @media screen and (min-width: 768px) {
-    gap: calc(#{$value/2}px + 0.5625vw);
+    gap: calc(#{$value / 2}px + 0.5625vw);
   }
 }
 

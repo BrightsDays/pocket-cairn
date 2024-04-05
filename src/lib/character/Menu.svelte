@@ -22,7 +22,6 @@
     scars.reset()
     localStorage.removeItem('pc__character')
   }
-  //TODO: (2) add characters list
 </script>
 
 <div class="menu">
@@ -56,7 +55,6 @@
   >
   <Button padding={4} on:click={() => downloadJson()}>Download character</Button
   >
-  <!-- <Button disabled>Save to character list</Button> -->
   <Button padding={4} on:click={() => (showDeleteModal = true)}
     >Delete character</Button
   >

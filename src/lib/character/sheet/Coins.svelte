@@ -3,13 +3,15 @@
   import { coins } from '../../../store/characterStore'
   import Input from '../../ui/TextInput.svelte'
 
-  const list: CoinKeys[] = ['gp', 'sp', 'cp']
+  export let allCoins: boolean = false
+
+  const list: CoinKeys[] = allCoins ? ['gp', 'sp', 'cp'] : ['gp']
 </script>
 
 <div class="coins">
   {#each list as coin}
     <div class="item">
-      <span class="currency">{coin}:</span>
+      <span class={`currency${allCoins ? '' : ' golden'}`}>{coin}:</span>
       <Input
         value={$coins[coin]}
         numbers
@@ -36,6 +38,10 @@
       .currency {
         font-size: 1.4rem;
         text-transform: uppercase;
+
+        &.golden {
+          font-size: 2rem;
+        }
       }
     }
   }

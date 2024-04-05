@@ -4,6 +4,8 @@
   import Stats from '../sheet/StatList.svelte'
   import Coins from '../sheet/Coins.svelte'
   import Section from '../../ui/Section.svelte'
+  import { edition } from '../../../store/editionStore'
+  import Petty from './Petty.svelte'
 </script>
 
 <div class="sheet">
@@ -13,12 +15,19 @@
   <Section>
     <Stats />
   </Section>
-  <Section>
-    <Coins />
-  </Section>
-  <Section position="last">
+  {#if $edition !== 'second'}
+    <Section>
+      <Coins allCoins />
+    </Section>
+  {/if}
+  <Section position={$edition !== 'second' ? 'last' : ''}>
     <Inventory />
   </Section>
+  {#if $edition === 'second'}
+    <Section position="last">
+      <Petty />
+    </Section>
+  {/if}
 </div>
 
 <style lang="scss" scoped>

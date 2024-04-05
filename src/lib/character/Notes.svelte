@@ -1,18 +1,79 @@
 <script lang="ts">
   import TextArea from '../ui/TextArea.svelte'
   import { notes } from '../../store/notesStore'
+  import { edition } from '../../store/editionStore'
+  import { biography } from '../../store/biographyStore'
+
+  let checked: 'biography' | 'notes' = 'biography'
+
+  const bioHandler = () => {
+    checked = 'biography'
+  }
+  const notesHandler = () => {
+    checked = 'notes'
+  }
+  //TODO: Add companions
 </script>
 
 <div class="notes">
-  <span class="title">Notes:</span>
-  <div class="content">
-    <div class="wrap">
-      <TextArea
-        value={$notes}
-        on:input={(event) => notes.change(event.detail)}
-      />
+  {#if $edition === 'second'}
+    <div class="menu">
+      <button
+        ontouchstart=""
+        class={`title button ${checked === 'biography' ? ' checked' : ''}`}
+        on:click={bioHandler}>Biography</button
+      >
+      <button
+        ontouchstart=""
+        class={`title button ${checked === 'notes' ? ' checked' : ''}`}
+        on:click={notesHandler}>Notes</button
+      >
     </div>
-  </div>
+    {#if checked === 'biography'}
+      <div class="content">
+        <div class="wrap">
+          <div class="text">
+            <h3>{$biography.background}</h3>
+            <span>{$biography.description}</span>
+            <b>{$biography.firstPerk.title}</b>
+            <span>{$biography.firstPerk.content}</span>
+            <b>{$biography.secondPerk.title}</b>
+            <span
+              ><i>{$biography.secondPerk.subtitle}</i> - {$biography.secondPerk
+                .content}</span
+            >
+            {#if $biography.bonds.length === 1}
+              <b>Your bond</b>
+            {:else}
+              <b>Your bonds</b>
+            {/if}
+            {#each $biography.bonds as bond}
+              <span>{bond}</span>
+            {/each}
+          </div>
+        </div>
+      </div>
+    {:else if checked === 'notes'}
+      <div class="content">
+        <div class="wrap">
+          <TextArea
+            value={$notes}
+            on:input={(event) => notes.change(event.detail)}
+          />
+        </div>
+      </div>
+    {/if}
+  {:else if $edition === 'first'}
+    <span class="title">Notes:</span>
+    <div class="content">
+      <div class="wrap">
+        <TextArea
+          value={$notes}
+          on:input={(event) => notes.change(event.detail)}
+        />
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style lang="scss" scoped>
@@ -30,17 +91,44 @@
     box-sizing: border-box;
     @include gap(8);
 
+    .menu {
+      display: flex;
+      width: 100%;
+      height: max-content;
+      @include gap(2);
+    }
+
     .title {
       padding-left: calc(0px + 1.5625vw);
       padding-bottom: calc(0px + 1.5625vw);
       margin-bottom: calc(-8px - 1.5625vw);
       text-align: left;
       font-size: 1.4rem;
-      border-bottom: 1px solid var(--second);
       @media screen and (min-width: 768px) {
         padding-left: calc(0px + 0.5625vw);
         padding-bottom: calc(0px + 0.5625vw);
         margin-bottom: calc(-4px - 0.5625vw);
+      }
+
+      &.button {
+        background: none;
+        opacity: 0.6;
+        color: var(--main);
+        border: 1px solid var(--second);
+        border-bottom: none;
+        border-radius: 5px 5px 0 0;
+        transition: opacity 0.2s;
+        &:hover {
+          opacity: 0.4;
+        }
+        &:active {
+          transform: translateY(-5px);
+          transition: 0.2s;
+        }
+
+        &.checked {
+          opacity: 1;
+        }
       }
     }
 
@@ -50,6 +138,8 @@
       flex-direction: column;
       height: 100%;
       overflow: hidden;
+
+      border-top: 1px solid var(--second);
       &::before {
         content: '';
         display: block;
@@ -87,6 +177,26 @@
     .wrap {
       position: relative;
       overflow: auto;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        margin: 0;
+        @include padding(4, 2);
+        text-align: left;
+        font-size: var(--font-regular);
+        box-sizing: border-box;
+        border: none;
+        line-height: 1.2;
+        overflow: hidden;
+        resize: vertical;
+        @include gap(2);
+
+        h3 {
+          margin: 0;
+        }
+      }
     }
   }
 

@@ -1,3 +1,5 @@
+export type Edition = 'first' | 'second'
+
 export type Abilities = {
   str: number
   dex: number
@@ -26,6 +28,10 @@ export type Item = {
   fatigue: boolean
 }
 
+export type Petty = {
+  title: string
+}
+
 export type Scar = {
   content: string
   resolve?: Resolve
@@ -36,6 +42,54 @@ export type Resolve = {
   type: 'add' | 'change',
   num?: number,
   key?: AbilityKeys
+}
+
+export type Background = {
+  title: string
+  description: string
+  names: string[]
+  inventory: Item[],
+  petty: Petty[]
+  goldDices: number
+  firstPerk: {
+    title: string
+    list: {
+      content: string
+      items: Item[] | null
+      petty: Petty[] | null
+      hp?: boolean
+    }[]
+  }
+  secondPerk: {
+    title: string,
+    list: {
+      title: string
+      content: string
+      items: Item[] | null
+      petty: Petty[] | null
+    }[]
+  }
+}
+
+export type Biography = {
+  background: string
+  description: string
+  firstPerk: {
+    title: string
+    content: string
+  },
+  secondPerk: {
+    title: string
+    content: string
+  },
+  bond: string
+}
+
+export type Bond = {
+  content: string,
+  items: Item[] | null,
+  petty: Petty[] | null,
+  gold: number
 }
 
 export type Inventory = Item[]
