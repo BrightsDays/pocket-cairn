@@ -32,7 +32,7 @@
     {#if checked === 'biography'}
       <div class="content">
         <div class="wrap">
-          <div class="text">
+          <div class="text no-resize">
             <h3>{$biography.background}</h3>
             <span>{$biography.description}</span>
             <b>{$biography.firstPerk.title}</b>
@@ -118,6 +118,7 @@
         border-bottom: none;
         border-radius: 5px 5px 0 0;
         transition: opacity 0.2s;
+        cursor: pointer;
         &:hover {
           opacity: 0.4;
         }
@@ -192,6 +193,10 @@
         overflow: hidden;
         resize: vertical;
         @include gap(2);
+
+        &.no-resize {
+          resize: none;
+        }
 
         h3 {
           margin: 0;
