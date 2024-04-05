@@ -53,19 +53,19 @@ export type Background = {
   goldDices: number
   firstPerk: {
     title: string
-    list: [
-      {
-        content: string
-        items: Item[] | null
-        petty: Petty[] | null
-      }
-    ]
+    list: {
+      content: string
+      items: Item[] | null
+      petty: Petty[] | null
+    }[]
   }
   secondPerk: {
     title: string,
     list: {
       title: string
       content: string
+      items: Item[] | null
+      petty: Petty[] | null
     }[]
   }
 }

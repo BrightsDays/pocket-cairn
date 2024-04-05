@@ -39,6 +39,7 @@
   import { secondEdBacks } from '../data/secondEdBacks'
   import { bonds } from '../data/bonds'
   import type { Item } from '../../../types/types'
+  import addItems from '../../utils/addItems'
 
   const dispatch = createEventDispatcher()
 
@@ -123,38 +124,15 @@
       }
 
       inventory.set(secondEdBack.inventory)
-
-      if (firstPerk.items)
-        firstPerk.items.forEach((item) => {
-          const temporal = [...$inventory]
-          const index = temporal.findIndex((element) => !element.title.length)
-          temporal[index] = item
-          inventory.set(temporal)
-        })
-      if (bond.items)
-        bond.items.forEach((item: Item) => {
-          const temporal = [...$inventory]
-          const index = temporal.findIndex((element) => !element.title.length)
-          temporal[index] = item
-          inventory.set(temporal)
-        })
+      if (firstPerk.items) addItems(firstPerk.items)
+      if (secondPerk.items) addItems(secondPerk.items)
+      if (bond.items) addItems(bond.items)
 
       petty.set(secondEdBack.petty)
-      if (firstPerk.petty)
-        firstPerk.petty.forEach((item) => {
-          const temporal = [...$petty]
-          const index = temporal.findIndex((element) => !element.title.length)
-          temporal[index] = item
-          petty.set(temporal)
-        })
-      if (bond.petty)
-        bond.petty.forEach((item) => {
-          const temporal = [...$petty]
-          const index = temporal.findIndex((element) => !element.title.length)
-          temporal[index] = item
-          petty.set(temporal)
-        }) //TODO: use it as utility
-      //TODO: add second perk's items
+      if (firstPerk.petty) addItems(firstPerk.petty)
+      if (secondPerk.petty) addItems(secondPerk.petty)
+      if (bond.petty) addItems(bond.petty)
+
       biography.set({
         background: secondEdBack.title,
         description: secondEdBack.description,

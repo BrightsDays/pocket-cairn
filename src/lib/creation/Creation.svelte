@@ -33,7 +33,11 @@
       Official game page:
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
       Watch the video guide
-      <a href="https://youtu.be/jrlL-aNhzeg" target="_blank">YouTube</a><br />
+      {#if $edition === 'first'}
+        <a href="https://youtu.be/jrlL-aNhzeg" target="_blank">YouTube</a>
+      {:else if $edition === 'second'}
+        (Coming soon...)
+      {/if}<br />
       Read the instructions on
       <a href="https://github.com/BrightsDays/pocket-cairn" target="_blank"
         >GitHub</a
