@@ -32,9 +32,11 @@
       <slot />
     </span>
     <div class={`controls${submission ? ' submission' : ''}`}>
-      <Button on:click={() => dispatch('cancel')}>Cancel</Button>
       {#if !submission}
+        <Button on:click={() => dispatch('cancel')}>Cancel</Button>
         <Button disabled={disableOk} on:click={() => dispatch('ok')}>OK</Button>
+      {:else}
+        <Button on:click={() => dispatch('cancel')}>OK</Button>
       {/if}
     </div>
   </div>
