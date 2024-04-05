@@ -44,6 +44,7 @@
       background: none;
       box-sizing: unset;
       transition: all 0.2s ease-in-out;
+      touch-action: manipulation;
       &:hover {
         opacity: 0.8;
       }
