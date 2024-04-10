@@ -3,7 +3,7 @@
   import { edition } from '../../../store/editionStore'
   import Checkbox from '../../ui/Checkbox.svelte'
   import Coins from './Coins.svelte'
-  import Stat from './Stat.svelte'
+  import Stat from '../../ui/Stat.svelte'
 </script>
 
 <div class="stats">
@@ -48,7 +48,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../../app.scss';
 
   .stats {

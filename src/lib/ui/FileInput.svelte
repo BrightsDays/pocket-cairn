@@ -14,7 +14,7 @@
   <label ontouchstart="" for="upload" class="label">Upload the character</label>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../app.scss';
   .file {
     position: relative;

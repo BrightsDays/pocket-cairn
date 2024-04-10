@@ -23,7 +23,7 @@
   <span class="checkmark" />
 </label>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .checkbox {
     display: block;
     position: relative;

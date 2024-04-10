@@ -4,7 +4,7 @@
   import Button from '../ui/Button.svelte'
   import Modal from '../ui/Modal.svelte'
   import { scars } from '../../store/scarsStore'
-  import Stat from './sheet/Stat.svelte'
+  import Stat from '../ui/Stat.svelte'
 
   let showDeleteModal = false
   let showScarCheck = false

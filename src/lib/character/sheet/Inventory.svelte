@@ -44,7 +44,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .inventory {
     .heading {
       display: flex;

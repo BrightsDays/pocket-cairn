@@ -24,7 +24,7 @@
   on:input={() => dispatch('input', value)}
 />
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../app.scss';
 
   .input {
@@ -35,5 +35,6 @@
     background: none;
     border: none;
     border-radius: 0;
+    box-sizing: border-box;
   }
 </style>

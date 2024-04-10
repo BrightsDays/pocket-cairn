@@ -6,7 +6,7 @@
   <slot />
 </section>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .section {
     padding: calc(4px + 1.5625vw) 0;
     border-bottom: 1px solid var(--second-background);

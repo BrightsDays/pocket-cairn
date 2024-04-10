@@ -1,10 +1,11 @@
 <script lang="ts">
   import TextArea from '../ui/TextArea.svelte'
+  import CompanionList from './companions/CompanionList.svelte'
   import { notes } from '../../store/notesStore'
   import { edition } from '../../store/editionStore'
   import { biography } from '../../store/biographyStore'
 
-  let checked: 'biography' | 'notes' = 'biography'
+  let checked: 'biography' | 'notes' | 'companions' = 'biography'
 
   const bioHandler = () => {
     checked = 'biography'
@@ -12,10 +13,12 @@
   const notesHandler = () => {
     checked = 'notes'
   }
-  //TODO: Add companions
+  const companionHandler = () => {
+    checked = 'companions'
+  }
 </script>
 
-<div class="notes">
+<div class="notes" id="notes">
   {#if $edition === 'second'}
     <div class="menu">
       <button
@@ -27,6 +30,11 @@
         ontouchstart=""
         class={`title button ${checked === 'notes' ? ' checked' : ''}`}
         on:click={notesHandler}>Notes</button
+      >
+      <button
+        ontouchstart=""
+        class={`title button ${checked === 'companions' ? ' checked' : ''}`}
+        on:click={companionHandler}>Companions</button
       >
     </div>
     {#if checked === 'biography'}
@@ -62,6 +70,8 @@
           />
         </div>
       </div>
+    {:else if checked === 'companions'}
+      <CompanionList />
     {/if}
   {:else}
     <span class="title">Notes:</span>
@@ -96,6 +106,10 @@
       width: 100%;
       height: max-content;
       @include gap(2);
+
+      button {
+        cursor: pointer;
+      }
     }
 
     .title {

@@ -82,7 +82,7 @@ export type Biography = {
     title: string
     content: string
   },
-  bond: string
+  bonds: string[]
 }
 
 export type Bond = {
@@ -92,7 +92,26 @@ export type Bond = {
   gold: number
 }
 
+export type Companion = {
+  id: number
+  name: string
+  type: string
+  stats: {
+    str: number
+    dex: number
+    wil: number
+    hp: number
+    strMax: number
+    dexMax: number
+    wilMax: number
+    hpMax: number
+    armor: number
+  },
+  inventory: Petty[]
+}
+
 export type Inventory = Item[]
 
 export type AbilityKeys = 'str' | 'dex' | 'wil'
+export type CompanionAbilityKeys = 'str' | 'dex' | 'wil' | 'hp' | 'armor'
 export type CoinKeys = 'gp' | 'sp' |'cp'

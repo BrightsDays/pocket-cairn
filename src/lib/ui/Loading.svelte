@@ -4,7 +4,7 @@
 
 <div out:fade={{ duration: 200 }} class="loading" />
 
-<style lang="scss">
+<style lang="scss" scoped>
   .loading {
     position: fixed;
     width: 100svw;

@@ -18,6 +18,7 @@
   import { biography } from './store/biographyStore'
   import Loading from './lib/ui/Loading.svelte'
   import Modal from './lib/ui/Modal.svelte'
+  import { companions } from './store/companionsStore'
 
   let showModal = false
   let showForm = false
@@ -46,6 +47,7 @@
       scars.set(JSON.parse(character).scars)
       notes.set(JSON.parse(character).notes)
       biography.set(JSON.parse(character).biography)
+      companions.set(JSON.parse(character).companions)
     }
 
     return true
