@@ -77,7 +77,7 @@
       Cairn 2ed!
     </span><br />
     <span
-      >It is based on testing rules, and some mechanics (animals, mercenaries,
+      >It is based on testing rules, and some mechanics (character conversion
       and permanent decline stats) are not implemented now. If you want to add
       Horses or Mercenaries right now, you can write them in the notes.</span
     ><br />
