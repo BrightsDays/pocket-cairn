@@ -27,9 +27,10 @@ const createAbilities = () => {
     }),
     setMaxAbility: (key: AbilityKeys, value: number) => update((abilities) => {
       abilities[`${key}Max`] = value
+      if (abilities[key] > abilities[`${key}Max`]) abilities[key] = value
       setLocalCharacter()
       return {...abilities}
-    })
+    }),
 	}
 }
 
@@ -56,6 +57,7 @@ const createStats = () => {
     }),
     setMaxHp: (value: number) => update((stats) => {
       stats.hpMax = value
+      if (stats.hp > stats.hpMax) stats.hp = value
       setLocalCharacter()
       return {...stats}
     }),

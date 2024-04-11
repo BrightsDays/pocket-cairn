@@ -51,7 +51,7 @@
     background-color: var(--background);
     touch-action: manipulation;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     &:hover {
       opacity: 0.8;
     }

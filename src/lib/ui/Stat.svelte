@@ -5,6 +5,7 @@
   export let title: string = ''
   export let value: number = 0
   export let maxValue: number = 0
+  export let minValue: number = 0
   export let hideMaxValue: boolean = false
   export let size: 'big' | 'small' = 'big'
 
@@ -24,7 +25,7 @@
   >
     <Button
       on:click={() => dispatch('decrease')}
-      disabled={value === 0}
+      disabled={value === minValue}
       height={size === 'big' ? 40 : 30}>&minus;</Button
     >
     <div class={`current ${size}`}>
