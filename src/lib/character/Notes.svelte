@@ -24,7 +24,7 @@
       <button
         ontouchstart=""
         class={`title button ${checked === 'biography' ? ' checked' : ''}`}
-        on:click={bioHandler}>Biography</button
+        on:click={bioHandler}>Bio</button
       >
       <button
         ontouchstart=""

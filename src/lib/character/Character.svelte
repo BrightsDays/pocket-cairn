@@ -2,7 +2,7 @@
   import Dices from './Dices.svelte'
   import { name } from '../../store/characterStore'
   import Button from '../ui/Button.svelte'
-  import Menu from './Menu.svelte'
+  import Menu from './menu/Menu.svelte'
   import Sheet from './sheet/Sheet.svelte'
   import settings from '../../assets/icons/settings.svg'
   import notes from '../../assets/icons/notes.svg'

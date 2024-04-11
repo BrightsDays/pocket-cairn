@@ -115,3 +115,9 @@ export type Inventory = Item[]
 export type AbilityKeys = 'str' | 'dex' | 'wil'
 export type CompanionAbilityKeys = 'str' | 'dex' | 'wil' | 'hp' | 'armor'
 export type CoinKeys = 'gp' | 'sp' |'cp'
+
+export type StatItem = 'str' | 'dex' | 'wil' | 'hp'
+export type Change = {
+  stat: Stat
+  value: number
+}
