@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .petty {
     .heading {
       display: flex;

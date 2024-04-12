@@ -17,7 +17,7 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version">v.1.10</span>
+      <span class="version">v.1.12</span>
       <Tumbler
         checked={$edition === 'second'}
         on:change={edition.change}
@@ -59,6 +59,7 @@
     flex-direction: column;
     justify-content: space-between;
     @include padding(24, 8);
+    @include gap(8);
     box-sizing: border-box;
 
     .header {

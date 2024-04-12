@@ -4,17 +4,20 @@
   import { createEventDispatcher } from 'svelte'
   import Button from './Button.svelte'
   import clickOutside from '../../utils/clickOutside'
+  import { teleport } from '../../utils/teleport'
 
   export let isShown: boolean
   export let title: string | undefined = undefined
   export let submission: boolean = false
   export let disableOk: boolean = false
+  export let teleportId: string | null = null
 
   const dispatch = createEventDispatcher()
 </script>
 
 {#if isShown}
   <div
+    use:teleport={teleportId}
     class="modal"
     transition:slide={{
       delay: 100,

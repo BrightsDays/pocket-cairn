@@ -1,20 +1,56 @@
 <script lang="ts">
-  import { name, stats } from '../../store/characterStore'
-  import downloadJson from '../../utils/downloadJson'
-  import Button from '../ui/Button.svelte'
-  import Modal from '../ui/Modal.svelte'
-  import { scars } from '../../store/scarsStore'
-  import Stat from './sheet/Stat.svelte'
+  import { abilities, name, stats } from '../../../store/characterStore'
+  import downloadJson from '../../../utils/downloadJson'
+  import Button from '../../ui/Button.svelte'
+  import Modal from '../../ui/Modal.svelte'
+  import { scars } from '../../../store/scarsStore'
+  import Stat from '../../ui/Stat.svelte'
+  import ChangeStats from './ChangeStats.svelte'
+  import type { Change } from '../../../../types/types'
 
   let showDeleteModal = false
   let showScarCheck = false
   let showScarModal = false
+  let showStatCheck = false
+  let showStatModal = false
   let damage = 0
+  let change: Change = {
+    stat: 'str',
+    value: 0,
+  }
 
   const addScar = () => {
     scars.add(damage)
     showScarModal = false
     damage = 0
+  }
+
+  const updateChange = (value: Change) => {
+    change = value
+  }
+
+  const resetChange = () => {
+    change = {
+      stat: 'str',
+      value: 0,
+    }
+    showStatModal = false
+  }
+
+  const changeStat = () => {
+    if (change.stat === 'hp') {
+      const newValue = $stats.hpMax + change.value
+      stats.setMaxHp(newValue)
+    } else {
+      const newValue = $abilities[`${change.stat}Max`] + change.value
+      abilities.setMaxAbility(change.stat, newValue)
+    }
+
+    change = {
+      stat: 'str',
+      value: 0,
+    }
+    showStatModal = false
   }
 
   const deleteCharacter = () => {
@@ -48,11 +84,16 @@
     </div>
   </div>
 
-  <Button
-    padding={4}
-    disabled={$stats.hp > 0}
-    on:click={() => (showScarCheck = true)}>Add scar</Button
-  >
+  <div class="change">
+    <Button
+      padding={4}
+      disabled={$stats.hp > 0}
+      on:click={() => (showScarCheck = true)}>Add scar</Button
+    >
+    <Button padding={4} on:click={() => (showStatCheck = true)}
+      >Edit stat</Button
+    >
+  </div>
   <Button padding={4} on:click={() => downloadJson()}>Download character</Button
   >
   <Button padding={4} on:click={() => (showDeleteModal = true)}
@@ -70,6 +111,18 @@
     Adding a scar is an irreversible action that enables you to advance your
     character. Have you consulted with the Warden to confirm that you can
     acquire a scar?
+  </Modal>
+
+  <Modal
+    isShown={showStatCheck}
+    on:cancel={() => (showStatCheck = false)}
+    on:ok={() => {
+      showStatModal = true
+      showStatCheck = false
+    }}
+  >
+    Manually changing stat is a specific action. Have you consulted with the
+    Warden to confirm that you can change stat?
   </Modal>
 
   <Modal
@@ -91,6 +144,10 @@
     />
   </Modal>
 
+  <Modal isShown={showStatModal} on:cancel={resetChange} on:ok={changeStat}>
+    <ChangeStats on:change={(value) => updateChange(value.detail)} />
+  </Modal>
+
   <Modal
     isShown={showDeleteModal}
     on:cancel={() => (showDeleteModal = false)}
@@ -101,7 +158,7 @@
 </div>
 
 <style lang="scss" scoped>
-  @import '../../app.scss';
+  @import '../../../app.scss';
 
   .menu {
     display: flex;
@@ -191,6 +248,12 @@
           }
         }
       }
+    }
+
+    .change {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      @include gap(8);
     }
   }
 

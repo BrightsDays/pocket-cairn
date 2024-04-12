@@ -40,6 +40,7 @@
   import { bonds } from '../data/bonds'
   import type { Item } from '../../../types/types'
   import addItems from '../../utils/addItems'
+  import { companions } from '../../store/companionsStore'
 
   const dispatch = createEventDispatcher()
 
@@ -171,6 +172,7 @@ You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
         clothing[rollDices(1, 10)]
       } clothing.
 You are ${vice[rollDices(1, 10)]} yet ${virtue[rollDices(1, 10)]}.`)
+      companions.set([])
     }
     if ($edition === 'first') {
       inventory.set(

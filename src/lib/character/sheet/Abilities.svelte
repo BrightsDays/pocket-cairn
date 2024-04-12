@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { AbilityKeys } from '../../../../types/types'
   import { abilities } from '../../../store/characterStore'
-  import Stat from './Stat.svelte'
+  import Stat from '../../ui/Stat.svelte'
 
   const list: AbilityKeys[] = ['str', 'dex', 'wil']
 </script>

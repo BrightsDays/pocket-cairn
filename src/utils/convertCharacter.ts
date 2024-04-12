@@ -14,19 +14,55 @@ export default (event: Event) => {
     reader.onload = async () => {
       try {
           const character = await JSON.parse(reader.result as string)
+          
+          if (character.edition === 'second') {
+            return
+          }
             
           if (checkJson(character)) {
-            edition.set(character.edition)
+            edition.set('second')
             name.set(character.name)
             abilities.set(character.abilities)
             stats.set(character.stats)
             coins.set(character.coins)
             inventory.set(character.inventory)
-            petty.set(character.petty)
+            petty.set([
+              {
+                title: ''
+              },
+              {
+                title: ''
+              },
+              {
+                title: ''
+              },
+              {
+                title: ''
+              },
+              {
+                title: ''
+              },
+              {
+                title: ''
+              },
+            ])
             scars.set(character.scars)
-            biography.set(character.biography)
+            biography.set({
+              background: '',
+              description: 'You are an experienced adventurer. There are legends here that you have even seen the First Age.',
+              firstPerk: {
+                title: '',
+                content: ''
+              },
+              secondPerk: {
+                title: '',
+                subtitle: '',
+                content: ''
+              },
+              bonds: ['']
+            })
             notes.set(character.notes)
-            companions.set(character.companions)
+            companions.set([])
 
             setLocalCharacter()
           }

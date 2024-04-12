@@ -1,9 +1,10 @@
-import type { Abilities, Coins, Stats, Inventory, Scar, Edition, Biography } from "../../types/types"
+import type { Abilities, Coins, Stats, Inventory, Scar, Edition, Biography, Companion } from "../../types/types"
 import { biography } from "../store/biographyStore"
 import { abilities, coins, inventory, name, petty, stats } from "../store/characterStore"
 import { edition } from "../store/editionStore"
 import { notes } from "../store/notesStore"
 import { scars } from "../store/scarsStore"
+import { companions } from "../store/companionsStore"
 
 export default () => {
   let editionValue: Edition
@@ -24,6 +25,8 @@ export default () => {
   scars.subscribe((value) => scarsValue = value)
   let biographyValue: Biography
   biography.subscribe((value) => biographyValue = value)
+  let companionsValue: Companion[]
+  companions.subscribe((value) => companionsValue = value)
   let notesValue: string
   notes.subscribe((value) => notesValue = value)
 
@@ -81,7 +84,8 @@ export default () => {
       petty: pettyValue,
       scars: scarsValue,
       biography: biographyValue,
-      notes: notesValue
+      notes: notesValue,
+      companions: companionsValue
     }
   }
 }
