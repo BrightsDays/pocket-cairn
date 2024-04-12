@@ -59,6 +59,7 @@
     flex-direction: column;
     justify-content: space-between;
     @include padding(24, 8);
+    @include gap(8);
     box-sizing: border-box;
 
     .header {

@@ -30,7 +30,7 @@
 
   const closeModal = () => {
     showModal = false
-    localStorage.setItem('pc_modal_2ed', 'shown')
+    localStorage.setItem('pc_modal_1.12', 'shown')
   }
 
   const setCharacter = () => {
@@ -54,7 +54,8 @@
   }
 
   onMount(() => {
-    if (!localStorage.getItem('pc_modal_2ed')) showModal = true
+    localStorage.removeItem('pc_modal_2ed')
+    if (!localStorage.getItem('pc_modal_1.12')) showModal = true
     setCharacter()
     setTimeout(() => (loading = false), 200)
   })
@@ -77,9 +78,8 @@
       Cairn 2ed!
     </span><br />
     <span
-      >It is based on testing rules, and some mechanics (character conversion
-      and permanent decline stats) are not implemented now. If you want to add
-      Horses or Mercenaries right now, you can write them in the notes.</span
+      >Backstory and trait choices are not implemented yet, character selection
+      is completely random.</span
     ><br />
     <span>
       If you find any bug, please<br />
