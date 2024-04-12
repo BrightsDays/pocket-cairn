@@ -46,13 +46,15 @@
             <b>{$biography.firstPerk.title}</b>
             <span>{$biography.firstPerk.content}</span>
             <b>{$biography.secondPerk.title}</b>
-            <span
-              ><i>{$biography.secondPerk.subtitle}</i> - {$biography.secondPerk
-                .content}</span
-            >
-            {#if $biography.bonds.length === 1}
+            {#if $biography.secondPerk.subtitle.length}
+              <span
+                ><i>{$biography.secondPerk.subtitle}</i> - {$biography
+                  .secondPerk.content}</span
+              >
+            {/if}
+            {#if $biography.bonds.length === 1 && $biography.bonds[0].length}
               <b>Your bond</b>
-            {:else}
+            {:else if $biography.bonds.length > 1}
               <b>Your bonds</b>
             {/if}
             {#each $biography.bonds as bond}

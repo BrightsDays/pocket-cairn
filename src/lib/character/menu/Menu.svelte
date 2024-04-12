@@ -91,7 +91,7 @@
       on:click={() => (showScarCheck = true)}>Add scar</Button
     >
     <Button padding={4} on:click={() => (showStatCheck = true)}
-      >Change stat</Button
+      >Edit stat</Button
     >
   </div>
   <Button padding={4} on:click={() => downloadJson()}>Download character</Button
