@@ -47,7 +47,7 @@
       scars.set(JSON.parse(character).scars)
       notes.set(JSON.parse(character).notes)
       biography.set(JSON.parse(character).biography)
-      companions.set(JSON.parse(character).companions)
+      companions.set(JSON.parse(character).companions || [])
     }
 
     return true
