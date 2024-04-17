@@ -221,4 +221,4 @@ export default {
       }
     ]
   }
-}//TODO: add option to change STR: -1STR
+}

@@ -194,4 +194,3 @@ export default {
     ]
   }
 }
-//TODO: add options to change WIL: -d4WIL, -d6WIL

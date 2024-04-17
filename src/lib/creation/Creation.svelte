@@ -17,7 +17,7 @@
   <div class="header">
     <h1 class="title">
       Pocket Cairn
-      <span class="version">v.1.12</span>
+      <span class="version">v.1.13</span>
       <Tumbler
         checked={$edition === 'second'}
         on:change={edition.change}
