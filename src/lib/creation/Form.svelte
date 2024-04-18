@@ -38,18 +38,20 @@
   import { edition } from '../../store/editionStore'
   import { secondEdBacks } from '../data/secondEdBacks'
   import { bonds } from '../data/bonds'
-  import type { Item } from '../../../types/types'
   import addItems from '../../utils/addItems'
   import { companions } from '../../store/companionsStore'
+  import ChooseBackground from './ChooseBackground.svelte'
 
   const dispatch = createEventDispatcher()
 
-  const secondEdBack =
+  let chooseBackground = false
+
+  let secondEdBack =
     $edition === 'second'
       ? secondEdBacks[rollDices(1, secondEdBacks.length) - 1]
       : null
-  const firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 1) - 1]
-  const secondPerk = secondEdBack?.secondPerk.list[rollDices(1, 6) - 1]
+  let firstPerk = secondEdBack?.firstPerk.list[rollDices(1, 1) - 1]
+  let secondPerk = secondEdBack?.secondPerk.list[rollDices(1, 6) - 1]
 
   let character = {
     name: secondEdBack
@@ -164,6 +166,7 @@
           ? [bondList[0].content, bondList[1].content]
           : [bondList[0].content],
       })
+
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${
         skin[rollDices(1, 10)]
@@ -172,7 +175,14 @@ You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
         clothing[rollDices(1, 10)]
       } clothing.
 You are ${vice[rollDices(1, 10)]} yet ${virtue[rollDices(1, 10)]}.`)
+
       companions.set([])
+      if (firstPerk.companions?.length) {
+        firstPerk.companions.forEach((item) => companions.addCompanion(item))
+      }
+      if (secondPerk.companions?.length) {
+        secondPerk.companions.forEach((item) => companions.addCompanion(item))
+      }
     }
     if ($edition === 'first') {
       inventory.set(
@@ -197,6 +207,17 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
 
     setLocalCharacter()
     dispatch('hide-form')
+  }
+
+  const toggleBackground = () => {
+    chooseBackground = !chooseBackground
+  }
+
+  const submitBackground = (value) => {
+    secondEdBack = value.detail.background
+    firstPerk = value.detail.firstPerk
+    secondPerk = value.detail.secondPerk
+    toggleBackground()
   }
 </script>
 
@@ -249,6 +270,7 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
       <div class="inventory">
         <span class="background">{secondEdBack.title}</span>
         <span class="info">{secondEdBack.description}</span>
+        <Button on:click={toggleBackground}>Choose background</Button>
       </div>
     </section>
   {:else}
@@ -285,6 +307,13 @@ You have had the misfortune of being ${misfortune[rollDices(1, 10)]}.`)
     >
   </div>
 </div>
+
+<ChooseBackground
+  list={secondEdBacks}
+  isShown={chooseBackground}
+  on:cancel={toggleBackground}
+  on:submit={submitBackground}
+/>
 
 <style lang="scss" scoped>
   @import '../../app.scss';

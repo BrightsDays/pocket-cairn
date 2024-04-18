@@ -59,6 +59,9 @@
     setCharacter()
     setTimeout(() => (loading = false), 200)
   })
+  // TODO: Update readme
+  // TODO: Fix code ;)
+  // TODO: Write tests
 </script>
 
 <main>

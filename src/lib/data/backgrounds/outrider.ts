@@ -1,4 +1,14 @@
-export default {
+import type { Background } from "../../../../types/types"
+import rollDices from "../../../utils/rollDices"
+
+const stats = {
+  str: rollDices(3, 6),
+  dex: rollDices(3, 6),
+  wil: rollDices(3, 6),
+  hp: rollDices(3, 6)
+}
+
+export const outrider: Background = {
   title: 'Outrider',
   description: 'Your coin comes from escorting caravans, tracking fugitives, or lending your blade to a cause. You`ve been a savior, an executioner, a hero, and even a villain. Yours is not a solitary path, however: you`ll always have your horse.',
   names: ['Drake', 'Cyra', 'Keir', 'Darius', 'Valen', 'Rorik', 'Yara', 'Rui', 
@@ -138,37 +148,190 @@ export default {
         title: 'Heavy Destrier',
         content: 'A beast built for war; an imposing creature. 8 HP, 1 Armor, hooves (d10+d10), +2 slots.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Heavy Destrier',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: 8,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: 8,
+            armor: 1,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       },
       {
         title: 'Blacklegged Dandy',
         content: 'Hardy and adaptable, Tough or Perilous terrain (pg. 76) are one step easier. 6 HP. +4 slots.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Blacklegged Dandy',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: 6,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: 6,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       },
       {
         title: 'Rivertooth',
         content: 'Impressively strong, capable of carrying heavy loads. 4 HP. +6 slots (+2 if carrying two people).',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Rivertooth',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: 4,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: 4,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       },
       {
         title: 'Piebald Cob',
         content: 'Intelligent, it can understand simple commands, and even has an instinct for danger. 6 HP. +4 slots.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Piebald Cob',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: 6,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: 6,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       },
       {
         title: 'Linden White',
         content: 'Highly trained and agile, it can perform intricate maneuvers in a time of need (no DEX save to flee). +3 slots.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Linden White',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: stats.hp,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: stats.hp,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       },
       {
         title: 'Stray Fogger',
         content: 'Wild, but very fast, even in Tough terrain (pg. 76). Rides light. 4 HP. +2 slots.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Stray Fogger',
+          type: 'Horse',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: 4,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: 4,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       }
     ]
   }

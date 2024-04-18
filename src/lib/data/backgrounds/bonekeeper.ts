@@ -1,4 +1,14 @@
-export default {
+import type { Background } from "../../../../types/types"
+import rollDices from "../../../utils/rollDices"
+
+const stats = {
+  str: rollDices(3, 6),
+  dex: rollDices(3, 6),
+  wil: rollDices(3, 6),
+  hp: rollDices(3, 6)
+}
+
+export const bonekeeper: Background = {
   title: 'Bonekeeper',
   description: 'You are a shepherd to the departed. You listen to the final whispers of the dead as they descend into the cold, unyielding earth. You know that to fully celebrate the gift of life, we must honor its finale as well.',
   names: ['Rook', 'Ebon', 'Moro', 'Yew', 'Pall', 'Leth', 'Nix', 
@@ -97,7 +107,55 @@ export default {
       {
         content: 'A Burial Wagon (+6 slots) from your last job. It came with a stubborn old Donkey (+4 slots, +2 slots if pulling wagon, slow).',
         items: null,
-        petty: null
+        petty: null,
+        companions: [
+          {
+            id: 0,
+            name: 'Stubborn Old Donkey',
+            type: 'Transport',
+            stats: {
+              str: stats.str,
+              dex: stats.dex,
+              wil: stats.wil,
+              hp: stats.hp,
+              strMax: stats.str,
+              dexMax: stats.dex,
+              wilMax: stats.wil,
+              hpMax: stats.hp,
+              armor: 0,
+            },
+            inventory: [
+              { title: '' },
+              { title: '' },
+              { title: '' },
+              { title: '' },
+            ]
+          },
+          {
+            id: 0,
+            name: 'Burial Wagon',
+            type: 'Transport',
+            stats: {
+              str: stats.str,
+              dex: stats.dex,
+              wil: stats.wil,
+              hp: stats.hp,
+              strMax: stats.str,
+              dexMax: stats.dex,
+              wilMax: stats.wil,
+              hpMax: stats.hp,
+              armor: 0,
+            },
+            inventory: [
+              { title: '' },
+              { title: '' },
+              { title: '' },
+              { title: '' },
+              { title: '' },
+              { title: '' },
+            ]
+          }
+        ]
       },
       {
         content: 'The Detect Magic Spellbook, stolen from an ancient library. Your family worked in service to an obscure underworld deity, but you lost your faith. Though exiled, you continue to serve, even as an apostate.',

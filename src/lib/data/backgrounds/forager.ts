@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const forager: Background = {
   title: 'Fungal Forager',
   description: 'You follow the whisperings of the deep earth, the rhythmic pulse of the mycelium forest that grows beneath the surface. The dark holds no terror for you. Also, you really love mushrooms.',
   names: ['Unther', 'Woozy', 'Hilda', 'Current', 'Leif', 'Ratan', 'Mourella', 

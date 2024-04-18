@@ -56,6 +56,7 @@
       font-size: 1.6rem;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
+      box-sizing: border-box;
       &:hover {
         opacity: 0.8;
       }

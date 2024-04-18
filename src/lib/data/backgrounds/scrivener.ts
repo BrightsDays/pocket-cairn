@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const scrivener: Background = {
   title: 'Scrivener',
   description: 'You copy ancient texts and illuminate manuscripts, recording the voices of the clever, the great, and the powerful. You will prove that the pen truly is mightier than the sword.',
   names: ['Per', 'Stilo', 'Akshara', 'Pisa', 'Ji-Yun', 'Kalamos', 'Hugo', 

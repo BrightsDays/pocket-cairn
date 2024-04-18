@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types";
+
+export const aurifex: Background = {
     title: 'Aurifex',
     description: 'You are an artisan of the arcane, a smith of subtle forces. In the crucible of your workshop, the laws that govern this world are warped to suit your needs.',
     names: ['Hestia', 'Basil', 'Rune', 'Prism', 'Ember', 'Quintess', 

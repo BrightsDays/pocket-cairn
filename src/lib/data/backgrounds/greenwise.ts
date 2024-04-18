@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const greenwise: Background = {
   title: 'Greenwise',
   description: 'You delve deep into The Woods, prying its secrets from between rough boughs and whispering leaves. In this verdant kingdom, you are no mere scholar, but its confidant as well.',
   names: ['Briar', 'Moss', 'Fern', 'Lichen', 'Root', 'Willow', 'Sage', 'Yarrow', 

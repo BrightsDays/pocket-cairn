@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const fletchwind: Background = {
   title: 'Fletchwind',
   description: 'Protectors of the harvest, defense against pests, thieves, and beasts. A position of great honor, while it lasts: many guardians do not live out their natural lives.',
   names: ['Flint', 'Feather', 'Crier', 'Thunder', 'Falcon', 'Pluck', 'Needle', 
@@ -148,7 +150,24 @@ export default {
         title: 'Falconry',
         content: 'You keep a falcon [3 hp, 5 STR, 16 DEX, 4 WIL, claws (d6+d6), bite (d6)]. It only eats live game.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Falcon',
+          type: 'Falcon',
+          stats: {
+            str: 5,
+            dex: 16,
+            wil: 4,
+            hp: 3,
+            strMax: 5,
+            dexMax: 16,
+            wilMax: 4,
+            hpMax: 3,
+            armor: 0,
+          },
+          inventory: []
+        }]
       },
       {
         title: 'Hunting',
