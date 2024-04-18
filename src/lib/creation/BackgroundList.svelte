@@ -21,14 +21,24 @@
   <div class="wrap">
     <div class="list">
       {#each list as item}
-        <div class="item">
+        <div
+          role="switch"
+          aria-checked="true"
+          tabindex="0"
+          class="item"
+          style={`
+            flex-direction: ${item.title ? 'column' : 'row'};
+            align-items: ${item.title ? 'stat' : 'center'};
+          `}
+          on:click={selectHandler(item)}
+          on:keyup={selectHandler(item)}
+        >
           <div class="select">
             <Checkbox
               size={20}
-              label={item.title || 'Choose this one'}
+              label={item.title}
               checked={selectedItem === item}
               disabled={selectedItem === item}
-              on:change={selectHandler(item)}
             />
           </div>
           <span class="description"> {item.description || item.content} </span>
@@ -112,7 +122,6 @@
 
         .item {
           display: flex;
-          flex-direction: column;
           padding-bottom: 10px;
           border-bottom: 1px solid var(--second);
           @include gap(4);
