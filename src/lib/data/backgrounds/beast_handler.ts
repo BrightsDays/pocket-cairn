@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types";
+
+export const beast_handler: Background = {
   title: 'Beast Handler',
   description: 'You alone can walk among the creatures of the wild, fearless and in control. You share a connection with animals that others can only dream of...so long as you don`t become their snack.',
   names: ['Amara', 'Wulf', 'Mireille', 'Soren', 'Freki', 'Aster', 

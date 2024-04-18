@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const mountebank: Background = {
   title: 'Mountebank',
   description: 'Wits are your sharpest weapon, a facade your strongest shield. But when you do lose, you lose badly.',
   names: ['Ambrose', 'Lucius', 'Beauregard', 'Cornelius', 'Aria', 'Seren', 'Indigo', 
@@ -15,7 +17,7 @@ export default {
       fatigue: false
     },
     {
-      title: 'Cart (+4 slots, bulky when pulled)',
+      title: 'Cane Sword (d6)',
       inHand: false,
       fatigue: false
     },
@@ -25,7 +27,7 @@ export default {
       fatigue: false
     },
     {
-      title: 'Cane Sword (d6)',
+      title: '',
       inHand: false,
       fatigue: false
     },
@@ -76,7 +78,29 @@ export default {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       },
       {
         content: 'After seducing a wealthy patron, their family hired a criminal gang to retrieve you. You got away and need to lay low. Start with Beauty Cream (2 uses). Apply to appear irresistibly beautiful for the next 12 hours.',
@@ -87,7 +111,29 @@ export default {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       },
       {
         content: 'You were a peddler of fake prophesies, but when one turned out to be true, it drew unwanted attention. Roll on the Omens (pg. 15) table, but keep the result to yourself. Start with a concealable Knife (d6, petty).',
@@ -96,7 +142,29 @@ export default {
           {
             title: 'Knife (d6, petty)'
           }
-        ]
+        ],
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       },
       {
         content: 'Your latest stunt destroyed a priceless artifact and injured a dozen bystanders. Start with a Captain`s Uniform (petty), a Ceremonial Sword (harmless, 60gp), and a Bouquet of Flowers.',
@@ -116,12 +184,56 @@ export default {
           {
             title: 'Captain`s Uniform'
           }
-        ]
+        ],
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       },
       {
         content: 'You were cursed by a hedgewitch for fooling some innocent village folk. Magic acts unpredictably in your hands (WIL save to avoid disaster). If you are the target of magic, the same applies to its wielder.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       },
       {
         content: 'Your “seances” with the dead were in actuality a ruse involving a cleverly hidden Spellbook of Auditory Illusion. Inevitably, a patron discovered your secret. Start with the spellbook and a Bundle of Scarves.',
@@ -137,7 +249,29 @@ export default {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Cart',
+          type: 'Transport',
+          stats: {
+            str: 1,
+            dex: 1,
+            wil: 1,
+            hp: 2,
+            strMax: 1,
+            dexMax: 1,
+            wilMax: 1,
+            hpMax: 2,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' }
+          ]
+        }]
       }
     ]
   },

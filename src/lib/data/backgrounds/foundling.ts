@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const foundling: Background = {
   title: 'Foundling',
   description: 'An odd birthmark, a strange smell: somehow, the touch of elsewhere still lingers. You`ll never fit in, at least not where you`re at. Roll on the Omens table, but keep the results private for now.',
   names: ['Faunus', 'Snowdrop', 'Wisp', 'Silverdew', 'Brim', 'Solstice', 'Steeleye', 

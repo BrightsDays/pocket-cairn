@@ -38,3 +38,4 @@ const createCompanions = () => {
 }
 
 export const companions = createCompanions()
+// TODO: add companions on creation

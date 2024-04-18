@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const runner: Background = {
   title: 'Rill Runner',
   description: 'You sing the stories of rivers and lakes, your talents soothing friends and the elements alike. You`ve seen more than most, but somehow it never seems to be enough.',
   names: ['Gale', 'Piper', 'Brook', 'Adair', 'Stone', 'Dale', 'Wren', 'Cliff', 

@@ -58,6 +58,7 @@ export type Background = {
       items: Item[] | null
       petty: Petty[] | null
       hp?: boolean
+      companions?: Companion[]
     }[]
   }
   secondPerk: {
@@ -67,6 +68,7 @@ export type Background = {
       content: string
       items: Item[] | null
       petty: Petty[] | null
+      companions?: Companion[]
     }[]
   }
 }

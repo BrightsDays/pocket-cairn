@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const marchguard: Background = {
   title: 'Marchguard',
   description: 'Bound by blood Oath to patrol the border and protect the realm. Once sworn, the Oath cannot be broken. The Guard always finds their own.',
   names: ['Gann', 'Light', 'Gale', 'Frost', 'Thorn', 'Reed', 'Flint', 'Brook', 
@@ -221,4 +223,4 @@ export default {
       }
     ]
   }
-}//TODO: add option to change STR: -1STR
+}
