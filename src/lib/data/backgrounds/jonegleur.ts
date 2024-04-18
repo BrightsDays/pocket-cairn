@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const jonegleur: Background = {
   title: 'Jongleur',
   description: 'What inspires the soul more than song, words, and spectacle? Why practice for years to master the arcane when you`ve already got real magic inside?',
   names: ['Jax', 'Selene', 'Baladria', 'Ada', 'Felix', 'Saylor', 'Tripp', 'Lantos', 

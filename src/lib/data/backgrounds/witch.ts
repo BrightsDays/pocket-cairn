@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const witch: Background = {
   title: 'Half Witch',
   description: 'Born of both the mortal world and the unseen, a crossing of veils that makes you an enigma to many. You are both a conduit and a caution of what happens when two worlds collide.',
   names: ['Solena', 'Veles', 'Bryn', 'Sabine', 'Razvan', 'Rowena', 'Galen', 
@@ -97,7 +99,24 @@ export default {
       {
         content: 'A Raven Familiar [8 HP, 3 STR, 11 DEX, 13 WIL, beak (d6)]. It speaks as an intelligent being and is entirely devoted to you.',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Raven Familiar',
+          type: 'Raven',
+          stats: {
+            str: 3,
+            dex: 11,
+            wil: 13,
+            hp: 8,
+            strMax: 3,
+            dexMax: 11,
+            wilMax: 13,
+            hpMax: 8,
+            armor: 0,
+          },
+          inventory: []
+        }]
       },
       {
         content: 'A Briar Thorn. It can pierce any organic material (quite painfully) but when removed leaves no trace of the intrusion.',

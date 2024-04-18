@@ -1,4 +1,12 @@
 import type { Background } from "../../../../types/types"
+import rollDices from "../../../utils/rollDices"
+
+const stats = {
+  str: rollDices(3, 6),
+  dex: rollDices(3, 6),
+  wil: rollDices(3, 6),
+  hp: rollDices(3, 6)
+}
 
 export const kettlewright: Background = {
   title: 'Kettlewright',
@@ -152,7 +160,29 @@ export const kettlewright: Background = {
             fatigue: false
           }
         ],
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Donkey',
+          type: 'Transport',
+          stats: {
+            str: stats.str,
+            dex: stats.dex,
+            wil: stats.wil,
+            hp: stats.hp,
+            strMax: stats.str,
+            dexMax: stats.dex,
+            wilMax: stats.wil,
+            hpMax: stats.hp,
+            armor: 0,
+          },
+          inventory: [
+            { title: '' },
+            { title: '' },
+            { title: '' },
+            { title: '' },
+          ]
+        }]
       }
     ]
   },

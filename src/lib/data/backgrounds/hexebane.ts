@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const hexebane: Background = {
   title: 'Hexenbane',
   description: 'You are a mere digit on the unerring hand of justice. You go where others fear to tread, unyielding and unbroken.',
   names: ['Percival', 'Felix', 'Isolde', 'Wolfram', 'Aldric', 'Eira', 'Oswin', 

@@ -1,4 +1,6 @@
-export default {
+import type { Background } from "../../../../types/types"
+
+export const prowler: Background = {
   title: 'Prowler',
   description: 'You are a specter in the night, a fleeting shadow that slips by its prey, unseen. Each kill a test of cunning and animal determination, a contest between life and death. You know that one day you will lose. You look forward to it.',
   names: ['Winda', 'Brielle', 'Theron', 'Chayse', 'Nuja', 'Dev', 'Raven', 
@@ -112,7 +114,24 @@ export default {
       {
         content: 'A hollow wolf that had been frightening travellers. You took pity on the half-starved creature, and nursed it back to health. Now it is loyal to you unto death. It is also a great tunneler. 5 HP, 11 STR, 13 DEX, 8 WIL, teeth (d6).',
         items: null,
-        petty: null
+        petty: null,
+        companions: [{
+          id: 0,
+          name: 'Hollow Wolf',
+          type: 'Wolf',
+          stats: {
+            str: 11,
+            dex: 13,
+            wil: 8,
+            hp: 5,
+            strMax: 11,
+            dexMax: 13,
+            wilMax: 8,
+            hpMax: 5,
+            armor: 0,
+          },
+          inventory: []
+        }]
       },
       {
         content: 'An azure warbler. The gametes attract a sizeable profit, if properly extracted. You succeeded, but left its nest to the wolves. Take a Paring Knife (d6), an extra 20gp, and a pang of regret.',

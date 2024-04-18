@@ -38,10 +38,8 @@
   import { edition } from '../../store/editionStore'
   import { secondEdBacks } from '../data/secondEdBacks'
   import { bonds } from '../data/bonds'
-  import type { Item } from '../../../types/types'
   import addItems from '../../utils/addItems'
   import { companions } from '../../store/companionsStore'
-  import Modal from '../ui/Modal.svelte'
   import ChooseBackground from './ChooseBackground.svelte'
 
   const dispatch = createEventDispatcher()
@@ -168,6 +166,7 @@
           ? [bondList[0].content, bondList[1].content]
           : [bondList[0].content],
       })
+
       notes.set(`Age: ${rollDices(2, 20) + 10}. 
 You have an ${phisique[rollDices(1, 10)]} physique, ${
         skin[rollDices(1, 10)]
@@ -176,7 +175,14 @@ You speak in a ${speech[rollDices(1, 10)]} manner and wear ${
         clothing[rollDices(1, 10)]
       } clothing.
 You are ${vice[rollDices(1, 10)]} yet ${virtue[rollDices(1, 10)]}.`)
+
       companions.set([])
+      if (firstPerk.companions?.length) {
+        firstPerk.companions.forEach((item) => companions.addCompanion(item))
+      }
+      if (secondPerk.companions?.length) {
+        secondPerk.companions.forEach((item) => companions.addCompanion(item))
+      }
     }
     if ($edition === 'first') {
       inventory.set(

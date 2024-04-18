@@ -24,6 +24,7 @@
   {disabled}
   style={`
     min-width: ${calcHeight}px;
+    min-height: ${height}px;
     height: ${height}px;
     border-radius: ${calcHeight / 2}px;
     padding: ${padding}px;
