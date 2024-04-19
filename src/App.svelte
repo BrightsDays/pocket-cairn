@@ -30,7 +30,7 @@
 
   const closeModal = () => {
     showModal = false
-    localStorage.setItem('pc_modal_1.12', 'shown')
+    localStorage.setItem('pc_modal_1.11', 'shown')
   }
 
   const setCharacter = () => {
@@ -54,12 +54,11 @@
   }
 
   onMount(() => {
-    localStorage.removeItem('pc_modal_2ed')
-    if (!localStorage.getItem('pc_modal_1.12')) showModal = true
+    localStorage.removeItem('pc_modal_1.12')
+    if (!localStorage.getItem('pc_modal_1.11')) showModal = true
     setCharacter()
     setTimeout(() => (loading = false), 200)
   })
-  // TODO: Update readme
   // TODO: Fix code ;)
   // TODO: Write tests
 </script>
@@ -80,10 +79,6 @@
       >This is a new version of the app and you can now create characters for
       Cairn 2ed!
     </span><br />
-    <span
-      >Backstory and trait choices are not implemented yet, character selection
-      is completely random.</span
-    ><br />
     <span>
       If you find any bug, please<br />
       <a href="https://brightsdays.github.io/contacts/" target="_blank"
