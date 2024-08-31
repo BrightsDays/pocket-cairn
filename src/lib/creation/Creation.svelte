@@ -34,9 +34,9 @@
       <a href="https://cairnrpg.com" target="_blank">cairnrpg.com</a><br />
       Watch the video guide
       {#if $edition === 'first'}
-        <a href="https://youtu.be/jrlL-aNhzeg" target="_blank">YouTube</a>
+        <a href="https://youtu.be/I3Q_vfUOT0I" target="_blank">YouTube</a>
       {:else if $edition === 'second'}
-        <a href="https://youtu.be/WHwTIr2Rjw0" target="_blank">YouTube</a>
+        <a href="https://youtu.be/I3Q_vfUOT0I" target="_blank">YouTube</a>
       {/if}<br />
       Read the instructions on
       <a href="https://github.com/BrightsDays/pocket-cairn" target="_blank"
