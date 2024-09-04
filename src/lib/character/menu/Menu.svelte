@@ -65,7 +65,12 @@
   <div class="scars">
     <div class="wrap">
       {#if $scars.length === 0}
-        <div class="item">You have no scars</div>
+        <div class="item">
+          <span>You have no scars</span>
+          <span
+            >You can add a new scar when damage reduces your HP to exactly 0.</span
+          >
+        </div>
       {/if}
       {#each $scars as item, index}
         <div class="item resolvable">
