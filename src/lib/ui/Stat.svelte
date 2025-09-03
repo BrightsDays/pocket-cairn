@@ -36,7 +36,7 @@
     </div>
     <Button
       on:click={() => dispatch('increase')}
-      disabled={value >= maxValue}
+      disabled={value === maxValue}
       height={size === 'big' ? 40 : 30}>&plus;</Button
     >
   </div>
